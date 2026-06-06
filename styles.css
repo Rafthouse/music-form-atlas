@@ -591,6 +591,46 @@ li { margin-bottom: 6px; line-height: 1.5; }
   margin: 0 0 4px;
   font-size: 0.92rem;
 }
+.track-genre {
+  font-size: 0.7rem;
+  background: var(--panel-3);
+  color: var(--muted);
+  padding: 1px 8px;
+  border-radius: 4px;
+  font-weight: 400;
+  vertical-align: middle;
+}
+.track-why { margin: 6px 0; }
+.track-analysis { margin: 6px 0; }
+.analysis-bars {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.analysis-item {
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.track-genre {
+  font-size: 0.7rem;
+  background: var(--panel-3);
+  color: var(--muted);
+  padding: 1px 8px;
+  border-radius: 4px;
+  font-weight: 400;
+  vertical-align: middle;
+}
+.track-why { margin: 6px 0; }
+.track-analysis { margin: 6px 0; }
+.analysis-bars {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.analysis-item {
+  font-size: 0.78rem;
+  font-weight: 600;
+}
 .track-card p {
   font-size: 0.84rem;
   color: var(--muted);

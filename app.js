@@ -142,8 +142,8 @@ function variant(name, used, why, tradeoffs) {
   return { name, used, why, tradeoffs };
 }
 
-function track(title, artist, year, formNotes, sections) {
-  return { title, artist, year, formNotes, sections };
+function track(title, artist, year, formNotes, sections, genre, analysis) {
+  return { title, artist, year, genre: genre || "pop", formNotes, sections, analysis: analysis || null };
 }
 
 function genreTransfer(genre, description, adaptation) {
@@ -292,7 +292,7 @@ const formArchetypes = [
 
     canonicalTracks: [
       track("Billie Jean", "Michael Jackson", 1982,
-        "Класичний ABABCB. Інтро (бас + хай-хет) → куплет → пре-хорус → приспів → куплет 2 → брідж → приспів → аутро.",
+        "Класичний ABABCB. Інтро → куплет → пре-хорус → приспів → куплет 2 → брідж → приспів → аутро. Чітке розділення секцій.",
         [
           { name: "Intro", time: "0:00–0:19" },
           { name: "Verse 1", time: "0:20–0:49" },
@@ -302,10 +302,10 @@ const formArchetypes = [
           { name: "Bridge", time: "1:53–2:28" },
           { name: "Final chorus", time: "2:29–3:10" },
           { name: "Outro", time: "3:11–4:55" }
-        ]
+        ], "pop", { segmentation: 85, repetition: 70, contrast: 75, directionality: 80 }
       ),
       track("Blank Space", "Taylor Swift", 2014,
-        "Сучасний поп-ABABCB з пре-хорусом і розширеним фінальним приспівом.",
+        "Сучасний поп-ABABCB з пре-хорусом. Контраст куплет (оповідь) → приспів (вибух).",
         [
           { name: "Intro", time: "0:00–0:15" },
           { name: "Verse 1", time: "0:16–0:44" },
@@ -314,20 +314,20 @@ const formArchetypes = [
           { name: "Verse 2", time: "1:30–1:57" },
           { name: "Bridge", time: "1:58–2:30" },
           { name: "Final chorus", time: "2:31–3:15" }
-        ]
+        ], "pop", { segmentation: 90, repetition: 75, contrast: 80, directionality: 75 }
       ),
       track("Bohemian Rhapsody", "Queen", 1975,
-        "Унікальна форма, але містить verse-chorus елементи: балада (куплет) → оперна секція (брідж) → рок-секція (приспів). Відмінний приклад розширення форми.",
+        "Унікальна форма: балада → опера → рок. Контраст максимальний, повторення мінімальне.",
         [
           { name: "Intro (ballad)", time: "0:00–0:50" },
           { name: "Ballad verse", time: "0:51–1:50" },
           { name: "Opera bridge", time: "1:51–3:05" },
           { name: "Rock section", time: "3:06–3:40" },
           { name: "Outro", time: "3:41–5:55" }
-        ]
+        ], "rock", { segmentation: 60, repetition: 30, contrast: 95, directionality: 85 }
       ),
       track("Rolling in the Deep", "Adele", 2010,
-        "Потужний приклад контрасту між куплетом (низька щільність) і приспівом (повна енергія).",
+        "Потужний контраст куплет (низька щільність) і приспів (повна енергія). Пре-хорус створює передчуття.",
         [
           { name: "Intro", time: "0:00–0:10" },
           { name: "Verse 1", time: "0:11–0:44" },
@@ -336,10 +336,10 @@ const formArchetypes = [
           { name: "Verse 2", time: "1:33–2:06" },
           { name: "Bridge", time: "2:07–2:40" },
           { name: "Final chorus", time: "2:41–3:22" }
-        ]
+        ], "pop", { segmentation: 85, repetition: 70, contrast: 85, directionality: 80 }
       ),
       track("Smells Like Teen Spirit", "Nirvana", 1991,
-        "Гранж-версія verse-chorus: мінімальний контраст між куплетом і приспівом, але величезний завдяки динаміці.",
+        "Мінімальний гармонійний контраст (ті ж акорди), але величезний динамічний. Навчає: контраст не обов'язково гармонійний.",
         [
           { name: "Riff intro", time: "0:00–0:20" },
           { name: "Verse 1", time: "0:21–0:54" },
@@ -349,10 +349,10 @@ const formArchetypes = [
           { name: "Guitar solo (bridge)", time: "2:21–3:00" },
           { name: "Final chorus", time: "3:01–3:40" },
           { name: "Outro", time: "3:41–5:01" }
-        ]
+        ], "grunge", { segmentation: 80, repetition: 80, contrast: 70, directionality: 85 }
       ),
       track("Livin' on a Prayer", "Bon Jovi", 1986,
-        "Відмінний приклад пре-хорусу, який створює передчуття — приспів відчувається як катарсис.",
+        "Пре-хорус піднімає енергію, приспів вивільняє. Приклад катарсису через накопичення.",
         [
           { name: "Intro", time: "0:00–0:20" },
           { name: "Verse 1", time: "0:21–0:52" },
@@ -362,7 +362,52 @@ const formArchetypes = [
           { name: "Guitar solo (bridge)", time: "2:05–2:30" },
           { name: "Final chorus", time: "2:31–3:40" },
           { name: "Outro", time: "3:41–4:08" }
-        ]
+        ], "rock", { segmentation: 85, repetition: 75, contrast: 80, directionality: 80 }
+      ),
+      track("Hey Jude", "The Beatles", 1968,
+        "«Na-na-na» кода триває 4 хв. Повторення як форма — оркестр поступово посилюється.",
+        [
+          { name: "Verse 1", time: "0:00–0:48" },
+          { name: "Verse 2", time: "0:49–1:35" },
+          { name: "Bridge", time: "1:36–2:10" },
+          { name: "Verse 3", time: "2:11–2:55" },
+          { name: "Refrain (na-na-na)", time: "2:56–7:00" }
+        ], "rock", { segmentation: 70, repetition: 85, contrast: 60, directionality: 70 }
+      ),
+      track("bad guy", "Billie Eilish", 2019,
+        "Куплет — шепіт, приспів — бас + ритм. Контраст у продакшені, а не в інструментуванні.",
+        [
+          { name: "Verse 1", time: "0:00–0:37" },
+          { name: "Chorus", time: "0:38–1:00" },
+          { name: "Verse 2", time: "1:01–1:33" },
+          { name: "Chorus", time: "1:34–1:55" },
+          { name: "Bridge", time: "1:56–2:20" },
+          { name: "Final chorus", time: "2:21–2:40" }
+        ], "alt-pop", { segmentation: 85, repetition: 70, contrast: 75, directionality: 70 }
+      ),
+      track("Umbrella", "Rihanna", 2007,
+        "ABABCB. Приспів «Ella, ella» — один з найвпізнаваніших хоків. Пре-хорус створює напругу.",
+        [
+          { name: "Intro", time: "0:00–0:15" },
+          { name: "Verse 1", time: "0:16–0:46" },
+          { name: "Pre-chorus", time: "0:47–0:58" },
+          { name: "Chorus", time: "0:59–1:25" },
+          { name: "Verse 2", time: "1:26–1:55" },
+          { name: "Bridge", time: "1:56–2:30" },
+          { name: "Final chorus", time: "2:31–3:35" }
+        ], "r&b", { segmentation: 85, repetition: 75, contrast: 75, directionality: 75 }
+      ),
+      track("Get Lucky", "Daft Punk", 2013,
+        "Чотириакордова послідовність без змін. Форма тримається на вокалі та текстурі. Навчає: форма можлива на одній гармонії.",
+        [
+          { name: "Intro", time: "0:00–0:20" },
+          { name: "Verse 1", time: "0:21–1:00" },
+          { name: "Chorus", time: "1:01–1:30" },
+          { name: "Verse 2", time: "1:31–2:10" },
+          { name: "Guitar solo", time: "2:11–2:40" },
+          { name: "Final chorus", time: "2:41–3:30" },
+          { name: "Outro", time: "3:31–5:50" }
+        ], "funk", { segmentation: 80, repetition: 75, contrast: 70, directionality: 80 }
       )
     ],
 
@@ -529,10 +574,10 @@ const formArchetypes = [
           { name: "Rebuild", time: "6:46–8:00" },
           { name: "Final drop", time: "8:01–9:00" },
           { name: "Outro", time: "9:01–10:37" }
-        ]
+        ], "progressive house", { segmentation: 85, repetition: 50, contrast: 80, directionality: 90 }
       ),
       track("Around the World", "Daft Punk", 1997,
-        "Більш лінійний club-arc з акцентом на повторення і текстуру. Секції: інтро → бас → грув → фільтр-свіп → грув → аутро.",
+        "Лінійний club-arc з акцентом на текстуру. Секції: інтро → бас → грув → фільтр → грув → аутро.",
         [
           { name: "Intro", time: "0:00–0:30" },
           { name: "Bass enters", time: "0:31–1:00" },
@@ -540,10 +585,10 @@ const formArchetypes = [
           { name: "Filter sweep", time: "2:31–3:00" },
           { name: "Groove returns", time: "3:01–5:00" },
           { name: "Outro", time: "5:01–7:28" }
-        ]
+        ], "house", { segmentation: 70, repetition: 85, contrast: 40, directionality: 60 }
       ),
       track("Opus", "Eric Prydz", 2015,
-        "Сучасний прогресив-хаус arc. Дуже довга форма (9 хв) з поступовим наростанням.",
+        "Прогресив-хаус arc. Довга форма (9 хв) з поступовим наростанням і тривалим клімаксом.",
         [
           { name: "Ambient intro", time: "0:00–1:30" },
           { name: "Pulse", time: "1:31–3:00" },
@@ -551,10 +596,10 @@ const formArchetypes = [
           { name: "Build-up", time: "5:01–6:30" },
           { name: "Climax", time: "6:31–8:00" },
           { name: "Outro", time: "8:01–9:05" }
-        ]
+        ], "progressive house", { segmentation: 75, repetition: 55, contrast: 65, directionality: 90 }
       ),
       track("Don't You Worry Child", "Swedish House Mafia", 2012,
-        "Поп-EDM версія club-arc з вокальним куплетом і мелодійним дропом.",
+        "Поп-EDM club-arc з вокальним куплетом і мелодійним дропом.",
         [
           { name: "Piano intro", time: "0:00–0:30" },
           { name: "Verse", time: "0:31–1:15" },
@@ -563,10 +608,10 @@ const formArchetypes = [
           { name: "Breakdown", time: "2:31–3:15" },
           { name: "Final drop", time: "3:16–4:20" },
           { name: "Outro", time: "4:21–5:20" }
-        ]
+        ], "progressive house", { segmentation: 80, repetition: 65, contrast: 75, directionality: 85 }
       ),
       track("Call On Me", "Eric Prydz", 2004,
-        "Мінімалістичний club-arc. Коротший білд, швидший дроп.",
+        "Мінімалістичний club-arc. Короткий білд, швидкий дроп. Ефективність через стислість.",
         [
           { name: "Intro (piano)", time: "0:00–0:15" },
           { name: "Groove", time: "0:16–0:45" },
@@ -575,10 +620,10 @@ const formArchetypes = [
           { name: "Breakdown", time: "1:31–2:00" },
           { name: "Drop 2", time: "2:01–2:30" },
           { name: "Outro", time: "2:31–2:50" }
-        ]
+        ], "house", { segmentation: 80, repetition: 70, contrast: 70, directionality: 80 }
       ),
       track("Go", "Moby", 1991,
-        "Ранній club-arc. Семпл з Twin Peaks як хук. Проста але ефективна форма.",
+        "Ранній club-arc. Семпл з Twin Peaks як хук. Проста форма, ефективна через мінімалізм.",
         [
           { name: "Intro (sample)", time: "0:00–0:30" },
           { name: "Beat enters", time: "0:31–1:30" },
@@ -586,7 +631,54 @@ const formArchetypes = [
           { name: "Breakdown", time: "2:31–3:00" },
           { name: "Re-entry", time: "3:01–3:45" },
           { name: "Outro", time: "3:46–4:30" }
-        ]
+        ], "electronica", { segmentation: 75, repetition: 65, contrast: 60, directionality: 70 }
+      ),
+      track("Sandstorm", "Darude", 1999,
+        "Класичний трансовий arc. Білд — один з найвпізнаваніших в історії EDM. Форма: інтро → білд → дроп → брейкдаун → фінальний дроп.",
+        [
+          { name: "Intro (kick)", time: "0:00–0:30" },
+          { name: "Build", time: "0:31–0:55" },
+          { name: "Drop (melody)", time: "0:56–1:30" },
+          { name: "Breakdown", time: "1:31–2:20" },
+          { name: "Build 2", time: "2:21–2:40" },
+          { name: "Final drop", time: "2:41–3:20" },
+          { name: "Outro", time: "3:21–3:45" }
+        ], "trance", { segmentation: 80, repetition: 60, contrast: 70, directionality: 85 }
+      ),
+      track("Levels", "Avicii", 2011,
+        "Еталонний поп-EDM arc. Вокальний семпл як хук. Форма: піаніно → білд → дроп → брейкдаун → фінальний дроп.",
+        [
+          { name: "Piano intro", time: "0:00–0:20" },
+          { name: "Build 1", time: "0:21–0:45" },
+          { name: "Drop 1", time: "0:46–1:15" },
+          { name: "Breakdown", time: "1:16–1:45" },
+          { name: "Build 2", time: "1:46–2:10" },
+          { name: "Final drop", time: "2:11–3:00" },
+          { name: "Outro", time: "3:01–3:20" }
+        ], "edm", { segmentation: 85, repetition: 65, contrast: 75, directionality: 85 }
+      ),
+      track("One More Time", "Daft Punk", 2000,
+        "Французький хаус arc. Одна гармонія, мінімум секцій. Форма тримається на текстурних змінах та вокалі.",
+        [
+          { name: "Intro (vocal)", time: "0:00–0:30" },
+          { name: "Beat enters", time: "0:31–1:00" },
+          { name: "Full groove", time: "1:01–2:00" },
+          { name: "Filter breakdown", time: "2:01–2:30" },
+          { name: "Groove returns", time: "2:31–3:45" },
+          { name: "Outro", time: "3:46–5:20" }
+        ], "house", { segmentation: 75, repetition: 80, contrast: 50, directionality: 70 }
+      ),
+      track("Adagio for Strings", "Tiësto", 2005,
+        "Трансова версія класичної теми. Драматичний arc: повільне наростання → кульмінація → спад.",
+        [
+          { name: "Ambient intro", time: "0:00–1:00" },
+          { name: "Theme (strings)", time: "1:01–2:30" },
+          { name: "Beat enters", time: "2:31–3:30" },
+          { name: "Build-up", time: "3:31–4:30" },
+          { name: "Climax", time: "4:31–6:00" },
+          { name: "Dissolution", time: "6:01–7:30" },
+          { name: "Outro", time: "7:31–8:05" }
+        ], "trance", { segmentation: 80, repetition: 55, contrast: 85, directionality: 90 }
       )
     ],
 
@@ -719,7 +811,7 @@ const formArchetypes = [
 
     canonicalTracks: [
       track("Rondo alla Turca", "W.A. Mozart", 1783,
-        "Найвідоміше рондо. ABACA з яскравим «турецьким» епізодом B і віртуозним C.",
+        "ABACA. Найвідоміше рондо. Яскравий «турецький» епізод B, віртуозний C.",
         [
           { name: "A (refrain)", time: "0:00–0:25" },
           { name: "B episode", time: "0:26–0:55" },
@@ -727,10 +819,10 @@ const formArchetypes = [
           { name: "C episode", time: "1:21–1:55" },
           { name: "A final", time: "1:56–2:25" },
           { name: "Coda", time: "2:26–3:00" }
-        ]
+        ], "classical", { segmentation: 90, repetition: 80, contrast: 75, directionality: 65 }
       ),
       track("Piano Sonata Op. 13 (Pathetique), Rondo", "L. van Beethoven", 1798,
-        "ABACABA — розширене рондо з драматичним контрастом між епізодами.",
+        "ABACABA. Розширене рондо з драматичним контрастом між епізодами. B повертається після C, створюючи арку.",
         [
           { name: "A (refrain)", time: "0:00–0:30" },
           { name: "B episode", time: "0:31–1:15" },
@@ -740,10 +832,10 @@ const formArchetypes = [
           { name: "B return", time: "3:01–3:45" },
           { name: "A final", time: "3:46–4:15" },
           { name: "Coda", time: "4:16–4:45" }
-        ]
+        ], "classical", { segmentation: 85, repetition: 75, contrast: 85, directionality: 75 }
       ),
       track("Eine kleine Nachtmusik, Rondo", "W.A. Mozart", 1787,
-        "ABACA: легке, грайливе рондо з мінімальним контрастом у епізодах.",
+        "ABACA. Легке, грайливе рондо з мінімальним контрастом у епізодах.",
         [
           { name: "A (refrain)", time: "0:00–0:30" },
           { name: "B episode", time: "0:31–1:00" },
@@ -751,10 +843,10 @@ const formArchetypes = [
           { name: "C episode", time: "1:31–2:15" },
           { name: "A final", time: "2:16–2:45" },
           { name: "Coda", time: "2:46–3:10" }
-        ]
+        ], "classical", { segmentation: 85, repetition: 80, contrast: 70, directionality: 60 }
       ),
       track("Horn Concerto No. 4, Rondo", "W.A. Mozart", 1786,
-        "Віртуозне рондо з сольним інструментом. ABACA.",
+        "ABACA. Віртуозне рондо з сольним валторною.",
         [
           { name: "A (refrain)", time: "0:00–0:30" },
           { name: "B episode", time: "0:31–1:00" },
@@ -762,10 +854,10 @@ const formArchetypes = [
           { name: "C episode", time: "1:31–2:15" },
           { name: "A final", time: "2:16–3:00" },
           { name: "Coda", time: "3:01–3:30" }
-        ]
+        ], "classical", { segmentation: 85, repetition: 80, contrast: 70, directionality: 65 }
       ),
       track("Violin Sonata No. 5 (Spring), Rondo", "L. van Beethoven", 1801,
-        "ABACABA з ліричним характером. Рідкісний приклад рондо в повільному темпі.",
+        "ABACABA. Ліричне рондо в повільному темпі. Рідкісний приклад.",
         [
           { name: "A (refrain)", time: "0:00–0:40" },
           { name: "B episode", time: "0:41–1:20" },
@@ -775,7 +867,7 @@ const formArchetypes = [
           { name: "B return", time: "3:21–4:00" },
           { name: "A final", time: "4:01–4:30" },
           { name: "Coda", time: "4:31–5:00" }
-        ]
+        ], "classical", { segmentation: 80, repetition: 75, contrast: 80, directionality: 70 }
       ),
       track("Piano Concerto No. 23, Rondo", "W.A. Mozart", 1786,
         "ABACA з оркестром. Епізоди використовують різні оркестрові кольори.",
@@ -786,7 +878,52 @@ const formArchetypes = [
           { name: "C episode", time: "1:51–2:40" },
           { name: "A final", time: "2:41–3:15" },
           { name: "Coda", time: "3:16–3:45" }
-        ]
+        ], "classical", { segmentation: 85, repetition: 80, contrast: 75, directionality: 65 }
+      ),
+      track("Für Elise", "L. van Beethoven", 1810,
+        "ABACA. Найвідоміша фортепіанна п'єса в світі. Рефрен повертається 3 рази.",
+        [
+          { name: "A (refrain)", time: "0:00–0:40" },
+          { name: "B episode", time: "0:41–1:10" },
+          { name: "A return", time: "1:11–1:50" },
+          { name: "C episode", time: "1:51–2:20" },
+          { name: "A final", time: "2:21–2:55" }
+        ], "classical", { segmentation: 85, repetition: 80, contrast: 75, directionality: 60 }
+      ),
+      track("Rondo in C, Op. 51 No. 1", "L. van Beethoven", 1797,
+        "ABACA. Ліричне рондо з кантиленною темою A і віртуозними епізодами.",
+        [
+          { name: "A (refrain)", time: "0:00–0:35" },
+          { name: "B episode", time: "0:36–1:10" },
+          { name: "A return", time: "1:11–1:45" },
+          { name: "C episode", time: "1:46–2:30" },
+          { name: "A final", time: "2:31–3:00" },
+          { name: "Coda", time: "3:01–3:25" }
+        ], "classical", { segmentation: 85, repetition: 75, contrast: 70, directionality: 65 }
+      ),
+      track("Take Five", "Dave Brubeck", 1959,
+        "AABA — джазове рондо. Тема повертається після імпровізаційних соло. 5/4 розмір.",
+        [
+          { name: "A (theme)", time: "0:00–0:40" },
+          { name: "A repeat", time: "0:41–1:20" },
+          { name: "B (drum solo)", time: "1:21–2:30" },
+          { name: "A return (sax solo)", time: "2:31–3:30" },
+          { name: "A final", time: "3:31–4:20" },
+          { name: "Coda", time: "4:21–5:24" }
+        ], "jazz", { segmentation: 80, repetition: 80, contrast: 70, directionality: 60 }
+      ),
+      track("All Blues", "Miles Davis", 1959,
+        "Модальний джаз. Рефрен — 12-тактовий блюз, епізоди — соло. Кожне соло повертається до рефрену.",
+        [
+          { name: "A (theme)", time: "0:00–1:00" },
+          { name: "B (Miles solo)", time: "1:01–3:00" },
+          { name: "A (theme return)", time: "3:01–3:30" },
+          { name: "C (Coltrane solo)", time: "3:31–5:30" },
+          { name: "A (theme return)", time: "5:31–6:00" },
+          { name: "D (Adderley solo)", time: "6:01–8:30" },
+          { name: "A final", time: "8:31–10:00" },
+          { name: "Coda", time: "10:01–11:35" }
+        ], "jazz", { segmentation: 75, repetition: 80, contrast: 65, directionality: 60 }
       )
     ],
 
@@ -919,7 +1056,7 @@ const formArchetypes = [
 
     canonicalTracks: [
       track("Music for 18 Musicians, Pulses", "Steve Reich", 1976,
-        "Монументальний твір, що складається з 11 секцій, кожна побудована на циклічному процесі.",
+        "11 секцій, кожна побудована на циклічному процесі. Монументальний твір мінімалізму.",
         [
           { name: "Pulses (cell)", time: "0:00–2:00" },
           { name: "Section I: layering", time: "2:01–6:00" },
@@ -927,10 +1064,10 @@ const formArchetypes = [
           { name: "Section III: accumulation", time: "10:01–14:00" },
           { name: "Section IV–XI: dissolution", time: "14:01–20:00" },
           { name: "Return to pulses", time: "20:01–22:00" }
-        ]
+        ], "minimalist", { segmentation: 75, repetition: 90, contrast: 50, directionality: 85 }
       ),
       track("Piano Phase", "Steve Reich", 1967,
-        "Еталон фазування. Два піаністи грають той самий патерн, один прискорюється.",
+        "Еталон фазування. Два піаністи — той самий патерн, один прискорюється.",
         [
           { name: "Phase 1 (cell)", time: "0:00–1:00" },
           { name: "Phase transition 1", time: "1:01–2:30" },
@@ -938,17 +1075,17 @@ const formArchetypes = [
           { name: "Phase transition 2", time: "4:01–5:30" },
           { name: "Phase 3 (further shift)", time: "5:31–7:00" },
           { name: "Return to unison", time: "7:01–8:00" }
-        ]
+        ], "minimalist", { segmentation: 60, repetition: 95, contrast: 30, directionality: 75 }
       ),
       track("Einstein on the Beach, Knee Play 1", "Philip Glass", 1976,
-        "Класичний приклад адитивного процесу Glass: короткі патерни поступово розширюються.",
+        "Адитивний процес Glass: короткі патерни поступово розширюються додаванням нот.",
         [
           { name: "Cell (solo voice)", time: "0:00–1:00" },
           { name: "Organ enters (layer)", time: "1:01–2:00" },
           { name: "Additive process", time: "2:01–4:00" },
           { name: "Accumulation", time: "4:01–6:00" },
           { name: "Dissolution", time: "6:01–8:00" }
-        ]
+        ], "contemporary", { segmentation: 70, repetition: 85, contrast: 40, directionality: 80 }
       ),
       track("Music for Airports 1/1", "Brian Eno", 1978,
         "Повільний амбієнтний процес. Поступове додавання і видалення шарів.",
@@ -959,7 +1096,7 @@ const formArchetypes = [
           { name: "Full texture", time: "3:01–5:00" },
           { name: "Layers fade", time: "5:01–7:00" },
           { name: "Return to cell", time: "7:01–8:00" }
-        ]
+        ], "ambient", { segmentation: 70, repetition: 85, contrast: 30, directionality: 60 }
       ),
       track("Different Trains, Europe During the Rain", "Steve Reich", 1988,
         "Процесуальна форма з семплованими голосами. Тема + поступова трансформація.",
@@ -969,10 +1106,10 @@ const formArchetypes = [
           { name: "Process: speed change", time: "3:31–5:30" },
           { name: "Accumulation", time: "5:31–7:30" },
           { name: "Dissolution", time: "7:31–9:00" }
-        ]
+        ], "contemporary", { segmentation: 75, repetition: 80, contrast: 55, directionality: 80 }
       ),
       track("Shaker Loops, Hymning Slews", "John Adams", 1978,
-        "Мінімалістичний твір Adams з більш романтичним звучанням. Смичковий оркестр.",
+        "Мінімалізм з романтичним звучанням. Смичковий оркестр, поступове прискорення.",
         [
           { name: "Cell (shaking)", time: "0:00–0:30" },
           { name: "Layering (strings)", time: "0:31–2:00" },
@@ -980,7 +1117,50 @@ const formArchetypes = [
           { name: "Accumulation", time: "4:01–6:00" },
           { name: "Dissolution", time: "6:01–7:30" },
           { name: "Return", time: "7:31–8:30" }
-        ]
+        ], "contemporary", { segmentation: 70, repetition: 85, contrast: 40, directionality: 75 }
+      ),
+      track("In C", "Terry Riley", 1964,
+        "Основа всього мінімалізму. 53 фрази, кожен музикант грає в довільному темпі. Чистий процес як форма.",
+        [
+          { name: "Cell (pulse)", time: "0:00–1:00" },
+          { name: "Phases 1-10", time: "1:01–5:00" },
+          { name: "Phases 11-25", time: "5:01–12:00" },
+          { name: "Phases 26-40", time: "12:01–20:00" },
+          { name: "Phases 41-53 (climax)", time: "20:01–25:00" },
+          { name: "Return to pulse", time: "25:01–27:00" }
+        ], "minimalist", { segmentation: 50, repetition: 95, contrast: 40, directionality: 70 }
+      ),
+      track("Clapping Music", "Steve Reich", 1972,
+        "Чистий фазовий процес. Двоє плескають один патерн — один зміщується. Мінімум матеріалу, максимум варіативності.",
+        [
+          { name: "Phase 0 (unison)", time: "0:00–0:30" },
+          { name: "Phase shift 1", time: "0:31–1:00" },
+          { name: "Phase pattern 1", time: "1:01–1:30" },
+          { name: "Phase shift 2", time: "1:31–2:00" },
+          { name: "Phase pattern 2", time: "2:01–2:30" },
+          { name: "Phase shifts 3-11", time: "2:31–4:00" },
+          { name: "Return to unison", time: "4:01–4:30" }
+        ], "minimalist", { segmentation: 50, repetition: 95, contrast: 20, directionality: 65 }
+      ),
+      track("Glassworks, Opening", "Philip Glass", 1982,
+        "Адитивний процес: патерн розширюється додаванням нот. Показує: процес може бути емоційним.",
+        [
+          { name: "Cell (piano)", time: "0:00–0:30" },
+          { name: "Additive process", time: "0:31–1:30" },
+          { name: "Full texture", time: "1:31–3:00" },
+          { name: "Sustain", time: "3:01–5:00" },
+          { name: "Dissolution", time: "5:01–6:15" }
+        ], "contemporary", { segmentation: 70, repetition: 85, contrast: 35, directionality: 75 }
+      ),
+      track("The Hours, The Poet Acts", "Philip Glass", 2002,
+        "Кіносаундтрек — мінімалістичний процес у форматі фільму. Повторюваний патерн + нашарування струнних.",
+        [
+          { name: "Cell (piano)", time: "0:00–0:30" },
+          { name: "String layer enters", time: "0:31–1:00" },
+          { name: "Full orchestral texture", time: "1:01–2:00" },
+          { name: "Climax", time: "2:01–3:00" },
+          { name: "Dissolution (return to piano)", time: "3:01–3:45" }
+        ], "film", { segmentation: 70, repetition: 85, contrast: 30, directionality: 60 }
       )
     ],
 
@@ -1352,14 +1532,22 @@ function renderFormDetail() {
           🎵 Канонічні треки (${f.canonicalTracks.length}) ${state.showTracks ? "▲" : "▼"}
         </h4>
         ${state.showTracks ? `<div class="tracks-list">${f.canonicalTracks.map(t => `
-          <div class="track-card">
-            <h5>${t.title} — ${t.artist} (${t.year})</h5>
-            <p>${t.formNotes}</p>
-            <div class="track-sections">${t.sections.map(s => `
-              <span class="track-sec"><strong>${s.name}</strong> ${s.time}</span>
-            `).join("")}</div>
-          </div>
-        `).join("")}</div>` : ""}
+                  <div class="track-card">
+                    <h5>${t.title} — ${t.artist} (${t.year}) <span class="track-genre">${t.genre || "pop"}</span></h5>
+                    ${t.analysis ? `<div class="track-analysis">
+                      <div class="analysis-bars">
+                        <span class="analysis-item" style="color:#5bbcff">▨ ${t.analysis.segmentation || 0}%</span>
+                        <span class="analysis-item" style="color:#ff7eb3">▨ ${t.analysis.repetition || 0}%</span>
+                        <span class="analysis-item" style="color:#fecb6e">▨ ${t.analysis.contrast || 0}%</span>
+                        <span class="analysis-item" style="color:#b78cff">▨ ${t.analysis.directionality || 0}%</span>
+                      </div>
+                    </div>` : ""}
+                    <p class="track-why"><strong>Чому це хороший приклад:</strong> ${t.formNotes}</p>
+                    <div class="track-sections">${t.sections.map(s => `
+                      <span class="track-sec"><strong>${s.name}</strong> ${s.time}</span>
+                    `).join("")}</div>
+                  </div>
+                `).join("")}</div>` : ""}
       </div>`;
   }
 
