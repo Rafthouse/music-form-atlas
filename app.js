@@ -1,343 +1,561 @@
-﻿const forms = [
+// ================================================================
+// Music Form Atlas v1.2 — Atlas Core + Form Archetypes (Hybrid)
+// ================================================================
+
+// ===== CORE CONCEPTS =====
+// Each concept: problem → decision → mistake → exercise → DAW prompt → track → buildsForms
+
+const coreConcepts = [
   {
-    id: "club-arc",
-    title: "Club track arc",
-    category: "club",
-    categoryLabel: "Club / electronic",
-    genre: "house / techno",
-    form: "intro-drop-breakdown-outro",
-    tempo: "120-135 BPM",
-    tempoGroup: "medium",
-    difficulty: "easy",
-    definition: "A functional DJ-friendly form where energy is introduced, established, released, rebuilt, and resolved over time.",
-    traits: ["DJ intro/outro", "energy curve", "breakdown and rebuild", "drop as release"],
-    sections: [
-      section("Intro", 32, 0.25, "Sets beat-grid, mix-in space, and first texture clues.", "The intro is usually functional: it gives a DJ or listener stable pulse before the main identity arrives."),
-      section("Groove", 32, 0.48, "Establishes the core rhythmic/harmonic loop.", "This is where repetition becomes legible and the body learns the pattern."),
-      section("Build", 16, 0.72, "Adds density, risers, filter motion, or percussion pressure.", "The build makes the next release feel earned by increasing expectation."),
-      section("Drop", 32, 0.96, "Releases accumulated tension into the main dance section.", "The drop works because the track has prepared both pulse and expectation."),
-      section("Breakdown", 32, 0.38, "Removes drums or bass to reset attention.", "A breakdown is not empty: it re-frames the material and gives the next entrance meaning."),
-      section("Rebuild", 16, 0.76, "Reintroduces pulse and tension.", "The rebuild reconnects atmosphere to body movement."),
-      section("Second drop", 32, 0.92, "Returns with variation or greater density.", "The second drop proves development rather than simple repetition."),
-      section("Outro", 32, 0.2, "Reduces elements for mix-out and closure.", "The outro makes the form usable in a DJ context and gives structural release.")
+    id: "segmentation",
+    title: "Segmentation",
+    tagline: "Де закінчується одна ідея і починається інша?",
+    rootProblem: "Організація музичного часу",
+    problem: "Матеріал без меж не сприймається як форма. Segmentation перетворює потік на архітектуру.",
+    decision: "«Де закінчується поточна ідея і де починається наступна?»",
+    mistake: "Нескінченний луп без меж. Матеріал є — форми немає. Студент плутає «зробити звук» із «побудувати структуру».",
+    exercise: [
+      "Візьми один луп (16 тактів).",
+      "Не змінюй матеріал.",
+      "Тільки розстав межі: intro / core / outro.",
+      "Мінімум 3 секції."
     ],
-    examples: [
-      example("Generic peak-time techno arrangement", "Study model", "N/A", "techno", ["0:00 intro", "1:04 groove", "2:08 breakdown", "3:12 drop", "5:20 outro"], "Analytical model; exact source needs track-specific verification."),
-      example("Dub techno long-form loop", "Study model", "N/A", "dub techno", ["0:00 texture", "1:30 groove", "3:00 modulation", "5:00 subtraction"], "Shows how form can be slow mutation rather than section contrast.")
-    ],
-    sources: [
-      source("Butler, Unlocking the Groove", "Electronic dance music meter, rhythm, and form; exact chapter/page needs verification.", "needs"),
-      source("Hawkins, The British Pop Dandy / EDM form discussions", "Useful for production-form vocabulary; needs exact citation.", "needs")
-    ],
-    commonMistakes: "Students often call every high-energy entrance a drop; the question is whether tension was structurally prepared.",
-    conclusion: "Club form is choreography of expectation: mixability, repetition, break, release, and return."
+    assessment: "Чи може незнайомий слухач почути початок і кінець кожної секції без підказок?",
+    dawPrompt: "Відкрий свою DAW. Прослухай перші 16 тактів. Чи змінюється щось на 8-му такті? Якщо ні — спробуй поставити межу на 8-му такті і послухай, як це змінює сприйняття форми.",
+    canonicalTrack: {
+      title: "Around the World",
+      artist: "Daft Punk",
+      year: 1997,
+      sections: [
+        { name: "Intro", bars: 16, note: "Межа: від тиші до ритму" },
+        { name: "Core groove", bars: 32, note: "Межа: основний матеріал починається" },
+        { name: "Filter sweep", bars: 16, note: "Межа: зміна текстури" },
+        { name: "Core groove", bars: 32, note: "Межа: повернення" },
+        { name: "Outro", bars: 16, note: "Межа: завершення" }
+      ]
+    },
+    buildsForms: ["verse-chorus", "club-arc", "rondo"],
+    color: "#5bbcff"
   },
   {
-    id: "verse-chorus",
-    title: "Verse-chorus song form",
-    category: "pop",
-    categoryLabel: "Pop / song",
-    genre: "pop / rock",
-    form: "verse-chorus",
-    tempo: "70-150 BPM",
-    tempoGroup: "any",
-    difficulty: "easy",
-    definition: "A sectional song form where verses develop narrative/detail and choruses deliver the central hook or thesis.",
-    traits: ["verse contrast", "chorus return", "hook", "lyric function"],
-    sections: [
-      section("Intro", 8, 0.25, "Introduces sound world or hook fragment.", "The intro prepares recognition without giving away the whole form."),
-      section("Verse 1", 16, 0.42, "Delivers narrative, detail, or setup.", "Verses usually carry information and lower melodic density than the chorus."),
-      section("Pre-chorus", 8, 0.68, "Raises harmonic or melodic tension.", "The pre-chorus is a ramp: it makes the chorus feel inevitable."),
-      section("Chorus", 16, 0.92, "States the main hook and emotional center.", "The chorus works by returning as a memorable high-function section."),
-      section("Verse 2", 16, 0.48, "Continues narrative with variation.", "The second verse confirms the form but should not feel like a reset to zero."),
-      section("Bridge", 8, 0.58, "Provides contrast before final returns.", "The bridge refreshes attention by changing viewpoint, harmony, or texture."),
-      section("Final chorus", 24, 0.98, "Returns with intensification or extension.", "The final chorus often validates the song's main idea through repetition plus lift.")
+    id: "repetition",
+    title: "Repetition",
+    tagline: "Коли повернутися до матеріалу, який вже звучав?",
+    rootProblem: "Баланс передбачуваності та новизни",
+    problem: "Без повторення матеріал не засвоюється. Слухач не має точки опори — форма не «сідає».",
+    decision: "«Яку секцію повернути, коли і скільки разів?»",
+    mistake: "Два крайні варіанти: або матеріал не повторюється зовсім (форма не засвоюється слухачем), або повторюється занадто довго (форма не рухається).",
+    exercise: [
+      "Візьми дві секції (A та B).",
+      "Побудуй A–A–B–A.",
+      "Виміряй: скільки тактів виправдано для кожного A?",
+      "При якій довжині третє A ще цікаве? При якій — вже нудне?"
     ],
-    examples: [
-      example("ABABCB pop layout", "Study model", "N/A", "pop", ["A verse", "B chorus", "C bridge"], "Good model for teaching section function before using copyrighted songs."),
-      example("Hook-based dance-pop song", "Study model", "N/A", "dance-pop", ["0:00 intro", "0:16 verse", "0:48 chorus", "1:52 bridge"], "Shows pop form with club-derived energy logic.")
-    ],
-    sources: [
-      source("Everett, The Foundations of Rock", "Common source for rock/pop form terminology; exact section needs verification.", "needs"),
-      source("Covach, Form in Rock Music", "Useful for AABA, verse-chorus, and compound forms; exact page needs verification.", "needs")
-    ],
-    commonMistakes: "Students often identify sections only by lyrics; arrangement, harmony, and energy are equally important.",
-    conclusion: "Verse-chorus form turns contrast and return into memory."
+    assessment: "Чи впізнає слухач повернення матеріалу? Чи не втрачає інтерес до третього повторення?",
+    dawPrompt: "Відкрий свою DAW. Візьми секцію A і секцію B. Побудуй A–B–A–B–A. Скільки повторень витримує слухач без втрати інтересу? Де межа між «запам'яталось» і «набридло»?",
+    canonicalTrack: {
+      title: "Around the World",
+      artist: "Daft Punk",
+      year: 1997,
+      sections: [
+        { name: "Bass loop", bars: 16, note: "Повторення: басова лінія — основа" },
+        { name: "Bass + beat", bars: 16, note: "Повторення: біт додається, бас триває" },
+        { name: "Bass + beat + vox", bars: 16, note: "Повторення: вокал на тому ж loop" },
+        { name: "Bass + beat + vox + hats", bars: 16, note: "Повторення: нашарування на повторювану основу" },
+        { name: "Return to core", bars: 16, note: "Повторення: скидання до базового матеріалу" }
+      ]
+    },
+    buildsForms: ["verse-chorus", "rondo", "process-minimal"],
+    color: "#f6c85f"
   },
   {
-    id: "rondo",
-    title: "Rondo",
-    category: "classical",
-    categoryLabel: "Classical",
-    genre: "classical",
-    form: "rondo",
-    tempo: "varies",
-    tempoGroup: "any",
-    difficulty: "medium",
-    definition: "A recurrent refrain form, often represented as ABACA or ABACABA, where a main idea returns between contrasting episodes.",
-    traits: ["refrain", "episodes", "return", "contrast"],
-    sections: [
-      section("A refrain", 16, 0.72, "Presents the recognizable main idea.", "The refrain anchors memory; every return lets the listener reorient."),
-      section("B episode", 16, 0.48, "Contrasts key, material, texture, or character.", "Episode B creates distance from the refrain."),
-      section("A return", 16, 0.74, "Restates the main idea.", "The return confirms that contrast was temporary."),
-      section("C episode", 24, 0.58, "Offers deeper or stronger contrast.", "A later episode often expands the form's range."),
-      section("A final return", 16, 0.86, "Closes by restoring the primary identity.", "The final return feels conclusive because the form has traveled away and back.")
+    id: "contrast",
+    title: "Contrast",
+    tagline: "Коли матеріал потрібно змінити достатньо, щоб слухач це відчув?",
+    rootProblem: "Баланс передбачуваності та новизни",
+    problem: "Без контрасту форма монотонна. Увага слухача падає. Передбачуваність без новизни — нудьга.",
+    decision: "«Де і наскільки змінити матеріал, щоб слухач відчув зміну, не втративши цілісності?»",
+    mistake: "Або надто малий контраст (слухач не помічає зміни), або надто великий (трек розпадається на два несхожі твори).",
+    exercise: [
+      "Візьми секцію A.",
+      "Напиши секцію B, яка контрастує рівно за одним параметром: щільність, регістр, ритм або тембр.",
+      "Перевір: чи трек залишається єдиним цілим?",
+      "Повтори для іншого параметра."
     ],
-    examples: [
-      example("Classical rondo finale", "Study model", "18th c.", "classical", ["A", "B", "A", "C", "A"], "Use as schematic model before attaching a verified score/audio example."),
-      example("Rondo-like theme return", "Study model", "N/A", "hybrid", ["theme", "episode", "theme"], "Useful for showing the concept outside strict classical labels.")
-    ],
-    sources: [
-      source("Caplin, Classical Form", "Important source for classical formal functions; exact chapter/page needs verification.", "needs"),
-      source("Oxford Music Online / Grove entry on rondo", "Reference entry should be cited with access details when available.", "needs")
-    ],
-    commonMistakes: "A repeated theme alone is not enough; rondo depends on return after contrasting episodes.",
-    conclusion: "Rondo teaches form as recurring identity interrupted by contrasting journeys."
+    assessment: "Слухач чує зміну — і не втрачає відчуття цілісного треку.",
+    dawPrompt: "Відкрий свою DAW. Візьми свою улюблену секцію. Створи другу секцію, яка змінює ЛИШЕ щільність (більше/менше елементів). Решта — те саме. Чи працює? Тепер зміни лише тембр. Що відчувається інакше?",
+    canonicalTrack: {
+      title: "Teardrop",
+      artist: "Massive Attack",
+      year: 1998,
+      sections: [
+        { name: "Verse", bars: 16, note: "Контраст: тиха щільність, спокійний вокал" },
+        { name: "Chorus", bars: 16, note: "Контраст: повна щільність, емоційний пік" },
+        { name: "Verse", bars: 16, note: "Контраст: скидання до тихої версії" },
+        { name: "Chorus", bars: 16, note: "Контраст: повернення до повної щільності" }
+      ]
+    },
+    buildsForms: ["verse-chorus", "club-arc", "rondo"],
+    color: "#ed6a73"
   },
   {
-    id: "process-minimal",
-    title: "Process-based minimal form",
-    category: "contemporary",
-    categoryLabel: "Contemporary / neoclassical",
-    genre: "minimal / contemporary",
-    form: "process-based",
-    tempo: "60-140 BPM",
-    tempoGroup: "any",
-    difficulty: "hard",
-    definition: "A form driven by gradual transformation, phase, layering, or cellular change rather than conventional section contrast.",
-    traits: ["process", "cellular development", "layering", "slow transformation"],
-    sections: [
-      section("Cell", 16, 0.28, "Introduces a small repeated unit.", "The cell is the seed; the listener learns it before transformation begins."),
-      section("Layering", 32, 0.52, "Adds or offsets layers.", "Layering changes perception without requiring a new theme."),
-      section("Process shift", 32, 0.74, "Applies phase, subtraction, augmentation, or textural change.", "The drama is in hearing a rule unfold over time."),
-      section("Accumulation", 32, 0.88, "Increases density or registral span.", "Accumulation makes gradual change feel directional."),
-      section("Dissolution", 24, 0.34, "Removes layers or exposes the original cell.", "The ending reveals what changed and what remained stable.")
+    id: "directionality",
+    title: "Directionality",
+    tagline: "Де я зараз у формі — і що це означає для наступного кроку?",
+    rootProblem: "Організація музичного часу",
+    problem: "Без arc форма не починається і не закінчується — вона просто зупиняється. Directionality дає студенту карту форми в часі.",
+    decision: "«Де я зараз у формі — на початку, в середині чи в кінці? Що це означає для наступного кроку?»",
+    mistake: "Форма без arc: кожна секція рівнозначна, трек закінчується випадково, немає відчуття «приходу».",
+    exercise: [
+      "Візьми 4 готові секції (різні за характером).",
+      "Розстав їх у різному порядку.",
+      "Для кожного варіанту запитай: «Де відчувається кульмінація? Де — завершення?»",
+      "Зафіксуй найкращий порядок і поясни, чому."
     ],
-    examples: [
-      example("Layered cycle study", "Study model", "N/A", "minimal", ["cell", "layer", "shift", "dissolve"], "Safe placeholder for teaching process before verified repertoire entries."),
-      example("Ambient club form", "Study model", "N/A", "ambient club", ["texture", "pulse", "density", "release"], "Connects minimal process with modern dance-music listening.")
-    ],
-    sources: [
-      source("Potter, Four Musical Minimalists", "Useful background for minimalist processes; exact page needs verification.", "needs"),
-      source("Nyman, Experimental Music", "Relevant for process and experimental traditions; exact section needs verification.", "needs")
-    ],
-    commonMistakes: "Students may think 'nothing happens'; the task is to track rule-based transformation.",
-    conclusion: "Process form makes time audible by letting a rule become music."
+    assessment: "Слухач відчуває, що трек рухається до певної точки — і приходить. Не зупиняється — приходить.",
+    dawPrompt: "Відкрий свою DAW. Візьми 4 секції, які вже маєш. Розстав їх у порядку: найменш щільна → середня → найщільніша → спад. Чи відчувається рух? Тепер перестав їх. Де зникло відчуття напрямку?",
+    canonicalTrack: {
+      title: "Strobe",
+      artist: "deadmau5",
+      year: 2009,
+      sections: [
+        { name: "Intro (ambient)", bars: 32, note: "Напрямок: зародження" },
+        { name: "Pulse enters", bars: 16, note: "Напрямок: початок руху" },
+        { name: "Build-up", bars: 16, note: "Напрямок: наростання" },
+        { name: "Peak", bars: 32, note: "Напрямок: кульмінація" },
+        { name: "Release", bars: 32, note: "Напрямок: спад і завершення" }
+      ]
+    },
+    buildsForms: ["club-arc", "process-minimal"],
+    color: "#63d6a5"
   }
 ];
 
-function section(name, bars, energy, functionText, why) {
-  return { name, bars, energy, functionText, why };
-}
+// ===== FORM ARCHETYPES =====
+// Each form: generatedBy links to Core Concepts
 
-function example(title, artist, year, style, timecodes, note) {
-  return { title, artist, year, style, timecodes, note };
-}
+const formArchetypes = [
+  {
+    id: "verse-chorus",
+    title: "Verse-Chorus (Pop)",
+    description: "Чергування оповідних куплетів і повторюваних приспівів. Класична поп-структура.",
+    generatedBy: ["segmentation", "repetition", "contrast"],
+    genre: "pop / rock",
+    tempo: "70-150 BPM",
+    difficulty: "easy",
+    sections: [
+      { name: "Intro", bars: 8, concept: "segmentation", function: "Знайомить зі звуковим світом" },
+      { name: "Verse 1", bars: 16, concept: "contrast", function: "Оповідь, низька щільність" },
+      { name: "Pre-chorus", bars: 8, concept: "contrast", function: "Наростання перед приспівом" },
+      { name: "Chorus", bars: 16, concept: "repetition", function: "Центральний хук, повторюється" },
+      { name: "Verse 2", bars: 16, concept: "contrast", function: "Продовження оповіді" },
+      { name: "Bridge", bars: 8, concept: "contrast", function: "Зміна перспективи" },
+      { name: "Final chorus", bars: 24, concept: "repetition", function: "Повернення з посиленням" }
+    ],
+    conclusion: "Verse-chorus — це навчання пам'яті через повторення і контраст."
+  },
+  {
+    id: "club-arc",
+    title: "Club Arc (Electronic)",
+    description: "Функціональна DJ-форма: енергія вводиться, встановлюється, вивільняється і повертається.",
+    generatedBy: ["segmentation", "contrast", "directionality"],
+    genre: "house / techno",
+    tempo: "120-135 BPM",
+    difficulty: "easy",
+    sections: [
+      { name: "Intro", bars: 32, concept: "segmentation", function: "Біт-грід, простір для міксу" },
+      { name: "Groove", bars: 32, concept: "repetition", function: "Основний ритм/гармонія" },
+      { name: "Build", bars: 16, concept: "directionality", function: "Наростання щільності" },
+      { name: "Drop", bars: 32, concept: "contrast", function: "Вивільнення енергії" },
+      { name: "Breakdown", bars: 32, concept: "contrast", function: "Скидання до мінімуму" },
+      { name: "Rebuild", bars: 16, concept: "directionality", function: "Повторне наростання" },
+      { name: "Outro", bars: 32, concept: "segmentation", function: "Завершення" }
+    ],
+    conclusion: "Club-arc — це хореографія очікування: повторення, розрив, вивільнення, повернення."
+  },
+  {
+    id: "rondo",
+    title: "Rondo (Classical)",
+    description: "Форма з рефреном, що повертається: ABACA або ABACABA.",
+    generatedBy: ["segmentation", "repetition", "contrast"],
+    genre: "classical",
+    tempo: "varies",
+    difficulty: "medium",
+    sections: [
+      { name: "A (refrain)", bars: 16, concept: "segmentation", function: "Головна тема" },
+      { name: "B episode", bars: 16, concept: "contrast", function: "Контрастна тема" },
+      { name: "A return", bars: 16, concept: "repetition", function: "Повернення рефрену" },
+      { name: "C episode", bars: 24, concept: "contrast", function: "Глибший контраст" },
+      { name: "A final", bars: 16, concept: "repetition", function: "Фінальне ствердження" }
+    ],
+    conclusion: "Рондо навчає формі як ідентичності, що повертається після контрастних подорожей."
+  },
+  {
+    id: "process-minimal",
+    title: "Process-Based Minimal (Contemporary)",
+    description: "Форма, керована поступовою трансформацією, фазуванням або клітинною зміною.",
+    generatedBy: ["segmentation", "repetition", "directionality"],
+    genre: "minimal / contemporary",
+    tempo: "60-140 BPM",
+    difficulty: "hard",
+    sections: [
+      { name: "Cell", bars: 16, concept: "segmentation", function: "Маленька повторювана одиниця" },
+      { name: "Layering", bars: 32, concept: "repetition", function: "Додавання шарів" },
+      { name: "Process shift", bars: 32, concept: "directionality", function: "Застосування правила трансформації" },
+      { name: "Accumulation", bars: 32, concept: "directionality", function: "Збільшення щільності" },
+      { name: "Dissolution", bars: 24, concept: "segmentation", function: "Видалення шарів до початкової клітини" }
+    ],
+    conclusion: "Процесуальна форма робить час чутним, дозволяючи правилу стати музикою."
+  }
+];
 
-function source(title, note, status) {
-  return { title, note, status };
-}
-
+// ===== STATE =====
 const state = {
-  selectedId: "club-arc",
-  selectedSection: 0,
-  explanationMode: "simple",
-  revealStep: Infinity,
-  compare: false
+  mode: "concept",                // "concept" | "form"
+  selectedConcept: "segmentation",
+  selectedForm: null,
+  visitedConcepts: { segmentation: true },
+  showDecision: false,
+  showExercise: false,
+  selectedSection: 0
 };
 
-const els = {
-  genre: document.getElementById("genreFilter"),
-  form: document.getElementById("formFilter"),
-  tempo: document.getElementById("tempoFilter"),
-  difficulty: document.getElementById("difficultyFilter"),
-  search: document.getElementById("searchInput"),
-  formList: document.getElementById("formList"),
-  resultCount: document.getElementById("resultCount"),
-  category: document.getElementById("selectedCategory"),
-  title: document.getElementById("selectedTitle"),
-  definition: document.getElementById("selectedDefinition"),
-  meta: document.getElementById("metaGrid"),
-  timeline: document.getElementById("timeline"),
-  energy: document.getElementById("energyCurve"),
-  sectionTitle: document.getElementById("sectionTitle"),
-  sectionExplanation: document.getElementById("sectionExplanation"),
-  examples: document.getElementById("examplesList"),
-  sources: document.getElementById("sourcesList"),
-  comparison: document.getElementById("comparisonView"),
-  reveal: document.getElementById("revealButton"),
-  simple: document.getElementById("simpleButton"),
-  pro: document.getElementById("proButton"),
-  compare: document.getElementById("compareButton")
-};
-
-function unique(values) {
-  return ["All", ...Array.from(new Set(values)).sort()];
+// ===== DOM REFS =====
+const els = {};
+function cacheEls() {
+  els.app = document.getElementById("app");
+  els.progress = document.getElementById("progressIndicator");
+  els.hasOwnProperty;
 }
 
-function optionHtml(values) {
-  return values.map(value => `<option value="${value}">${value}</option>`).join("");
+// Build DOM on first render
+function buildDOM() {
+  const app = document.getElementById("app") || document.body;
+  app.innerHTML = `
+    <div class="atlas-shell" id="atlasShell">
+      <header class="topbar">
+        <div class="brand-block">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div>
+            <h1>Music Form Atlas</h1>
+            <p>Навчання форми через композиційні рішення</p>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <span class="progress-badge" id="progressBadge">★ <span id="progressCount">1</span>/4</span>
+        </div>
+      </header>
+      <div class="layout">
+        <aside class="left-panel" id="leftPanel"></aside>
+        <main class="main-area" id="mainArea"></main>
+      </div>
+    </div>
+  `;
+  els.leftPanel = document.getElementById("leftPanel");
+  els.mainArea = document.getElementById("mainArea");
+  els.progressBadge = document.getElementById("progressBadge");
+  els.progressCount = document.getElementById("progressCount");
 }
 
-function initFilters() {
-  els.genre.innerHTML = optionHtml(unique(forms.map(item => item.categoryLabel)));
-  els.form.innerHTML = optionHtml(unique(forms.map(item => item.form)));
-  els.tempo.innerHTML = optionHtml(["All", "slow", "medium", "fast", "any"]);
-  els.difficulty.innerHTML = optionHtml(unique(forms.map(item => item.difficulty)));
+// ===== HELPERS =====
+function conceptById(id) { return coreConcepts.find(c => c.id === id); }
+function formById(id) { return formArchetypes.find(f => f.id === id); }
+function visitedCount() { return Object.keys(state.visitedConcepts).length; }
+
+// ===== RENDER =====
+function render() {
+  renderLeftPanel();
+  renderMainContent();
+  renderProgress();
 }
 
-function currentForm() {
-  return forms.find(item => item.id === state.selectedId) || forms[0];
-}
+function renderLeftPanel() {
+  let html = '<div class="panel-section"><h3 class="panel-heading">Core Concepts</h3><div class="concept-list">';
+  coreConcepts.forEach(c => {
+    const isSelected = state.mode === "concept" && state.selectedConcept === c.id;
+    const isVisited = state.visitedConcepts[c.id];
+    const checkMark = isVisited ? "✓" : "○";
+    html += `<button class="concept-card ${isSelected ? "selected" : ""} ${isVisited ? "visited" : "unvisited"}" data-concept="${c.id}" style="${isSelected ? `border-color:${c.color};box-shadow:inset 0 0 0 1px ${c.color}40` : ''}">
+      <span class="concept-check">${checkMark}</span>
+      <span class="concept-color" style="background:${c.color}"></span>
+      <div class="concept-text">
+        <strong>${c.title}</strong>
+        <small>${c.tagline}</small>
+      </div>
+    </button>`;
+  });
+  html += '</div></div>';
 
-function filteredForms() {
-  const query = els.search.value.trim().toLowerCase();
-  return forms.filter(item => {
-    const matchesGenre = els.genre.value === "All" || item.categoryLabel === els.genre.value;
-    const matchesForm = els.form.value === "All" || item.form === els.form.value;
-    const matchesTempo = els.tempo.value === "All" || item.tempoGroup === els.tempo.value;
-    const matchesDifficulty = els.difficulty.value === "All" || item.difficulty === els.difficulty.value;
-    const haystack = `${item.title} ${item.genre} ${item.form} ${item.definition} ${item.traits.join(" ")} ${item.sections.map(s => s.name).join(" ")}`.toLowerCase();
-    const matchesQuery = !query || haystack.includes(query);
-    return matchesGenre && matchesForm && matchesTempo && matchesDifficulty && matchesQuery;
+  const hasVisitedAny = Object.keys(state.visitedConcepts).length > 0;
+  const formDimmed = !hasVisitedAny ? ' style="opacity:0.5"' : '';
+
+  html += `<div class="panel-section form-section"${formDimmed}>
+    <h3 class="panel-heading">Form Archetypes <span class="form-hint">— як концепти поєднуються</span></h3>
+    <div class="form-list">`;
+  formArchetypes.forEach(f => {
+    const isSelected = state.mode === "form" && state.selectedForm === f.id;
+    const tags = f.generatedBy.map(id => conceptById(id)).filter(Boolean);
+    const tagHtml = tags.map(t => `<span class="mini-tag" style="color:${t.color}">${t.title}</span>`).join(" + ");
+    html += `<button class="form-card ${isSelected ? "selected" : ""}" data-form="${f.id}">
+      <div class="form-text">
+        <strong>${f.title}</strong>
+        <small class="formula">${tagHtml}</small>
+      </div>
+    </button>`;
+  });
+  html += '</div></div>';
+  html += '</div>'; // close form-section
+
+  els.leftPanel.innerHTML = html;
+
+  // Attach click handlers
+  els.leftPanel.querySelectorAll("[data-concept]").forEach(btn => {
+    btn.addEventListener("click", () => selectConcept(btn.dataset.concept));
+  });
+  els.leftPanel.querySelectorAll("[data-form]").forEach(btn => {
+    btn.addEventListener("click", () => selectForm(btn.dataset.form));
   });
 }
 
-function renderLibrary() {
-  const list = filteredForms();
-  els.resultCount.textContent = `${list.length} forms`;
-  els.formList.innerHTML = list.map(item => `
-    <button class="form-card ${item.id === state.selectedId ? "selected" : ""}" type="button" data-id="${item.id}">
-      <strong>${item.title}</strong>
-      <p>${item.definition}</p>
-      <div class="tag-row">${item.traits.slice(0, 3).map(tag => `<span>${tag}</span>`).join("")}</div>
-    </button>
-  `).join("");
+function renderMainContent() {
+  if (state.mode === "concept") renderConceptDetail();
+  else if (state.mode === "form") renderFormDetail();
 }
 
-function renderOverview(form) {
-  els.category.textContent = form.categoryLabel;
-  els.title.textContent = form.title;
-  els.definition.textContent = form.definition;
-  const meta = [
-    ["Genre", form.genre],
-    ["Form", form.form],
-    ["Tempo", form.tempo],
-    ["Difficulty", form.difficulty]
-  ];
-  els.meta.innerHTML = meta.map(([label, value]) => `<div class="meta-item"><span>${label}</span><strong>${value}</strong></div>`).join("");
+function renderProgress() {
+  const count = visitedCount();
+  els.progressCount.textContent = count;
 }
 
-function renderTimeline(form) {
-  const totalBars = form.sections.reduce((sum, item) => sum + item.bars, 0);
-  els.timeline.innerHTML = form.sections.map((item, index) => {
-    const width = Math.max(9, item.bars / totalBars * 100);
-    const hidden = index > state.revealStep ? "hidden-step" : "";
-    const selected = index === state.selectedSection ? "selected" : "";
-    return `<button class="section-block category-${form.category} ${hidden} ${selected}" style="flex: ${width} 1 0" type="button" data-index="${index}">
-      <strong>${item.name}</strong>
-      <small>${item.bars} bars</small>
+function renderConceptDetail() {
+  const c = conceptById(state.selectedConcept);
+  if (!c) return;
+
+  const totalBars = c.canonicalTrack.sections.reduce((s, sec) => s + sec.bars, 0);
+
+  // Build timeline with optional arc
+  let timelineHtml = c.canonicalTrack.sections.map((sec, i) => {
+    const width = Math.max(10, sec.bars / totalBars * 100);
+    const selected = i === state.selectedSection ? " selected" : "";
+    return `<button class="tl-block${selected}" data-sec="${i}" style="flex:${width} 1 0; background:${c.color}55">
+      <strong>${sec.name}</strong>
+      <small>${sec.note}</small>
     </button>`;
   }).join("");
 
-  els.energy.innerHTML = form.sections.map(item => `<div class="energy-bar" style="height: ${Math.round(8 + item.energy * 44)}px"></div>`).join("");
-}
-
-function renderSection(form) {
-  const item = form.sections[state.selectedSection] || form.sections[0];
-  els.sectionTitle.textContent = item.name;
-  const modeText = state.explanationMode === "simple"
-    ? item.why
-    : `${item.functionText} In formal terms, this section controls expectation, contrast, and listener orientation inside the larger ${form.form} design.`;
-
-  els.sectionExplanation.innerHTML = `
-    <div class="explain-card"><strong>Function</strong><p>${item.functionText}</p></div>
-    <div class="explain-card"><strong>Why it works</strong><p>${modeText}</p></div>
-    <div class="explain-card"><strong>Student check</strong><p>Ask: what changed here: energy, texture, harmony, density, rhythm, or listener expectation?</p></div>
-  `;
-}
-
-function renderExamples(form) {
-  els.examples.innerHTML = form.examples.map(item => `
-    <div class="example-card">
-      <strong>${item.title}</strong>
-      <p>${item.artist} / ${item.year} / ${item.style}</p>
-      <div class="timecode-list">${item.timecodes.map(code => `<span>${code}</span>`).join("")}</div>
-      <p>${item.note}</p>
-    </div>
-  `).join("");
-}
-
-function renderSources(form) {
-  els.sources.innerHTML = form.sources.map(item => `
-    <div class="source-card">
-      <strong>${item.title}</strong>
-      <p>${item.note}</p>
-      <p class="verify ${item.status === "needs" ? "needs" : ""}">${item.status === "needs" ? "потрібна перевірка" : "verified"}</p>
-    </div>
-  `).join("") + `<div class="source-card"><strong>Typical student mistake</strong><p>${form.commonMistakes}</p></div>`;
-}
-
-function renderComparison(form) {
-  if (!state.compare) {
-    els.comparison.innerHTML = `<div class="compare-card"><strong>Comparison mode is off</strong><p>Use Compare to place this form beside a nearby model and discuss what changes.</p></div>`;
-    return;
+  // Directionality: add energy arc (bars sloping up → peak → down)
+  let arcHtml = "";
+  if (c.id === "directionality") {
+    const arcValues = [15, 30, 60, 85, 40]; // energy values for each section
+    arcHtml = `<div class="energy-arc">${arcValues.map(v =>
+      `<div class="arc-bar" style="height:${v}px; background:${c.color}"></div>`
+    ).join("")}</div>`;
   }
 
-  const other = forms.find(item => item.category !== form.category) || forms.find(item => item.id !== form.id);
-  els.comparison.innerHTML = `
-    <div class="compare-card"><strong>${form.title}</strong><p>${form.conclusion}</p></div>
-    <div class="compare-card"><strong>${other.title}</strong><p>${other.conclusion}</p></div>
-    <div class="compare-card"><strong>Teaching prompt</strong><p>Compare section function first, names second. Similar labels can do different dramatic work.</p></div>
+  // Exercise + DAW prompt
+  const exerciseHtml = state.showExercise
+    ? `<div class="info-block">
+        <h4>✍ Вправа</h4>
+        <ol>${c.exercise.map(e => `<li>${e}</li>`).join("")}</ol>
+        <div class="assessment">
+          <strong>Перевірка:</strong> ${c.assessment}
+        </div>
+        <div class="daw-prompt">
+          <strong>▶ Спробуй зараз у своїй DAW:</strong><br>
+          ${c.dawPrompt}
+        </div>
+        <button class="btn-toggle" id="hideExerciseBtn">▲ Згорнути</button>
+      </div>`
+    : `<button class="btn-toggle" id="showExerciseBtn">▼ Показати вправу</button>`;
+
+  // Decision + Mistake (progressive disclosure)
+  const decisionHtml = state.showDecision
+    ? `<div class="info-block">
+        <h4>Рішення композитора</h4>
+        <p class="decision-quote">${c.decision}</p>
+        <h4 class="mistake-heading">Типова помилка початківця</h4>
+        <p>${c.mistake}</p>
+        <button class="btn-toggle" id="hideDecisionBtn">▲ Згорнути</button>
+      </div>`
+    : `<button class="btn-toggle" id="showDecisionBtn">▼ Показати рішення</button>`;
+
+  // Builds forms links
+  const buildsHtml = c.buildsForms.length > 0
+    ? `<div class="builds-forms">
+        <h4>Як це будує форми</h4>
+        <div class="form-links">${c.buildsForms.map(fid => {
+          const f = formById(fid);
+          return f ? `<button class="form-link" data-form="${f.id}">${f.title}</button>` : "";
+        }).join("")}</div>
+      </div>`
+    : "";
+
+  const html = `
+    <div class="breadcrumb">Core Concepts <span class="sep">›</span> <span style="color:${c.color}">${c.title}</span></div>
+
+    <div class="concept-header">
+      <span class="concept-icon" style="background:${c.color}">★</span>
+      <div>
+        <h2>${c.title}</h2>
+        <p class="tagline">${c.tagline}</p>
+        <span class="root-badge">${c.rootProblem}</span>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <h4>Проблема, яку це вирішує</h4>
+      <p>${c.problem}</p>
+    </div>
+
+    ${decisionHtml}
+
+    ${exerciseHtml}
+
+    <div class="canonical-track">
+      <h4>🎵 Канонічний трек</h4>
+      <p class="track-title">${c.canonicalTrack.title} — ${c.canonicalTrack.artist} (${c.canonicalTrack.year})</p>
+      <div class="mini-timeline">${timelineHtml}</div>
+      ${arcHtml}
+    </div>
+
+    ${buildsHtml}
   `;
-}
 
-function render() {
-  const form = currentForm();
-  renderLibrary();
-  renderOverview(form);
-  renderTimeline(form);
-  renderSection(form);
-  renderExamples(form);
-  renderSources(form);
-  renderComparison(form);
-  els.simple.classList.toggle("active", state.explanationMode === "simple");
-  els.pro.classList.toggle("active", state.explanationMode === "pro");
-  els.compare.classList.toggle("active", state.compare);
-}
+  els.mainArea.innerHTML = html;
 
-function installHandlers() {
-  [els.genre, els.form, els.tempo, els.difficulty, els.search].forEach(input => input.addEventListener("input", render));
-
-  els.formList.addEventListener("click", event => {
-    const button = event.target.closest("[data-id]");
-    if (!button) return;
-    state.selectedId = button.dataset.id;
-    state.selectedSection = 0;
-    state.revealStep = Infinity;
-    render();
+  // Attach handlers
+  els.mainArea.querySelectorAll("[data-sec]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      state.selectedSection = parseInt(btn.dataset.sec);
+      renderMainContent();
+    });
+  });
+  els.mainArea.querySelectorAll("[data-form]").forEach(btn => {
+    btn.addEventListener("click", () => selectForm(btn.dataset.form));
   });
 
-  els.timeline.addEventListener("click", event => {
-    const button = event.target.closest("[data-index]");
-    if (!button) return;
-    state.selectedSection = Number(button.dataset.index);
-    render();
-  });
+  const showDec = document.getElementById("showDecisionBtn");
+  const hideDec = document.getElementById("hideDecisionBtn");
+  if (showDec) showDec.addEventListener("click", () => { state.showDecision = true; render(); });
+  if (hideDec) hideDec.addEventListener("click", () => { state.showDecision = false; render(); });
 
-  els.reveal.addEventListener("click", () => {
-    const form = currentForm();
-    if (state.revealStep === Infinity) state.revealStep = 0;
-    else state.revealStep = state.revealStep + 1 >= form.sections.length ? Infinity : state.revealStep + 1;
-    state.selectedSection = state.revealStep === Infinity ? 0 : state.revealStep;
-    render();
-  });
-
-  els.simple.addEventListener("click", () => { state.explanationMode = "simple"; render(); });
-  els.pro.addEventListener("click", () => { state.explanationMode = "pro"; render(); });
-  els.compare.addEventListener("click", () => { state.compare = !state.compare; render(); });
+  const showEx = document.getElementById("showExerciseBtn");
+  const hideEx = document.getElementById("hideExerciseBtn");
+  if (showEx) showEx.addEventListener("click", () => { state.showExercise = true; render(); });
+  if (hideEx) hideEx.addEventListener("click", () => { state.showExercise = false; render(); });
 }
 
-initFilters();
-installHandlers();
-render();
+function renderFormDetail() {
+  const f = formById(state.selectedForm);
+  if (!f) return;
+
+  const totalBars = f.sections.reduce((s, sec) => s + sec.bars, 0);
+  const tags = f.generatedBy.map(id => conceptById(id)).filter(Boolean);
+
+  const timelineHtml = f.sections.map((sec, i) => {
+    const width = Math.max(10, sec.bars / totalBars * 100);
+    const c = conceptById(sec.concept);
+    const color = c ? c.color : "#b78cff";
+    const selected = i === state.selectedSection ? " selected" : "";
+    return `<button class="tl-block${selected}" data-sec="${i}" style="flex:${width} 1 0;background:${color}55">
+      <strong>${sec.name}</strong>
+      <small>${sec.function}</small>
+    </button>`;
+  }).join("");
+
+  // Selected section detail
+  const currentSec = f.sections[state.selectedSection] || f.sections[0];
+  const secConcept = conceptById(currentSec.concept);
+  const secDetailHtml = `<div class="info-block section-detail">
+    <h4>${currentSec.name}</h4>
+    <p>${currentSec.function}</p>
+    <p class="concept-ref">Використовує <strong style="color:${secConcept?.color}">${secConcept?.title}</strong>
+      ${secConcept ? `— ${secConcept.tagline.toLowerCase()}` : ""}</p>
+  </div>`;
+
+  // Generated by tags
+  const tagHtml = tags.map(t =>
+    `<button class="concept-tag" data-concept="${t.id}" style="border-color:${t.color};color:${t.color}">${t.title}</button>`
+  ).join("");
+
+  const html = `
+    <div class="breadcrumb">Form Archetypes <span class="sep">›</span> ${f.title}</div>
+
+    <div class="concept-header">
+      <span class="concept-icon" style="background:#b78cff">◆</span>
+      <div>
+        <h2>${f.title}</h2>
+        <p class="tagline">${f.description}</p>
+        <div class="generated-by">⚡ Створено з: ${tagHtml}</div>
+      </div>
+    </div>
+
+    <div class="canonical-track">
+      <h4>Timeline</h4>
+      <div class="mini-timeline">${timelineHtml}</div>
+      <div class="meta-row">
+        <span>${f.genre}</span>
+        <span>${f.tempo}</span>
+        <span>Складність: ${f.difficulty}</span>
+      </div>
+    </div>
+
+    ${secDetailHtml}
+
+    <div class="builds-forms">
+      <h4>Які концепти створюють цю форму</h4>
+      <div class="form-links">${tags.map(t =>
+        `<button class="form-link" data-concept="${t.id}" style="border-color:${t.color}">${t.title}</button>`
+      ).join("")}</div>
+    </div>
+  `;
+
+  els.mainArea.innerHTML = html;
+
+  // Handlers
+  els.mainArea.querySelectorAll("[data-sec]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      state.selectedSection = parseInt(btn.dataset.sec);
+      renderFormDetail();
+    });
+  });
+  els.mainArea.querySelectorAll("[data-concept]").forEach(btn => {
+    btn.addEventListener("click", () => selectConcept(btn.dataset.concept));
+  });
+}
+
+// ===== NAVIGATION =====
+function selectConcept(id) {
+  state.mode = "concept";
+  state.selectedConcept = id;
+  state.selectedForm = null;
+  state.visitedConcepts[id] = true;
+  state.showDecision = false;
+  state.showExercise = false;
+  state.selectedSection = 0;
+  render();
+}
+
+function selectForm(id) {
+  state.mode = "form";
+  state.selectedForm = id;
+  state.selectedConcept = null;
+  state.selectedSection = 0;
+  render();
+}
+
+// ===== INIT =====
+function init() {
+  buildDOM();
+  render();
+  // Force forms to full opacity after first concept interaction
+  setTimeout(() => {
+    const formSection = document.querySelector(".form-section");
+    if (formSection && Object.keys(state.visitedConcepts).length > 0) {
+      formSection.style.opacity = "1";
+      formSection.style.transition = "opacity 0.5s";
+    }
+  }, 100);
+}
+
+document.addEventListener("DOMContentLoaded", init);
