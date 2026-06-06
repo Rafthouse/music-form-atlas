@@ -1040,7 +1040,6 @@ function buildDOM() {
             <h1>Music Form Atlas</h1>
             <p>Навчання форми через композиційні рішення</p>
           </div>
-        </div>
         <div class="topbar-right">
           <a href="classic/" class="version-switch">◈ Classic Atlas</a>
           <span class="progress-badge" id="progressBadge">★ <span id="progressCount">1</span>/4</span>
