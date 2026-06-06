@@ -123,7 +123,8 @@ select, input { min-height: 40px; padding: 0 10px; width: 100%; }
 
 .library-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 .library-head span { color: var(--muted); font-size: 0.82rem; }
-.form-list { display: grid; gap: 8px; max-height: calc(100vh - 295px); overflow: auto; padding-right: 3px; }
+.form-list { max-height: calc(100vh - 295px); overflow: auto; padding-right: 3px; }
+.form-list > * + * { margin-top: 8px; }
 
 .form-card {
   border: 1px solid var(--line);
