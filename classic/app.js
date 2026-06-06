@@ -1276,11 +1276,11 @@ function renderLibrary() {
   const list = filteredForms();
   els.resultCount.textContent = `${list.length} forms`;
   els.formList.innerHTML = list.map(item => `
-    <button class="form-card ${item.id === state.selectedId ? "selected" : ""}" type="button" data-id="${item.id}">
+    <div class="form-card ${item.id === state.selectedId ? "selected" : ""}" role="button" tabindex="0" data-id="${item.id}">
       <strong>${item.title}</strong>
       <p>${item.definition}</p>
       <div class="tag-row">${item.traits.slice(0, 3).map(tag => `<span>${tag}</span>`).join("")}</div>
-    </button>
+    </div>
   `).join("");
 }
 
