@@ -130,7 +130,8 @@ select, input { min-height: 40px; padding: 0 10px; width: 100%; }
   background: var(--panel-2);
   border-radius: 8px;
   padding: 11px;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 7px;
   text-align: left;
 }
