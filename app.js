@@ -242,7 +242,7 @@ function buildDOM() {
           </div>
         </div>
         <div class="topbar-right">
-          <a href="/classic/" class="version-switch">◈ Classic Atlas</a>
+          <a href="classic/" class="version-switch">◈ Classic Atlas</a>
           <span class="progress-badge" id="progressBadge">★ <span id="progressCount">1</span>/4</span>
         </div>
       </header>
