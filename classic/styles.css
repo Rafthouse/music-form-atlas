@@ -183,8 +183,75 @@ select, input { min-height: 40px; padding: 0 10px; width: 100%; }
 .section-block strong { font-size: 0.82rem; line-height: 1.15; }
 .section-block small { color: rgba(255,255,255,0.8); font-weight: 800; }
 
-.energy-curve { display: grid; grid-template-columns: repeat(12, 1fr); gap: 5px; min-height: 54px; align-items: end; margin-top: 14px; }
-.energy-bar { border-radius: 4px 4px 0 0; background: linear-gradient(180deg, var(--focus), var(--club)); min-height: 8px; }
+.energy-curve {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  min-height: 54px;
+  margin-top: 14px;
+  padding: 0 4px;
+}
+.energy-curve .energy-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 1px;
+  position: relative;
+  min-height: 52px;
+}
+.energy-curve .energy-bar {
+  width: 100%;
+  background: linear-gradient(180deg, var(--focus), var(--club));
+  border-radius: 3px 3px 0 0;
+  min-height: 8px;
+  transition: height 0.2s;
+}
+.energy-curve .tension-bar {
+  width: 100%;
+  background: linear-gradient(180deg, #d489ff, #9b59b6);
+  border-radius: 3px 3px 0 0;
+  min-height: 8px;
+  transition: height 0.2s;
+  opacity: 0.7;
+}
+
+.transition-marker {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: #d489ff;
+  background: rgba(212, 137, 255, 0.1);
+  border-left: 1px solid rgba(212, 137, 255, 0.3);
+  padding: 4px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.values-row {
+  display: flex;
+  gap: 10px;
+  margin: 8px 0;
+}
+.value-badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+.energy-badge {
+  background: rgba(91, 188, 255, 0.15);
+  color: var(--club);
+}
+.tension-badge {
+  background: rgba(212, 137, 255, 0.15);
+  color: #d489ff;
+}
 
 .study-grid, .bottom-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr); gap: 14px; }
 .explain-panel, .examples-panel, .sources-panel, .compare-panel { padding: 16px; min-width: 0; }
