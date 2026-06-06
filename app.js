@@ -427,6 +427,23 @@ const formArchetypes = [
       genreTransfer("EDM", "Verse-drop замість verse-chorus; вокал є куплетом, дроп — приспівом.", "Приспів замінюється на дроп; важливіше енергетичне вивільнення, ніж мелодійний хук."),
       genreTransfer("Hip-Hop", "AABA або AAA — куплети з хуком (hook) що повторюється.", "Хук часто є семплом або вокальним фразом, а не мелодійним приспівом."),
       genreTransfer("Film Music", "Тема та варіації — куплет як тема, приспів як варіація.", "Хук є темою, але її повторення відбувається через оркестровку, а не текст.")
+    ],
+    dawExercise: [
+      "Створи 16 тактів: 8 тактів куплет (тільки фортепіано + вокал) → 8 тактів приспів (повний бенд).",
+      "Переконайся, що приспів звучить більше за куплет хоча б за двома параметрами: щільність, гучність, регістр.",
+      "Тепер додай пре-хорус (4 такти) між куплетом і приспівом.",
+      "Додай брідж (8 тактів) після другого приспіву. Брідж має змінити гармонію або текстуру.",
+      "Зроби фінальний приспів довшим або більш насиченим за перший."
+    ],
+    listeningExercise: [
+      "Послухай Billie Jean (Michael Jackson). Як інтро (бас + хай-хет) готує появу вокалу?",
+      "Порівняй куплет і приспів у Rolling in the Deep (Adele) — які елементи додаються в приспіві?",
+      "Послухай Blank Space (Taylor Swift). Порахуй: скільки разів повторюється приспів? Чи змінюється він?",
+      "Послухай Livin' on a Prayer (Bon Jovi). Зверни увагу, як пре-хорус створює передчуття."
+    ],
+    comparisons: [
+      { with: "Club Arc", difference: "Verse-Chorus базується на ПОВЕРНЕННІ хука; Club Arc — на ЕНЕРГЕТИЧНІЙ дузі. В VC головне — щоб слухач запам'ятав мелодію; в Club Arc — щоб відчув вивільнення." },
+      { with: "Rondo", difference: "Обидва мають повторювану тему. В VC хук може змінювати текст і енергію; в Rondo рефрен повертається майже ідентичним." }
     ]
   },
 
@@ -697,6 +714,23 @@ const formArchetypes = [
       genreTransfer("Film", "Мікшування як аналог клубного arc: тихіше → наростання → кульмінація.", "Білди і дропи в екшн-сценах працюють за тою ж логікою очікування."),
       genreTransfer("Classical", "Розробка як білд, реприза як дроп.", "Сонатна форма має той самий arc: експозиція (інтро) → розробка (білд) → реприза (дроп)."),
       genreTransfer("Ambient", "Лінійний arc без дропів — повільніше наростання.", "Амбієнтний arc використовує ті самі принципи, але в повільнішому часі.")
+    ],
+    dawExercise: [
+      "Створи 32 такти: 8 інтро → 8 грув → 4 білд → 8 дроп → 4 аутро.",
+      "У білді додавай елементи кожні 2 такти: хай-хет → клеп → перкусія → райзер.",
+      "Зроби дроп: прибери всі елементи крім кіка і баса, потім додай основний луп.",
+      "Додай брейкдаун (8 тактів): прибери кік, залиши текстуру.",
+      "Додай ребілд: поверни кік, додавай елементи поступово до другого дропу."
+    ],
+    listeningExercise: [
+      "Послухай Strobe (deadmau5). Коли починається білд? Коли дроп? Скільки триває брейкдаун?",
+      "Порівняй перший і другий дроп у Strobe. Чим вони відрізняються?",
+      "Послухай Levels (Avicii). Які елементи додаються в білді і в якому порядку?",
+      "Послухай Around the World (Daft Punk). Це club arc без брейкдауну — як форма тримається?"
+    ],
+    comparisons: [
+      { with: "Verse-Chorus", difference: "Club Arc керується ЕНЕРГІЄЮ, не хуком. Дроп — це вивільнення напруги, а не мелодійний хук." },
+      { with: "Process-Based Minimal", difference: "Club Arc має чіткі секції. Process-Based — безшовну трансформацію. Club Arc = архітектура секцій; Process-Based = архітектура зміни." }
     ]
   },
 
@@ -942,6 +976,98 @@ const formArchetypes = [
       genreTransfer("Electronic", "Loop A як рефрен, текстури B/C як епізоди.", "Техно-треки з recurrent loop і текстурними змінами."),
       genreTransfer("Hip-Hop", "Хук як рефрен, куплети як епізоди.", "Багато хіп-хоп пісень мають ABABAC структуру (приспів-куплет-приспів-куплет-брідж-приспів)."),
       genreTransfer("Folk", "Приспів як рефрен, куплети як історія.", "Народні пісні часто є природним рондо з повторюваним приспівом.")
+    ],
+    dawExercise: [
+      "Напиши тему A (4 такти) у до-мажорі.",
+      "Напиши контрастну тему B (4 такти) у соль-мажорі.",
+      "Побудуй ABACA: A → B → A → C (4 такти, фа-мажор) → A.",
+      "Переконайся, що кожне повернення A впізнаване.",
+      "Додай коду — коротке завершення після останнього A."
+    ],
+    listeningExercise: [
+      "Послухай Rondo alla Turca (Mozart). Скільки разів повертається A? Чим відрізняються B і C?",
+      "Послухай Für Elise (Beethoven). Знайди всі повернення теми A — чи ідентичні вони?",
+      "Послухай Take Five (Dave Brubeck). AABA — різновид рондо. Як соло вписуються в форму?"
+    ],
+    comparisons: [
+      { with: "Verse-Chorus", difference: "Rondo повертає тему ІДЕНТИЧНОЮ — чисте повторення. VC може змінювати хук. Rondo навчає: тема як якір." },
+      { with: "Club Arc", difference: "Club Arc лінійний (енергія наростає і спадає). Rondo циклічний (тема повертається). Club Arc — подорож; Rondo — повернення додому." }
+    ]
+  },
+
+  // ============================================================
+  // 12-Bar Blues
+  // ============================================================
+  {
+    id: "12-bar-blues",
+    title: "12-Bar Blues",
+    description: "Гармонічний цикл з 12 тактів на трьох акордах (I, IV, V). Форма базується на гармонії, а не на темах чи секціях.",
+    generatedBy: ["segmentation", "repetition"],
+    genre: "blues / rock / jazz",
+    tempo: "60-160 BPM",
+    difficulty: "easy",
+    sections: [
+      { name: "I (Tonic)", bars: 4, concept: "repetition", function: "Тоніка — 4 такти, встановлює тональність" },
+      { name: "IV (Subdominant)", bars: 2, concept: "contrast", function: "Субдомінанта — 2 такти, легкий відхід" },
+      { name: "I (Tonic return)", bars: 2, concept: "repetition", function: "Повернення до тоніки" },
+      { name: "V (Dominant)", bars: 2, concept: "directionality", function: "Домінанта — напруга, тяжіння до IV/I" },
+      { name: "IV (Cadence)", bars: 1, concept: "contrast", function: "Субдомінанта — підготовка кадансу" },
+      { name: "I (Resolution)", bars: 1, concept: "repetition", function: "Тоніка — розв'язання напруги" }
+    ],
+    conclusion: "12-Bar Blues навчає: форма може бути гармонійною, не тематичною. Три акорди — архітектура.",
+
+    sectionKnowledge: [
+      secKnowledge("I (Tonic)", "Встановити тональність, дати гармонійний дім.", "Чотири такти на тоніці — стабільність.", "Недостатньо характерний риф.", "У мінорних/модальних блюзах.", "«Чи впізнає слухач тональність після 4 тактів?»", ["Robert Johnson — Sweet Home Chicago (1936)", "Muddy Waters — Hoochie Coochie Man (1954)"]),
+      secKnowledge("IV (Subdominant)", "Змістити гармонію.", "IV — «питання» після тоніки.", "IV занадто довгий.", "Quick change варіант.", "«Чи звучить IV як відхід?»", ["B.B. King — The Thrill Is Gone (1969)", "Stevie Ray Vaughan — Pride and Joy (1983)"]),
+      secKnowledge("V (Dominant)", "Створити напругу.", "V — «питання» що вимагає відповіді.", "V без IV слабша напруга.", "У turnaround.", "«Чи відчувається завершення циклу?»", ["Chuck Berry — Johnny B. Goode (1958)", "Jimi Hendrix — Red House (1966)"]),
+      secKnowledge("I (Resolution)", "Завершити цикл.", "Один такт — мінімальне завершення.", "Розв'язок занадто довгий.", "Turnaround.", "«Чи звучить останній такт як завершення?»", ["B.B. King — Every Day I Have the Blues (1955)", "Eric Clapton — Before You Accuse Me (1998)"])
+    ],
+
+    failureAnalysis: [
+      failureEntry("I (Tonic)", "Тоніка не встановлена", ["Слухач не знає домашньої тональності", "IV і V не мають контексту", "Форма втрачає циклічність"]),
+      failureEntry("IV (Subdominant)", "IV видалено", ["I→V без контрасту", "V без «розгону»", "Форма I-I-I-V"]),
+      failureEntry("V (Dominant)", "V видалено", ["Цикл без напруги", "Повернення до I не відчувається"]),
+      failureEntry("I (Resolution)", "Останній такт не повертає до I", ["Цикл не закривається", "Слухач чекає продовження"])
+    ],
+
+    variants: [
+      variant("Quick Change", "Рок-н-рол (Chuck Berry)", "IV на другому такті: I→IV→I→I / IV→IV→I→I / V→IV→I→I", "Плюс: більше руху. Мінус: менше часу на тоніку."),
+      variant("Minor Blues", "Джаз, соул (B.B. King)", "Мінор, II-V замість V-IV.", "Плюс: драматичніше. Мінус: складніше."),
+      variant("Jazz Blues", "Бібоп (Parker)", "II-V заміни, тритонові заміни.", "Плюс: багатша гармонія. Мінус: втрачає простоту."),
+      variant("8/16-Bar Blues", "Ранній рок-н-рол", "Скорочена/розширена версія.", "Плюс: гнучкість. Мінус: менш канонічна.")
+    ],
+
+    canonicalTracks: [
+      track("Sweet Home Chicago", "Robert Johnson", 1936, "Класичний 12-bar blues.", "blues", [{name:"Chorus 1",time:"0:09-0:20"},{name:"Chorus 2",time:"0:21-0:32"},{name:"Chorus 3",time:"0:33-0:44"}], {segmentation:70,repetition:90,contrast:50,directionality:60}),
+      track("Hoochie Coochie Man", "Muddy Waters", 1954, "12 тактів × 5 повторів.", "blues", [{name:"Verse 1",time:"0:11-0:28"},{name:"Harmonica solo",time:"1:05-1:22"}], {segmentation:75,repetition:90,contrast:40,directionality:55}),
+      track("Johnny B. Goode", "Chuck Berry", 1958, "Quick change. IV на 2-му такті.", "rock", [{name:"Verse 1",time:"0:06-0:18"},{name:"Guitar solo",time:"0:32-0:44"}], {segmentation:80,repetition:85,contrast:60,directionality:70}),
+      track("The Thrill Is Gone", "B.B. King", 1969, "Мінорний 12-bar blues.", "blues", [{name:"Verse 1",time:"0:16-0:42"},{name:"Guitar solo",time:"1:10-1:36"}], {segmentation:75,repetition:80,contrast:70,directionality:65}),
+      track("Pride and Joy", "Stevie Ray Vaughan", 1983, "Техаський блюз.", "blues rock", [{name:"Verse 1",time:"0:06-0:20"},{name:"Guitar solo",time:"0:51-1:05"}], {segmentation:80,repetition:80,contrast:65,directionality:70}),
+      track("Red House", "Jimi Hendrix", 1966, "Повільний 12-bar blues.", "blues rock", [{name:"Verse 1",time:"0:16-0:45"},{name:"Guitar solo",time:"1:16-2:15"}], {segmentation:70,repetition:80,contrast:65,directionality:65}),
+      track("Blues for Alice", "Charlie Parker", 1951, "Jazz blues. II-V замість I-IV-V.", "jazz", [{name:"Head",time:"0:00-0:20"},{name:"Parker solo",time:"0:21-1:00"}], {segmentation:80,repetition:75,contrast:70,directionality:75}),
+      track("Cross Road Blues", "Robert Johnson", 1936, "Дельта-блюз.", "blues", [{name:"Verse 1",time:"0:00-0:20"},{name:"Slide solo",time:"1:01-1:20"}], {segmentation:70,repetition:90,contrast:50,directionality:60}),
+      track("Every Day I Have the Blues", "B.B. King", 1955, "Стандартний 12-bar blues.", "blues", [{name:"Verse 1",time:"0:09-0:25"},{name:"Guitar solo",time:"0:43-0:59"}], {segmentation:75,repetition:90,contrast:50,directionality:60}),
+      track("Before You Accuse Me", "Eric Clapton", 1998, "Сучасний 12-bar blues.", "blues rock", [{name:"Verse 1",time:"0:11-0:30"},{name:"Guitar solo",time:"1:11-1:40"}], {segmentation:75,repetition:80,contrast:65,directionality:65})
+    ],
+
+    diagnosis: ["Чи впізнає слухач 12-тактовий цикл?", "Чи відчувається IV як зміна?", "Чи достатньо V створює напругу?", "Чи працює форма без тексту?"],
+
+    genreTransfer: [
+      genreTransfer("Rock", "Quick change. Гітарний риф.", "Chuck Berry, Beatles, AC/DC."),
+      genreTransfer("Jazz", "Jazz blues: II-V заміна.", "Parker, Davis."),
+      genreTransfer("R&B/Soul", "Вокальна мелодія.", "Ray Charles, James Brown."),
+      genreTransfer("Country", "Акустична гітара.", "Johnny Cash."),
+      genreTransfer("Hip-Hop", "Семпл блюзу.", "Багато продюсерів.")
+    ],
+
+    dawExercise: ["Налаштуй C7, F7, G7.", "Створи 12 тактів: 4×C7→2×F7→2×C7→2×G7→1×F7→1×C7.", "Додай ритм-секцію.", "Додай гітарний риф.", "Повтори 12 тактів 3-4 рази.", "Спробуй quick change."],
+
+    listeningExercise: ["Sweet Home Chicago: знайди I, IV, V.", "Johnny B. Goode: quick change.", "Blues for Alice: скільки акордів?"],
+
+    comparisons: [
+      { with: "Verse-Chorus", difference: "12-Bar Blues — гармонійна форма. VC — тематична." },
+      { with: "Rondo", difference: "Rondo повертає ТЕМУ. Blues повертає ГАРМОНІЮ." },
+      { with: "Process-Based", difference: "Process: правило ЗМІНИ. Blues: правило ПОВТОРЕННЯ." }
     ]
   },
 
@@ -1179,6 +1305,23 @@ const formArchetypes = [
       genreTransfer("Electronic / IDM", "Фазування, ґліч-процеси.", "Електронна музика дозволяє створювати процеси, неможливі в акустичній."),
       genreTransfer("Jazz", "Модальний джаз: повторення патерну + поступові зміни.", "Miles Davis — Kind of Blue використовує модальний процес як форму."),
       genreTransfer("Film", "Мінімальний саундтрек: повторення + нашарування.", "Саундтреки використовують процесуальну логіку для створення напруги без тематичних змін.")
+    ],
+    dawExercise: [
+      "Візьми один короткий патерн (2-4 такти) — ритмічну або мелодійну клітину.",
+      "Створи правило трансформації: «кожні 4 повтори додавати один новий звук».",
+      "Застосуй правило: запиши 32 такти, клітина повторюється, правило змінює.",
+      "Після 24 тактів почни видаляти шари у зворотному порядку.",
+      "Перевір: чи може слухач описати правило після прослуховування?"
+    ],
+    listeningExercise: [
+      "Послухай Piano Phase (Reich). Що змінюється — ноти чи їх зміщення одна відносно одної?",
+      "Послухай Music for 18 Musicians (Reich). Скільки разів повторюється клітина до зміни?",
+      "Послухай Glassworks, Opening (Glass). Як додаються ноти — по одній чи групами?",
+      "Послухай Music for Airports 1/1 (Eno). Чи відчувається форма без секцій?"
+    ],
+    comparisons: [
+      { with: "Club Arc", difference: "Club Arc використовує секції (білд, дроп). Process-Based — ПРАВИЛО: форма з процесу, не з розташування секцій." },
+      { with: "Verse-Chorus", difference: "VC потребує контрасту між секціями. Process-Based працює БЕЗ контрасту — зміна поступова, без стрибків." }
     ]
   }
 ];
@@ -1197,6 +1340,9 @@ const state = {
   showTracks: false,
   showDiagnosis: false,
   showGenreTransfer: false,
+  showDawExercise: false,
+  showListeningExercise: false,
+  showComparisons: false,
   selectedSection: 0
 };
 
@@ -1583,6 +1729,52 @@ function renderFormDetail() {
       </div>`;
   }
 
+
+  // 7. DAW Exercise
+  let dawHtml = '';
+  if (f.dawExercise && f.dawExercise.length > 0) {
+    dawHtml = `
+      <div class="depth-block">
+        <h4 class="depth-heading" onclick="toggle('showDawExercise')">
+          ⛏ DAW вправа ${state.showDawExercise ? '▲' : '▼'}
+        </h4>
+        ${state.showDawExercise ? `<div class="info-block daw-block">
+          <ol>${f.dawExercise.map(e => `<li>${e}</li>`).join('')}</ol>
+        </div>` : ''}
+      </div>`;
+  }
+
+  // 8. Listening Exercise
+  let listenHtml = '';
+  if (f.listeningExercise && f.listeningExercise.length > 0) {
+    listenHtml = `
+      <div class="depth-block">
+        <h4 class="depth-heading" onclick="toggle('showListeningExercise')">
+          🎵 Слухова вправа ${state.showListeningExercise ? '▲' : '▼'}
+        </h4>
+        ${state.showListeningExercise ? `<div class="info-block listen-block">
+          <ol>${f.listeningExercise.map(e => `<li>${e}</li>`).join('')}</ol>
+        </div>` : ''}
+      </div>`;
+  }
+
+  // 9. Comparisons
+  let compareHtml = '';
+  if (f.comparisons && f.comparisons.length > 0) {
+    compareHtml = `
+      <div class="depth-block">
+        <h4 class="depth-heading" onclick="toggle('showComparisons')">
+          🔍 Порівняння ${state.showComparisons ? '▲' : '▼'}
+        </h4>
+        ${state.showComparisons ? `<div class="compare-list">${f.comparisons.map(cmp => `
+          <div class="compare-card">
+            <strong>${cmp.with}</strong>
+            <p>${cmp.difference}</p>
+          </div>
+        `).join('')}</div>` : ''}
+      </div>`;
+  }
+
   // ASSEMBLE
   const html = `
     <div class="breadcrumb">Form Archetypes <span class="sep">›</span> ${f.title}</div>
@@ -1619,6 +1811,12 @@ function renderFormDetail() {
     ${diagnosisHtml}
 
     ${genreHtml}
+
+    ${dawHtml}
+
+    ${listenHtml}
+
+    ${compareHtml}
 
     <div class="builds-forms">
       <h4>Які концепти створюють цю форму</h4>
@@ -1666,6 +1864,9 @@ function selectForm(id) {
   state.showTracks = false;
   state.showDiagnosis = false;
   state.showGenreTransfer = false;
+  state.showDawExercise = false;
+  state.showListeningExercise = false;
+  state.showComparisons = false;
   render();
 }
 
