@@ -1,0 +1,107 @@
+﻿<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Music Form Atlas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="atlas-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div>
+            <h1>Music Form Atlas</h1>
+            <p>Interactive atlas for hearing musical form as architecture in time</p>
+          </div>
+        </div>
+        <div class="teacher-tools" aria-label="Teacher mode controls">
+          <a href="/" class="classic-back">← До Atlas Core</a>
+          <button id="revealButton" type="button">Step reveal</button>
+          <button id="simpleButton" type="button">Simple</button>
+          <button id="proButton" type="button">Professional</button>
+          <button id="compareButton" type="button">Compare</button>
+        </div>
+      </header>
+
+      <section class="layout">
+        <aside class="library-panel" aria-label="Form library and filters">
+          <div class="filter-grid">
+            <label>
+              Genre
+              <select id="genreFilter"></select>
+            </label>
+            <label>
+              Form
+              <select id="formFilter"></select>
+            </label>
+            <label>
+              Tempo
+              <select id="tempoFilter"></select>
+            </label>
+            <label>
+              Difficulty
+              <select id="difficultyFilter"></select>
+            </label>
+          </div>
+
+          <label class="search-field">
+            Search
+            <input id="searchInput" type="search" placeholder="intro, drop, bridge, rondo..." />
+          </label>
+
+          <div class="library-head">
+            <h2>Form Library</h2>
+            <span id="resultCount"></span>
+          </div>
+          <div id="formList" class="form-list"></div>
+        </aside>
+
+        <section class="main-stage" aria-label="Interactive form map">
+          <section class="overview-panel">
+            <div>
+              <p class="eyebrow" id="selectedCategory">Club / electronic</p>
+              <h2 id="selectedTitle">Club track arc</h2>
+              <p id="selectedDefinition"></p>
+            </div>
+            <div class="meta-grid" id="metaGrid"></div>
+          </section>
+
+          <section class="timeline-panel">
+            <div class="panel-head">
+              <h2>Interactive Form Timeline</h2>
+              <p>Click a section to inspect its function.</p>
+            </div>
+            <div id="timeline" class="timeline" aria-label="Timeline sections"></div>
+            <div id="energyCurve" class="energy-curve" aria-label="Energy curve"></div>
+          </section>
+
+          <section class="study-grid">
+            <article class="explain-panel">
+              <h2 id="sectionTitle">Section Function</h2>
+              <div id="sectionExplanation"></div>
+            </article>
+            <article class="examples-panel">
+              <h2>Examples</h2>
+              <div id="examplesList"></div>
+            </article>
+          </section>
+
+          <section class="bottom-grid">
+            <article class="sources-panel">
+              <h2>Sources & Verification</h2>
+              <div id="sourcesList"></div>
+            </article>
+            <article class="compare-panel">
+              <h2>Comparison</h2>
+              <div id="comparisonView"></div>
+            </article>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

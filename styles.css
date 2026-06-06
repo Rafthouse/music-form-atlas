@@ -64,6 +64,23 @@ li { margin-bottom: 6px; line-height: 1.5; }
   gap: 12px;
 }
 
+.version-switch {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--panel-2);
+  color: var(--muted);
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.version-switch:hover {
+  border-color: var(--form);
+  color: var(--form);
+}
+
 .progress-badge {
   font-size: 0.85rem;
   font-weight: 800;
