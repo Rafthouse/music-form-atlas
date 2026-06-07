@@ -5551,6 +5551,7 @@ const i18n = {
             mistakesLabel: "Типові помилки:",
             conceptsHeading: "Які концепти створюють цю форму",
             generatedByLabel: "⚡ Створено з:",
+    vsLabel: "проти",
     territoryLabel: "Територія",
     stubLabel: "Стаб території — форма на карті",
     stubBody: "Ця форма вже є на карті музичної території. Опис, канонічні твори та глибокий аналіз буде додано в наступних фазах.",
@@ -5677,6 +5678,7 @@ function toggle(stateKey) {
 
 function toggleLang() {
   state.lang = state.lang === "uk" ? "en" : "uk";
+  if (typeof document !== "undefined" && document.documentElement) document.documentElement.lang = state.lang;
   render();
 }
 
@@ -6465,58 +6467,60 @@ function renderStubDetail() {
   if (fm.star) flags += `<span class="stub-chip">★ flagship</span>`;
   if (fm.improv) flags += `<span class="stub-chip">⟳ improvised</span>`;
 
+  // Strict bilingual resolver — NO cross-language fallback.
+  // Legacy plain strings are English-canonical; a missing target language shows a
+  // visible marker, never the other language → mixed-language is structurally impossible.
+  const todo = () => `<span class="i18n-todo">${en ? '⟨EN pending⟩' : '⟨переклад очікується⟩'}</span>`;
+  const loc = (v) => {
+    if (v == null || v === '') return '';
+    if (typeof v === 'string') return en ? v : todo();   // legacy string = English canonical
+    const val = v[state.lang];
+    return val ? val : todo();
+  };
   let body;
   if (C) {
     const block = (title, inner) => inner ? `<div class="form-block"><h3 class="form-h">${title}</h3>${inner}</div>` : '';
-    // 1. Identity
-    const identity = C.what ? `<p class="form-lead">${C.what}</p>` : '';
-    // 2. Core decision
-    const decision = C.dec ? block(en ? 'Core compositional decision' : 'Ключове композиційне рішення', `<p class="form-p form-decision">${C.dec}</p>`) : '';
-    // 3. Structural diagram
+    const identity = C.what ? `<p class="form-lead">${loc(C.what)}</p>` : '';
+    const decision = C.dec ? block(en ? 'Core compositional decision' : 'Ключове композиційне рішення', `<p class="form-p form-decision">${loc(C.dec)}</p>`) : '';
     const seq = C.seq || [];
     const diagram = seq.length ? block(en ? 'Structure' : 'Структура',
-      `<div class="seq-diagram">${seq.map(s => `<span class="seq-block">${s}</span>`).join('<span class="seq-arrow">→</span>')}</div>`) : '';
-    // 4. Section logic (rich: function / listener / composer, or legacy {n,p})
+      `<div class="seq-diagram">${seq.map(s => `<span class="seq-block">${loc(s)}</span>`).join('<span class="seq-arrow">→</span>')}</div>`) : '';
     const sections = (C.sections && C.sections.length) ? block(en ? 'Section logic' : 'Логіка секцій',
       `<div class="sec-logic">${C.sections.map(s => {
         if (s.fn || s.listen || s.compose) {
-          return `<div class="sec-card"><div class="sec-name">${s.n}</div><div class="sec-detail">`
-            + (s.fn ? `<p><span class="sec-lbl">${en ? 'Function' : 'Функція'}:</span> ${s.fn}</p>` : '')
-            + (s.listen ? `<p><span class="sec-lbl">${en ? 'Listener' : 'Слухач'}:</span> ${s.listen}</p>` : '')
-            + (s.compose ? `<p><span class="sec-lbl">${en ? 'Composer' : 'Композитор'}:</span> ${s.compose}</p>` : '')
+          return `<div class="sec-card"><div class="sec-name">${loc(s.n)}</div><div class="sec-detail">`
+            + (s.fn ? `<p><span class="sec-lbl">${en ? 'Function' : 'Функція'}:</span> ${loc(s.fn)}</p>` : '')
+            + (s.listen ? `<p><span class="sec-lbl">${en ? 'Listener' : 'Слухач'}:</span> ${loc(s.listen)}</p>` : '')
+            + (s.compose ? `<p><span class="sec-lbl">${en ? 'Composer' : 'Композитор'}:</span> ${loc(s.compose)}</p>` : '')
             + `</div></div>`;
         }
-        return `<div class="sec-row"><span class="sec-name">${s.n}</span><span class="sec-purpose">${s.p || ''}</span></div>`;
+        return `<div class="sec-row"><span class="sec-name">${loc(s.n)}</span><span class="sec-purpose">${loc(s.p)}</span></div>`;
       }).join('')}</div>`) : '';
-    // 5. Recognition guide
     const recognize = (C.recognize && C.recognize.length) ? block(en ? 'Recognition guide' : 'Як упізнати',
-      `<ul class="recog-list">${C.recognize.map(r => `<li>${r}</li>`).join('')}</ul>`) : '';
-    // 6. Failure analysis
+      `<ul class="recog-list">${C.recognize.map(r => `<li>${loc(r)}</li>`).join('')}</ul>`) : '';
     const failure = (C.failure && C.failure.length) ? block(en ? 'Failure analysis — what breaks it' : 'Аналіз руйнування — що ламає форму',
-      `<div class="fail-list">${C.failure.map(f => typeof f === 'string'
-        ? `<div class="fail-row"><span class="fail-x">✕</span><p>${f}</p></div>`
-        : `<div class="fail-row"><span class="fail-x">✕</span><p><strong>${f.m}</strong>${f.why ? ` — ${f.why}` : ''}</p></div>`).join('')}</div>`) : '';
-    // 7. Canonical works (string or {w, why})
+      `<div class="fail-list">${C.failure.map(f => (typeof f === 'string' || f.en || f.uk)
+        ? `<div class="fail-row"><span class="fail-x">✕</span><p>${loc(f)}</p></div>`
+        : `<div class="fail-row"><span class="fail-x">✕</span><p><strong>${loc(f.m)}</strong>${f.why ? ` — ${loc(f.why)}` : ''}</p></div>`).join('')}</div>`) : '';
+    // Canonical works: title (w) is language-neutral (names/years); only the "why" is translated prose.
     const worksHtml = (C.works || []).map(w => typeof w === 'string'
       ? `<li>${w}</li>`
-      : `<li><strong>${w.w}</strong>${w.why ? ` — <span class="work-why">${w.why}</span>` : ''}</li>`).join('');
+      : `<li><strong>${w.w}</strong>${w.why ? ` — <span class="work-why">${loc(w.why)}</span>` : ''}</li>`).join('');
     const works = worksHtml ? block(en ? 'Canonical works' : 'Канонічні твори', `<ul class="works-list">${worksHtml}</ul>`) : '';
-    // 8. Historical evolution (his + optional from/became)
-    let evoInner = C.his ? `<p class="form-p">${C.his}</p>` : '';
+    let evoInner = C.his ? `<p class="form-p">${loc(C.his)}</p>` : '';
     if (C.evo && (C.evo.from || C.evo.became)) {
       evoInner += `<div class="evo-flow">`
-        + (C.evo.from ? `<div class="evo-row"><span class="evo-arrow">⟸</span><span class="evo-lbl">${en ? 'grew from' : 'виросла з'}:</span> ${C.evo.from}</div>` : '')
-        + (C.evo.became ? `<div class="evo-row"><span class="evo-arrow">⟹</span><span class="evo-lbl">${en ? 'led to' : 'призвела до'}:</span> ${C.evo.became}</div>` : '')
+        + (C.evo.from ? `<div class="evo-row"><span class="evo-arrow">⟸</span><span class="evo-lbl">${en ? 'grew from' : 'виросла з'}:</span> ${loc(C.evo.from)}</div>` : '')
+        + (C.evo.became ? `<div class="evo-row"><span class="evo-arrow">⟹</span><span class="evo-lbl">${en ? 'led to' : 'призвела до'}:</span> ${loc(C.evo.became)}</div>` : '')
         + `</div>`;
     }
     const history = evoInner ? block(en ? 'Historical evolution' : 'Історична еволюція', evoInner) : '';
-    // 9. Neighbor forms (explained, or legacy chips)
     let neighborInner = '';
     if (C.neighbors && C.neighbors.length) {
       neighborInner = `<div class="nbr-list">${C.neighbors.map(n => {
         const rf = findTerrForm(n.id);
         const nm = rf ? rf.fm.name : n.id;
-        return `<div class="nbr-row"><span class="rel-chip" data-open="${n.id}">${nm}</span><p class="nbr-note">${n.note || ''}</p></div>`;
+        return `<div class="nbr-row"><span class="rel-chip" data-open="${n.id}">${nm}</span><p class="nbr-note">${loc(n.note)}</p></div>`;
       }).join('')}</div>`;
     } else {
       const relHtml = (C.rel || []).map(rid => {
@@ -6526,14 +6530,12 @@ function renderStubDetail() {
       neighborInner = relHtml ? `<div class="rel-chips">${relHtml}</div>` : '';
     }
     const related = neighborInner ? block(en ? 'Neighbor forms' : 'Сусідні форми', neighborInner) : '';
-    // 10. Concept mapping
     const CM = { seg: ['Segmentation', 'Сегментація', '#5bbcff'], rep: ['Repetition', 'Повторення', '#f6c85f'], con: ['Contrast', 'Контраст', '#ed6a73'], dir: ['Directionality', 'Напрямок', '#b78cff'] };
     const cmRows = C.concepts ? Object.keys(CM).filter(k => C.concepts[k]).map(k =>
-      `<div class="cmap-row"><span class="cmap-dot" style="background:${CM[k][2]}"></span><span class="cmap-name" style="color:${CM[k][2]}">${en ? CM[k][0] : CM[k][1]}</span><span class="cmap-note">${C.concepts[k]}</span></div>`).join('') : '';
+      `<div class="cmap-row"><span class="cmap-dot" style="background:${CM[k][2]}"></span><span class="cmap-name" style="color:${CM[k][2]}">${en ? CM[k][0] : CM[k][1]}</span><span class="cmap-note">${loc(C.concepts[k])}</span></div>`).join('') : '';
     const concepts = cmRows ? block(en ? 'Concept mapping' : 'Зв’язок із концептами', `<div class="concept-map">${cmRows}</div>`) : '';
-    // 11. Composer workflow (how to write one)
     const workflow = (C.workflow && C.workflow.length) ? block(en ? '✎ Composer workflow — how to write one' : '✎ Робочий процес — як написати',
-      `<ol class="workflow-list">${C.workflow.map(s => `<li>${s}</li>`).join('')}</ol>`) : '';
+      `<ol class="workflow-list">${C.workflow.map(s => `<li>${loc(s)}</li>`).join('')}</ol>`) : '';
 
     body = identity + decision + diagram + sections + recognize + failure + works + history + related + concepts + workflow;
   } else {
