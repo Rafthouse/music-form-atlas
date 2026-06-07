@@ -686,3 +686,73 @@ li { margin-bottom: 6px; line-height: 1.5; }
   margin-top: 5px;
   color: #b0caba;
 }
+/* ===== Glossary (layer 10) ===== */
+.glossary-list {
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+}
+.glossary-card {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+.glossary-card strong {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  color: var(--focus);
+  display: block;
+  margin-bottom: 4px;
+}
+.glossary-card p {
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* ===== Teacher's Notes (layer 11) ===== */
+.teacher-list {
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+}
+.teacher-card {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+.teacher-card p {
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* ===== Real-World Deviations (layer 12) ===== */
+.dev-list {
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+}
+.dev-card {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+.dev-card strong {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  color: var(--contrast);
+  display: block;
+  margin-bottom: 4px;
+}
+.dev-card p {
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.3;
+  margin: 0;
+}
