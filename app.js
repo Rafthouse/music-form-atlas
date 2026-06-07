@@ -1522,16 +1522,37 @@ const formArchetypes = [
     ],
 
     distinguishingFeatures: [
-      "Синкопація та ритмічні зсуви — замість «кач» хаусу — асиметричні, зміщені ритми, що нагадують фанк та електро.",
-      "Машинна естетика — звуки не мають звучати «натурально»; перкусія навмисно механічна, вокал сухий або оброблений.",
-      "Відсутність вокального хука як центру — якщо вокал присутній, він є одним із шарів текстури, а не центром уваги.",
-      "Лінійне нашарування — елементи додаються і ніколи не знімаються (або знімаються рідко). Форма — зростання, а не цикл.",
-      "Мінімальна автоматизація — фільтр змінюється повільно, майже непомітно. Макро-зміна досягається через мікро-зсуви.",
-      "Тривалість — середня довжина треку 6-10 хвилин; форма потребує часу для повільної трансформації."
-    ],
+          "Синкопація та ритмічні зсуви — замість «кач» хаусу — асиметричні, зміщені ритми, що нагадують фанк та електро.",
+          "Машинна естетика — звуки не мають звучати «натурально»; перкусія навмисно механічна, вокал сухий або оброблений.",
+          "Відсутність вокального хука як центру — якщо вокал присутній, він є одним із шарів текстури, а не центром уваги.",
+          "Лінійне нашарування — елементи додаються і ніколи не знімаються (або знімаються рідко). Форма — зростання, а не цикл.",
+          "Мінімальна автоматизація — фільтр змінюється повільно, майже непомітно. Макро-зміна досягається через мікро-зсуви.",
+          "Тривалість — середня довжина треку 6-10 хвилин; форма потребує часу для повільної трансформації."
+        ],
 
-    productionTradition: {
-      philosophy: "Детройтське техно — це відповідь на постапокаліптичне місто: автомобільна столиця, що занепадає, породила звук майбутнього. Філософія — «машина як душа» (machine soul). Не імітація людини машиною, а спільна мова — синтезатори не замінюють інструменти, а стають інструментами з власним голосом. Мінімальна обробка, максимальна повага до тембру, ніяких зайвих прикрас.",
+        compositionDecisions: {
+          formBearer: "Ритмічна текстура + тембр машини. Мелодія не є носієм форми — форма будується через нашарування ритмічних шарів і зміну тембру.",
+          development: "Лінійне нашарування (add-only): кожен новий елемент додається і залишається. Мікрозсуви velocity, зміщення ритмічних акцентів, повільна модуляція фільтру.",
+          contrast: "Зняття елементів (break). Не дроп, не зміна гармонії — контраст створюється тим, що зникає, а не тим, що з'являється.",
+          styleBreakers: [
+            "Надмірний ревербератор — техно потребує сухого міксу",
+            "Різкі дропи та білди — техно трансформується, а не «падає»",
+            "Гармонійна складність — техно це про ритм і тембр",
+            "Забагато змін у перші 2 хвилини — техно працює на витримці"
+          ]
+        },
+
+        designConstraints: {
+          bpm: "125–140",
+          sectionDuration: "32–64 такти (1–2 хв на шар)",
+          contrastLevel: "Низький–Середній (30–50%)",
+          density: "Середня (4–7 елементів одночасно)",
+          harmonicComplexity: "Низька (2–4 акорди, статичні)",
+          energyDynamics: "Лінійно вгору — енергія зростає через додавання шарів, без спадів"
+        },
+
+        productionTradition: {
+          philosophy: "Детройтське техно — це відповідь на постапокаліптичне місто: автомобільна столиця, що занепадає, породила звук майбутнього. Філософія — «машина як душа» (machine soul). Не імітація людини машиною, а спільна мова — синтезатори не замінюють інструменти, а стають інструментами з власним голосом. Мінімальна обробка, максимальна повага до тембру, ніяких зайвих прикрас.",
 
       coreTechniques: [
         {
@@ -2068,9 +2089,31 @@ const formArchetypes = [
       "Мінімум перкусії: часто тільки кік + один перкусійний елемент",
       "Тривалість 8-12 хвилин: форма потребує часу для розгортання",
       "Аналогова обробка: spring reverb, tape echo, аналоговий мікшерний пульт"
-    ]
-  },
-  {
+          ],
+
+          compositionDecisions: {
+            formBearer: "Простір (reverb/delay). Не мелодія, не ритм, не гармонія — реверберація та затримка є головним матеріалом. Кік і суббас — лише привід для простору.",
+            development: "Повільна модуляція фільтру, send-автоматизація (зміна рівня ревербу/delay). Розвиток — це зміна простору, а не додавання матеріалу.",
+            contrast: "Зміна просторової глибини. Не додавання/зняття елементів, а зміна їхнього положення в стереополі та ревербераційному просторі.",
+            styleBreakers: [
+              "Дроп — даб-техно не має дропів, кульмінація — відкриття фільтра",
+              "Забагато елементів — 3-5 елементів максимум, все інше — зайве",
+              "Мелодична лінія — ноти не потрібні, простір створює музику",
+              "Швидкі зміни — зміни кожні 16-32 такти, не частіше",
+              "Чистий сухий звук — без простору даб-техно не існує"
+            ]
+          },
+
+          designConstraints: {
+            bpm: "120–128",
+            sectionDuration: "16–32 такти (1–2 хв)",
+            contrastLevel: "Низький (15–30%)",
+            density: "Низька (3–5 елементів одночасно)",
+            harmonicComplexity: "Мінімальна (1–2 ноти, без акордів)",
+            energyDynamics: "Рівна — без піків і спадів. Енергія — у глибині простору, не в гучності"
+          }
+        },
+        {
     id: "uplifting-trance",
     name: "Апліфтінг-транс",
     nameEn: "Uplifting Trance",
@@ -5322,7 +5365,9 @@ const state = {
   showFamilies: false,
     showProductionTradition: false,
     showDawTranslation: false,
-    selectedSection: 0
+        showCompositionDecisions: false,
+        showDesignConstraints: false,
+        selectedSection: 0
 };
 
 // ===== DOM REFS =====
@@ -5385,7 +5430,18 @@ const i18n = {
             structureLabel: "Структура:",
             energyLabel: "Енергія:",
             productionTraditionLabel: "Традиція продакшну",
-            canonicalTracksLabel: "Канонічні треки:",
+                        canonicalTracksLabel: "Канонічні треки:",
+                        compositionDecisionsLabel: "Композиційні рішення",
+                        designConstraintsLabel: "Констрейнти дизайну",
+                        formBearerLabel: "Носій форми",
+                        developmentLabel: "Що створює розвиток",
+                        contrastLabel: "Що створює контраст",
+                        styleBreakersLabel: "Помилки, що руйнують стиль",
+            sectionDurationLabel: "Тривалість секцій",
+            contrastLevelLabel: "Контраст",
+            densityLabel: "Щільність",
+            harmonicLabel: "Гармонія",
+            energyDynamicsLabel: "Енергія",
         featuresLabel: "Відмінні ознаки:",
             mistakesLabel: "Типові помилки:",
             conceptsHeading: "Які концепти створюють цю форму",
@@ -5443,7 +5499,18 @@ const i18n = {
         structureLabel: "Structure:",
         energyLabel: "Energy:",
         productionTraditionLabel: "Production Tradition",
-        canonicalTracksLabel: "Canonical tracks:",
+                canonicalTracksLabel: "Canonical tracks:",
+                compositionDecisionsLabel: "Composition Decisions",
+                designConstraintsLabel: "Design Constraints",
+                formBearerLabel: "Form Bearer",
+                developmentLabel: "What Creates Development",
+                contrastLabel: "What Creates Contrast",
+                styleBreakersLabel: "Style-Breaking Mistakes",
+        sectionDurationLabel: "Section Duration",
+        contrastLevelLabel: "Contrast",
+        densityLabel: "Density",
+        harmonicLabel: "Harmony",
+        energyDynamicsLabel: "Energy",
     featuresLabel: "Distinguishing features:",
     mistakesLabel: "Common mistakes:",
     conceptsHeading: "Concepts that generate this form",
@@ -6023,7 +6090,43 @@ function renderFormDetail() {
                 ` : ''}
               </div>` : ''}
 
-              ${fam.relatedFamilies ? `<div class="family-related">
+                            ${fam.compositionDecisions ? `
+                            <div class="family-decisions">
+                              <div class="decisions-header" onclick="event.stopPropagation(); toggle('showCompositionDecisions')" style="cursor:pointer">
+                                <strong>🎯 ${t('compositionDecisionsLabel')}</strong>
+                                <span>${state.showCompositionDecisions ? '▲' : '▼'}</span>
+                              </div>
+                              ${state.showCompositionDecisions ? `
+                                <div class="decisions-body">
+                                  <div class="decision-item"><strong>${t('formBearerLabel')}:</strong><p>${fam.compositionDecisions.formBearer}</p></div>
+                                  <div class="decision-item"><strong>${t('developmentLabel')}:</strong><p>${fam.compositionDecisions.development}</p></div>
+                                  <div class="decision-item"><strong>${t('contrastLabel')}:</strong><p>${fam.compositionDecisions.contrast}</p></div>
+                                  <div class="decision-item"><strong>${t('styleBreakersLabel')}:</strong>
+                                    <ul>${fam.compositionDecisions.styleBreakers.map(s => `<li>${s}</li>`).join('')}</ul>
+                                  </div>
+                                </div>
+                              ` : ''}
+                            </div>` : ''}
+
+                            ${fam.designConstraints ? `
+                            <div class="family-constraints">
+                              <div class="constraints-header" onclick="event.stopPropagation(); toggle('showDesignConstraints')" style="cursor:pointer">
+                                <strong>📐 ${t('designConstraintsLabel')}</strong>
+                                <span>${state.showDesignConstraints ? '▲' : '▼'}</span>
+                              </div>
+                              ${state.showDesignConstraints ? `
+                                <div class="constraints-body">
+                                  <div class="constraint-row"><span class="constraint-key">BPM</span><span class="constraint-val">${fam.designConstraints.bpm}</span></div>
+                                  <div class="constraint-row"><span class="constraint-key">${t('sectionDurationLabel') || 'Тривалість секцій'}</span><span class="constraint-val">${fam.designConstraints.sectionDuration}</span></div>
+                                  <div class="constraint-row"><span class="constraint-key">${t('contrastLevelLabel') || 'Контраст'}</span><span class="constraint-val">${fam.designConstraints.contrastLevel}</span></div>
+                                  <div class="constraint-row"><span class="constraint-key">${t('densityLabel') || 'Щільність'}</span><span class="constraint-val">${fam.designConstraints.density}</span></div>
+                                  <div class="constraint-row"><span class="constraint-key">${t('harmonicLabel') || 'Гармонія'}</span><span class="constraint-val">${fam.designConstraints.harmonicComplexity}</span></div>
+                                  <div class="constraint-row"><span class="constraint-key">${t('energyDynamicsLabel') || 'Енергія'}</span><span class="constraint-val">${fam.designConstraints.energyDynamics}</span></div>
+                                </div>
+                              ` : ''}
+                            </div>` : ''}
+
+                            ${fam.relatedFamilies ? `<div class="family-related">
                 <strong>Пов'язані сімейства:</strong>
                 ${fam.relatedFamilies.map(rf => `<span class="related-chip">${rf}</span>`).join('')}
               </div>` : ''}
