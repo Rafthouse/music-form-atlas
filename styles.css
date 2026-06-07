@@ -863,3 +863,107 @@ li { margin-bottom: 6px; line-height: 1.5; }
   color: var(--muted, #888);
 }
 
+/* ===== FAMILY META BADGES ===== */
+.family-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  margin-bottom: 0.5rem;
+}
+.family-period, .family-region, .family-scene {
+  font-size: 0.72rem;
+  padding: 1px 8px;
+  border-radius: 8px;
+  background: rgba(183,140,255,0.1);
+  color: var(--accent, #b78cff);
+  border: 1px solid rgba(183,140,255,0.2);
+}
+.family-region { background: rgba(90,200,160,0.1); color: #5ac8a0; border-color: rgba(90,200,160,0.2); }
+.family-scene { background: rgba(255,200,60,0.1); color: #ffc83c; border-color: rgba(255,200,60,0.2); }
+
+/* ===== EXPANDED TRACKS ===== */
+.track-item {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border, #2a2a4a);
+}
+.track-item:last-child { border-bottom: none; }
+.track-title { font-size: 0.85rem; color: var(--text, #eee); }
+.track-label { font-size: 0.72rem; color: var(--accent, #b78cff); margin-left: 6px; }
+.track-analysis { font-size: 0.82rem; color: var(--muted, #999); line-height: 1.4; margin: 4px 0; }
+.track-context, .track-prod { font-size: 0.8rem; color: var(--muted, #888); margin: 2px 0; }
+.track-scores { display: flex; gap: 4px; margin: 4px 0; flex-wrap: wrap; }
+.score-chip { font-size: 0.65rem; padding: 1px 6px; border-radius: 4px; background: rgba(255,255,255,0.06); color: var(--muted, #888); }
+.track-timeline { display: flex; gap: 6px; flex-wrap: wrap; margin: 4px 0; }
+.tl-point { font-size: 0.72rem; background: rgba(255,255,255,0.04); padding: 1px 8px; border-radius: 4px; color: var(--muted, #999); }
+.tl-point strong { color: var(--text, #ccc); }
+
+/* ===== PRODUCTION TRADITION ===== */
+.family-prod-trad {
+  border-top: 1px solid var(--border, #2a2a4a);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+}
+.prod-trad-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+}
+.prod-trad-header strong { font-size: 0.85rem; color: var(--accent, #b78cff); }
+.prod-trad-body { padding: 8px 0; }
+.prod-philosophy { font-size: 0.83rem; color: var(--text, #ccc); line-height: 1.4; margin-bottom: 10px; padding: 8px; background: rgba(255,255,255,0.03); border-radius: 6px; }
+
+/* ===== TECHNIQUE CARDS ===== */
+.tech-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border, #2a2a4a);
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+}
+.tech-header { margin-bottom: 4px; }
+.tech-header strong { font-size: 0.82rem; color: var(--text, #ddd); }
+.tech-desc { font-size: 0.8rem; color: var(--muted, #999); line-height: 1.35; margin: 0 0 8px 0; }
+
+/* ===== DAW TABS & CODE ===== */
+.daw-tabs { display: flex; gap: 4px; margin-bottom: 6px; }
+.daw-tab {
+  font-size: 0.7rem;
+  padding: 2px 10px;
+  border: 1px solid var(--border, #3a3a5a);
+  background: transparent;
+  color: var(--muted, #888);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.daw-tab:hover, .daw-tab.active { color: var(--text, #eee); border-color: var(--accent, #b78cff); }
+.daw-code {
+  font-size: 0.76rem;
+  background: rgba(0,0,0,0.3);
+  color: var(--muted, #aaa);
+  padding: 8px 10px;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ===== LISTENING PATHWAY ===== */
+.listening-path { margin-top: 10px; padding: 8px; background: rgba(255,255,255,0.02); border-radius: 6px; }
+.listening-path strong { font-size: 0.78rem; color: var(--muted, #888); display: block; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+.listening-path ol { margin: 0; padding-left: 1.2rem; }
+.listening-path li { font-size: 0.8rem; color: var(--text, #ccc); margin-bottom: 6px; line-height: 1.35; }
+
+/* ===== RELATED FAMILIES ===== */
+.family-related { border-top: 1px solid var(--border, #2a2a4a); padding-top: 0.5rem; margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: center; }
+.family-related strong { font-size: 0.72rem; color: var(--muted, #888); }
+.related-chip {
+  font-size: 0.7rem;
+  padding: 1px 8px;
+  border-radius: 8px;
+  background: rgba(90,200,160,0.1);
+  color: #5ac8a0;
+  border: 1px solid rgba(90,200,160,0.2);
+}
+
