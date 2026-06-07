@@ -8,29 +8,29 @@ const coreConcepts = [
     id: "segmentation",
     title: "Segmentation",
     titleUk: "Сегментація",
-    tagline: "Де закінчується одна ідея і починається інша?",
-    rootProblem: "Організація музичного часу",
-    problem: "Матеріал без меж не сприймається як форма. Segmentation перетворює потік на архітектуру.",
-    decision: "«Де закінчується поточна ідея і де починається наступна?»",
-    mistake: "Нескінченний луп без меж. Матеріал є — форми немає. Студент плутає «зробити звук» із «побудувати структуру».",
+    tagline: { en: "Where does one idea end and the next begin?", uk: "Де закінчується одна ідея і починається інша?" },
+    rootProblem: { en: "Organisation of musical time", uk: "Організація музичного часу" },
+    problem: { en: "Material without boundaries isn't perceived as form. Segmentation turns a stream into architecture.", uk: "Матеріал без меж не сприймається як форма. Сегментація перетворює потік на архітектуру." },
+    decision: { en: "“Where does the current idea end and the next one begin?”", uk: "«Де закінчується поточна ідея і де починається наступна?»" },
+    mistake: { en: "An endless loop with no boundaries. There's material but no form. The student confuses “making a sound” with “building a structure”.", uk: "Нескінченний луп без меж. Матеріал є — форми немає. Студент плутає «зробити звук» із «побудувати структуру»." },
     exercise: [
-      "Візьми один луп (16 тактів).",
-      "Не змінюй матеріал.",
-      "Тільки розстав межі: intro / core / outro.",
-      "Мінімум 3 секції."
+      { en: "Take one loop (16 bars).", uk: "Візьми один луп (16 тактів)." },
+      { en: "Don't change the material.", uk: "Не змінюй матеріал." },
+      { en: "Only place boundaries: intro / core / outro.", uk: "Тільки розстав межі: intro / core / outro." },
+      { en: "At least 3 sections.", uk: "Мінімум 3 секції." }
     ],
-    assessment: "Чи може незнайомий слухач почути початок і кінець кожної секції без підказок?",
-    dawPrompt: "Відкрий свою DAW. Прослухай перші 16 тактів. Чи змінюється щось на 8-му такті? Якщо ні — спробуй поставити межу на 8-му такті і послухай, як це змінює сприйняття форми.",
+    assessment: { en: "Can a first-time listener hear the start and end of each section without prompting?", uk: "Чи може незнайомий слухач почути початок і кінець кожної секції без підказок?" },
+    dawPrompt: { en: "Open your DAW. Play the first 16 bars. Does anything change at bar 8? If not — try placing a boundary at bar 8 and hear how it changes the sense of form.", uk: "Відкрий свою DAW. Прослухай перші 16 тактів. Чи змінюється щось на 8-му такті? Якщо ні — спробуй поставити межу на 8-му такті і послухай, як це змінює сприйняття форми." },
     canonicalTrack: {
       title: "Around the World",
       artist: "Daft Punk",
       year: 1997,
       sections: [
-        { name: "Intro", bars: 16, note: "Межа: від тиші до ритму" },
-        { name: "Core groove", bars: 32, note: "Межа: основний матеріал починається" },
-        { name: "Filter sweep", bars: 16, note: "Межа: зміна текстури" },
-        { name: "Core groove", bars: 32, note: "Межа: повернення" },
-        { name: "Outro", bars: 16, note: "Межа: завершення" }
+        { name: { en: "Intro", uk: "Вступ" }, bars: 16, note: { en: "Boundary: from silence to rhythm", uk: "Межа: від тиші до ритму" } },
+        { name: { en: "Core groove", uk: "Основний грув" }, bars: 32, note: { en: "Boundary: the main material begins", uk: "Межа: основний матеріал починається" } },
+        { name: { en: "Filter sweep", uk: "Фільтр-світ" }, bars: 16, note: { en: "Boundary: texture change", uk: "Межа: зміна текстури" } },
+        { name: { en: "Core groove", uk: "Основний грув" }, bars: 32, note: { en: "Boundary: return", uk: "Межа: повернення" } },
+        { name: { en: "Outro", uk: "Завершення" }, bars: 16, note: { en: "Boundary: ending", uk: "Межа: завершення" } }
       ]
     },
     buildsForms: ["verse-chorus", "club-arc", "rondo"],
@@ -40,29 +40,29 @@ const coreConcepts = [
     id: "repetition",
     title: "Repetition",
     titleUk: "Повторення",
-    tagline: "Коли повернутися до матеріалу, який вже звучав?",
-    rootProblem: "Баланс передбачуваності та новизни",
-    problem: "Без повторення матеріал не засвоюється. Слухач не має точки опори — форма не «сідає».",
-    decision: "«Яку секцію повернути, коли і скільки разів?»",
-    mistake: "Два крайні варіанти: або матеріал не повторюється зовсім (форма не засвоюється слухачем), або повторюється занадто довго (форма не рухається).",
+    tagline: { en: "When to return to material that has already sounded?", uk: "Коли повернутися до матеріалу, який вже звучав?" },
+    rootProblem: { en: "Balance of predictability and novelty", uk: "Баланс передбачуваності та новизни" },
+    problem: { en: "Without repetition the material doesn't sink in. The listener has no anchor — the form never settles.", uk: "Без повторення матеріал не засвоюється. Слухач не має точки опори — форма не «сідає»." },
+    decision: { en: "“Which section to bring back, when, and how many times?”", uk: "«Яку секцію повернути, коли і скільки разів?»" },
+    mistake: { en: "Two extremes: either the material never repeats (the listener can't grasp the form), or it repeats too long (the form stops moving).", uk: "Два крайні варіанти: або матеріал не повторюється зовсім (форма не засвоюється слухачем), або повторюється занадто довго (форма не рухається)." },
     exercise: [
-      "Візьми дві секції (A та B).",
-      "Побудуй A–A–B–A.",
-      "Виміряй: скільки тактів виправдано для кожного A?",
-      "При якій довжині третє A ще цікаве? При якій — вже нудне?"
+      { en: "Take two sections (A and B).", uk: "Візьми дві секції (A та B)." },
+      { en: "Build A–A–B–A.", uk: "Побудуй A–A–B–A." },
+      { en: "Measure: how many bars are justified for each A?", uk: "Виміряй: скільки тактів виправдано для кожного A?" },
+      { en: "At what length is the third A still interesting? At what length is it already boring?", uk: "При якій довжині третє A ще цікаве? При якій — вже нудне?" }
     ],
-    assessment: "Чи впізнає слухач повернення матеріалу? Чи не втрачає інтерес до третього повторення?",
-    dawPrompt: "Відкрий свою DAW. Візьми секцію A і секцію B. Побудуй A–B–A–B–A. Скільки повторень витримує слухач без втрати інтересу? Де межа між «запам'яталось» і «набридло»?",
+    assessment: { en: "Does the listener recognise the material's return? Do they keep interest through the third repetition?", uk: "Чи впізнає слухач повернення матеріалу? Чи не втрачає інтерес до третього повторення?" },
+    dawPrompt: { en: "Open your DAW. Take section A and section B. Build A–B–A–B–A. How many repetitions does a listener tolerate without losing interest? Where is the line between “it stuck” and “it got old”?", uk: "Відкрий свою DAW. Візьми секцію A і секцію B. Побудуй A–B–A–B–A. Скільки повторень витримує слухач без втрати інтересу? Де межа між «запам'яталось» і «набридло»?" },
     canonicalTrack: {
       title: "Around the World",
       artist: "Daft Punk",
       year: 1997,
       sections: [
-        { name: "Bass loop", bars: 16, note: "Повторення: басова лінія — основа" },
-        { name: "Bass + beat", bars: 16, note: "Повторення: біт додається, бас триває" },
-        { name: "Bass + beat + vox", bars: 16, note: "Повторення: вокал на тому ж loop" },
-        { name: "Bass + beat + vox + hats", bars: 16, note: "Повторення: нашарування на повторювану основу" },
-        { name: "Return to core", bars: 16, note: "Повторення: скидання до базового матеріалу" }
+        { name: { en: "Bass loop", uk: "Басовий луп" }, bars: 16, note: { en: "Repetition: the bass line is the foundation", uk: "Повторення: басова лінія — основа" } },
+        { name: { en: "Bass + beat", uk: "Бас + біт" }, bars: 16, note: { en: "Repetition: the beat is added, the bass continues", uk: "Повторення: біт додається, бас триває" } },
+        { name: { en: "Bass + beat + vox", uk: "Бас + біт + вокал" }, bars: 16, note: { en: "Repetition: vocals over the same loop", uk: "Повторення: вокал на тому ж loop" } },
+        { name: { en: "Bass + beat + vox + hats", uk: "Бас + біт + вокал + хети" }, bars: 16, note: { en: "Repetition: layering over the repeating foundation", uk: "Повторення: нашарування на повторювану основу" } },
+        { name: { en: "Return to core", uk: "Повернення до основи" }, bars: 16, note: { en: "Repetition: reset to the base material", uk: "Повторення: скидання до базового матеріалу" } }
       ]
     },
     buildsForms: ["verse-chorus", "rondo", "process-minimal"],
@@ -72,28 +72,28 @@ const coreConcepts = [
     id: "contrast",
     title: "Contrast",
     titleUk: "Контраст",
-    tagline: "Коли матеріал потрібно змінити достатньо, щоб слухач це відчув?",
-    rootProblem: "Баланс передбачуваності та новизни",
-    problem: "Без контрасту форма монотонна. Увага слухача падає. Передбачуваність без новизни — нудьга.",
-    decision: "«Де і наскільки змінити матеріал, щоб слухач відчув зміну, не втративши цілісності?»",
-    mistake: "Або надто малий контраст (слухач не помічає зміни), або надто великий (трек розпадається на два несхожі твори).",
+    tagline: { en: "When must material change enough for the listener to feel it?", uk: "Коли матеріал потрібно змінити достатньо, щоб слухач це відчув?" },
+    rootProblem: { en: "Balance of predictability and novelty", uk: "Баланс передбачуваності та новизни" },
+    problem: { en: "Without contrast the form is monotonous. The listener's attention drops. Predictability with no novelty is boredom.", uk: "Без контрасту форма монотонна. Увага слухача падає. Передбачуваність без новизни — нудьга." },
+    decision: { en: "“Where and how much to change the material so the listener feels the change without losing coherence?”", uk: "«Де і наскільки змінити матеріал, щоб слухач відчув зміну, не втративши цілісності?»" },
+    mistake: { en: "Either too little contrast (the listener doesn't notice the change) or too much (the track splits into two unrelated pieces).", uk: "Або надто малий контраст (слухач не помічає зміни), або надто великий (трек розпадається на два несхожі твори)." },
     exercise: [
-      "Візьми секцію A.",
-      "Напиши секцію B, яка контрастує рівно за одним параметром: щільність, регістр, ритм або тембр.",
-      "Перевір: чи трек залишається єдиним цілим?",
-      "Повтори для іншого параметра."
+      { en: "Take section A.", uk: "Візьми секцію A." },
+      { en: "Write a section B that contrasts in exactly one parameter: density, register, rhythm or timbre.", uk: "Напиши секцію B, яка контрастує рівно за одним параметром: щільність, регістр, ритм або тембр." },
+      { en: "Check: does the track stay a single whole?", uk: "Перевір: чи трек залишається єдиним цілим?" },
+      { en: "Repeat for a different parameter.", uk: "Повтори для іншого параметра." }
     ],
-    assessment: "Слухач чує зміну — і не втрачає відчуття цілісного треку.",
-    dawPrompt: "Відкрий свою DAW. Візьми свою улюблену секцію. Створи другу секцію, яка змінює ЛИШЕ щільність (більше/менше елементів). Решта — те саме. Чи працює? Тепер зміни лише тембр. Що відчувається інакше?",
+    assessment: { en: "The listener hears the change — and keeps the sense of a single, coherent track.", uk: "Слухач чує зміну — і не втрачає відчуття цілісного треку." },
+    dawPrompt: { en: "Open your DAW. Take your favourite section. Make a second section that changes ONLY density (more/fewer elements). Everything else stays the same. Does it work? Now change only the timbre. What feels different?", uk: "Відкрий свою DAW. Візьми свою улюблену секцію. Створи другу секцію, яка змінює ЛИШЕ щільність (більше/менше елементів). Решта — те саме. Чи працює? Тепер зміни лише тембр. Що відчувається інакше?" },
     canonicalTrack: {
       title: "Teardrop",
       artist: "Massive Attack",
       year: 1998,
       sections: [
-        { name: "Verse", bars: 16, note: "Контраст: тиха щільність, спокійний вокал" },
-        { name: "Chorus", bars: 16, note: "Контраст: повна щільність, емоційний пік" },
-        { name: "Verse", bars: 16, note: "Контраст: скидання до тихої версії" },
-        { name: "Chorus", bars: 16, note: "Контраст: повернення до повної щільності" }
+        { name: { en: "Verse", uk: "Куплет" }, bars: 16, note: { en: "Contrast: low density, calm vocal", uk: "Контраст: тиха щільність, спокійний вокал" } },
+        { name: { en: "Chorus", uk: "Приспів" }, bars: 16, note: { en: "Contrast: full density, emotional peak", uk: "Контраст: повна щільність, емоційний пік" } },
+        { name: { en: "Verse", uk: "Куплет" }, bars: 16, note: { en: "Contrast: reset to the quiet version", uk: "Контраст: скидання до тихої версії" } },
+        { name: { en: "Chorus", uk: "Приспів" }, bars: 16, note: { en: "Contrast: return to full density", uk: "Контраст: повернення до повної щільності" } }
       ]
     },
     buildsForms: ["verse-chorus", "club-arc", "rondo"],
@@ -103,29 +103,29 @@ const coreConcepts = [
     id: "directionality",
     title: "Directionality",
     titleUk: "Напрямок",
-    tagline: "Де я зараз у формі — і що це означає для наступного кроку?",
-    rootProblem: "Організація музичного часу",
-    problem: "Без arc форма не починається і не закінчується — вона просто зупиняється. Directionality дає студенту карту форми в часі.",
-    decision: "«Де я зараз у формі — на початку, в середині чи в кінці? Що це означає для наступного кроку?»",
-    mistake: "Форма без arc: кожна секція рівнозначна, трек закінчується випадково, немає відчуття «приходу».",
+    tagline: { en: "Where am I in the form — and what does that mean for the next step?", uk: "Де я зараз у формі — і що це означає для наступного кроку?" },
+    rootProblem: { en: "Organisation of musical time", uk: "Організація музичного часу" },
+    problem: { en: "Without an arc, a form doesn't begin or end — it just stops. Directionality gives the student a map of the form in time.", uk: "Без дуги форма не починається і не закінчується — вона просто зупиняється. Напрямок дає студенту карту форми в часі." },
+    decision: { en: "“Where am I in the form — beginning, middle, or end? What does that mean for the next step?”", uk: "«Де я зараз у формі — на початку, в середині чи в кінці? Що це означає для наступного кроку?»" },
+    mistake: { en: "A form with no arc: every section is equal, the track ends arbitrarily, there's no sense of “arrival”.", uk: "Форма без дуги: кожна секція рівнозначна, трек закінчується випадково, немає відчуття «приходу»." },
     exercise: [
-      "Візьми 4 готові секції (різні за характером).",
-      "Розстав їх у різному порядку.",
-      "Для кожного варіанту запитай: «Де відчувається кульмінація? Де — завершення?»",
-      "Зафіксуй найкращий порядок і поясни, чому."
+      { en: "Take 4 ready-made sections (different in character).", uk: "Візьми 4 готові секції (різні за характером)." },
+      { en: "Arrange them in different orders.", uk: "Розстав їх у різному порядку." },
+      { en: "For each version ask: “Where is the climax felt? Where is the ending?”", uk: "Для кожного варіанту запитай: «Де відчувається кульмінація? Де — завершення?»" },
+      { en: "Lock in the best order and explain why.", uk: "Зафіксуй найкращий порядок і поясни, чому." }
     ],
-    assessment: "Слухач відчуває, що трек рухається до певної точки — і приходить. Не зупиняється — приходить.",
-    dawPrompt: "Відкрий свою DAW. Візьми 4 секції, які вже маєш. Розстав їх у порядку: найменш щільна → середня → найщільніша → спад. Чи відчувається рух? Тепер перестав їх. Де зникло відчуття напрямку?",
+    assessment: { en: "The listener feels the track moving toward a point — and arriving. Not stopping — arriving.", uk: "Слухач відчуває, що трек рухається до певної точки — і приходить. Не зупиняється — приходить." },
+    dawPrompt: { en: "Open your DAW. Take 4 sections you already have. Order them: least dense → medium → densest → release. Is there a sense of motion? Now reshuffle them. Where did the sense of direction disappear?", uk: "Відкрий свою DAW. Візьми 4 секції, які вже маєш. Розстав їх у порядку: найменш щільна → середня → найщільніша → спад. Чи відчувається рух? Тепер перестав їх. Де зникло відчуття напрямку?" },
     canonicalTrack: {
       title: "Strobe",
       artist: "deadmau5",
       year: 2009,
       sections: [
-        { name: "Intro (ambient)", bars: 32, note: "Напрямок: зародження" },
-        { name: "Pulse enters", bars: 16, note: "Напрямок: початок руху" },
-        { name: "Build-up", bars: 16, note: "Напрямок: наростання" },
-        { name: "Peak", bars: 32, note: "Напрямок: кульмінація" },
-        { name: "Release", bars: 32, note: "Напрямок: спад і завершення" }
+        { name: { en: "Intro (ambient)", uk: "Вступ (ембієнт)" }, bars: 32, note: { en: "Direction: emergence", uk: "Напрямок: зародження" } },
+        { name: { en: "Pulse enters", uk: "Вступає пульс" }, bars: 16, note: { en: "Direction: motion begins", uk: "Напрямок: початок руху" } },
+        { name: { en: "Build-up", uk: "Наростання" }, bars: 16, note: { en: "Direction: build-up", uk: "Напрямок: наростання" } },
+        { name: { en: "Peak", uk: "Пік" }, bars: 32, note: { en: "Direction: climax", uk: "Напрямок: кульмінація" } },
+        { name: { en: "Release", uk: "Спад" }, bars: 32, note: { en: "Direction: release and ending", uk: "Напрямок: спад і завершення" } }
       ]
     },
     buildsForms: ["club-arc", "process-minimal"],
@@ -5649,12 +5649,12 @@ function buildDOM() {
           <span class="brand-mark" aria-hidden="true"></span>
           <div>
             <h1>Music Form Atlas</h1>
-            <p>${t('appSubtitle')}</p>
+            <p id="appSubtitle">${t('appSubtitle')}</p>
                       </div>
                     <div class="topbar-right">
                       <a href="classic/" class="version-switch">◈ Classic Atlas</a>
                       <span class="progress-badge" id="progressBadge">★ <span id="progressCount">1</span>/4</span>
-                      <button class="lang-switch" onclick="toggleLang()">${t('langSwitch')}</button>
+                      <button class="lang-switch" id="langSwitch" onclick="toggleLang()">${t('langSwitch')}</button>
         </div>
       </header>
       <div class="layout">
@@ -5667,6 +5667,8 @@ function buildDOM() {
   els.mainArea = document.getElementById("mainArea");
   els.progressBadge = document.getElementById("progressBadge");
   els.progressCount = document.getElementById("progressCount");
+  els.appSubtitle = document.getElementById("appSubtitle");
+  els.langSwitch = document.getElementById("langSwitch");
 }
 
 // ===== HELPERS =====
@@ -5698,6 +5700,8 @@ function toggleFam(key) {
 
 // ===== RENDER =====
 function render() {
+  if (els.appSubtitle) els.appSubtitle.textContent = t('appSubtitle');
+  if (els.langSwitch) els.langSwitch.textContent = t('langSwitch');
   renderLeftPanel();
   renderMainContent();
   renderProgress();
@@ -5714,7 +5718,7 @@ function renderLeftPanel() {
       <span class="concept-color" style="background:${c.color}"></span>
       <div class="concept-text">
         <strong>${ctitle(c)}</strong>
-        <small>${c.tagline}</small>
+        <small>${tx(c.tagline)}</small>
       </div>
     </button>`;
   });
@@ -5760,6 +5764,8 @@ const MACRO_NAMES_UK = {
 function macroName(id) { return ((state.lang === 'uk' ? MACRO_NAMES_UK[id] : MACRO_NAMES[id]) || id); }
 function nmL(o) { return (o && state.lang === 'uk' && o.nameUk) ? o.nameUk : (o ? o.name : ''); }
 function ctitle(c) { return (c && state.lang === 'uk' && c.titleUk) ? c.titleUk : (c ? c.title : ''); }
+// Bilingual content resolver: {en,uk} -> active language; plain string passes through (neutral).
+function tx(v) { return (v && typeof v === 'object' && !Array.isArray(v)) ? (v[state.lang] || v.en || v.uk || '') : (v == null ? '' : v); }
 
 function renderTerritoryTree() {
   const T = (typeof window !== "undefined" && window.TERRITORY) || [];
@@ -5830,8 +5836,8 @@ function renderConceptDetail() {
     const width = Math.max(10, sec.bars / totalBars * 100);
     const selected = i === state.selectedSection ? " selected" : "";
     return `<button class="tl-block${selected}" data-sec="${i}" style="flex:${width} 1 0; background:${c.color}55">
-      <strong>${sec.name}</strong>
-      <small>${sec.note}</small>
+      <strong>${tx(sec.name)}</strong>
+      <small>${tx(sec.note)}</small>
     </button>`;
   }).join("");
 
@@ -5846,13 +5852,13 @@ function renderConceptDetail() {
   const exerciseHtml = state.showExercise
       ? `<div class="info-block">
           <h4>${t('exerciseHeading')}</h4>
-          <ol>${c.exercise.map(e => `<li>${e}</li>`).join("")}</ol>
+          <ol>${c.exercise.map(e => `<li>${tx(e)}</li>`).join("")}</ol>
           <div class="assessment">
-            <strong>${t('verificationHeading')}</strong> ${c.assessment}
+            <strong>${t('verificationHeading')}</strong> ${tx(c.assessment)}
           </div>
           <div class="daw-prompt">
             <strong>${t('dawPromptLabel')}</strong><br>
-            ${c.dawPrompt}
+            ${tx(c.dawPrompt)}
           </div>
           <button class="btn-toggle" id="hideExerciseBtn">${t('hideExercise')}</button>
         </div>`
@@ -5861,9 +5867,9 @@ function renderConceptDetail() {
     const decisionHtml = state.showDecision
       ? `<div class="info-block">
           <h4>${t('decisionHeading')}</h4>
-          <p class="decision-quote">${c.decision}</p>
+          <p class="decision-quote">${tx(c.decision)}</p>
           <h4 class="mistake-heading">${t('mistakeHeading')}</h4>
-          <p>${c.mistake}</p>
+          <p>${tx(c.mistake)}</p>
           <button class="btn-toggle" id="hideDecisionBtn">${t('hideDecision')}</button>
         </div>`
       : `<button class="btn-toggle" id="showDecisionBtn">${t('showDecision')}</button>`;
@@ -5885,14 +5891,14 @@ function renderConceptDetail() {
         <span class="concept-icon" style="background:${c.color}">★</span>
         <div>
           <h2>${ctitle(c)}</h2>
-          <p class="tagline">${c.tagline}</p>
-          <span class="root-badge">${c.rootProblem}</span>
+          <p class="tagline">${tx(c.tagline)}</p>
+          <span class="root-badge">${tx(c.rootProblem)}</span>
         </div>
       </div>
 
       <div class="info-block">
         <h4>${t('problemHeading')}</h4>
-        <p>${c.problem}</p>
+        <p>${tx(c.problem)}</p>
       </div>
 
       ${decisionHtml}
@@ -5958,8 +5964,8 @@ function renderFormDetail() {
   const secDetailHtml = `<div class="info-block section-detail">
     <h4>${currentSec.name}</h4>
     <p>${currentSec.function}</p>
-    <p class="concept-ref">Використовує <strong style="color:${secConcept?.color}">${secConcept?.title}</strong>
-      ${secConcept ? `— ${secConcept.tagline.toLowerCase()}` : ""}</p>
+    <p class="concept-ref">${state.lang === 'uk' ? 'Використовує' : 'Uses'} <strong style="color:${secConcept?.color}">${ctitle(secConcept)}</strong>
+      ${secConcept ? `— ${tx(secConcept.tagline).toLowerCase()}` : ""}</p>
   </div>`;
 
   // Generated by tags
