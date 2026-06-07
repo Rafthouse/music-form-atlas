@@ -1119,9 +1119,30 @@ const formArchetypes = [
           "Вокал як текстура, а не як оповідь — навіть коли є слова, вони підпорядковані ритму та настрою.",
           "Поступове нашарування замість дропів — енергія наростає через додавання, а не через різкі переходи.",
           "Фортепіано/акорди як центральний мелодичний елемент — успадковано від диско та госпелу."
-        ],
+                  ],
 
-        productionTradition: {
+                  compositionDecisions: {
+                    formBearer: "Повторюваний 4/4 ритм (four-on-the-floor) та простір реверберації. Не мелодія, не гармонія — ритмічний каркас і акустичний простір є носієм форми.",
+                    development: "Поступове нашарування елементів (add-only). Кожен новий шар (перкусія, бас, акорди, вокал) додається і залишається. Розвиток — через зміну щільності, а не через гармонійну зміну.",
+                    contrast: "Зняття елементів (break). Не дроп, не нова гармонія — контраст досягається тим, що зникає (зазвичай ритмічна секція), а не тим, що з'являється.",
+                    styleBreakers: [
+                      "Різкий дроп — чиказький хаус не має дропів, енергія наростає поступово",
+                      "Гармонійна складність — хаус тримається на простоті; 2–3 акорди на весь трек",
+                      "Сухий мікс — реверберація є частиною ритму, а не прикрасою",
+                      "Швидкі зміни — хаус потребує часу для нашарування; зміни кожні 16–32 такти"
+                    ]
+                  },
+
+                  designConstraints: {
+                    bpm: "118–130",
+                    sectionDuration: "16–32 такти (30–60 с)",
+                    contrastLevel: "Низький–Середній (25–40%)",
+                    density: "Низька–Середня (3–6 елементів одночасно)",
+                    harmonicComplexity: "Низька (1–3 акорди, часто статичні)",
+                    energyDynamics: "Поступове наростання — енергія зростає через додавання шарів, без різких піків"
+                  },
+
+                  productionTradition: {
           philosophy: "Чиказький хаус народився з обмежень — дешеве обладнання, малобюджетні студії, піратські радіостанції. Філософія: «зроби так, ніби ти граєш у клубі, а не будуєш студійний запис». Результат — звучання, де недосконалість стала естетикою, а простір — головним інструментом. Мінімум доріжок, максимум повітря, жива імпровізація на драм-машині.",
 
           coreTechniques: [
@@ -1973,7 +1994,10 @@ const formArchetypes = [
     // ------------------------------------------------------------
     // Ключові техніки з DAW-перекладами (4-5 технік)
     // ------------------------------------------------------------
-    coreTechniques: [
+    productionTradition: {
+      philosophy: "Даб-техно народилося в Берліні початку 1990-х, коли Basic Channel (Мориц фон Освальд і Марк Ернестус) поєднали детройтський мінімалізм із ямайською дабовою культурою. Філософія: простір — це інструмент. Реверберація і затримка не прикрашають звук — вони і є музикою. Замість того щоб додавати ноти, продюсер віднімає все зайве, поки не залишиться ритмічний пульс, суббас і нескінченний простір між ударами. Недосконалість аналогового обладнання (стрічкове ехо, пружинний ревербератор, шум вінілу) стає естетикою глибини. Це музика терпіння — форма розгортається повільно, гіпнотично, без дропів і кульмінацій.",
+
+      coreTechniques: [
       {
         name: "Даб-мікшинг (Send/Return автоматизація)",
         description: "Основа даб-техно. Кожен елемент треку має send на ревербератор та/або затримку. Автоматизація send-рівнів створює форму: елементи «входять» у простір і «виходять» з нього.",
@@ -2072,7 +2096,8 @@ const formArchetypes = [
         instruction: "Створи мікс із трьох треків: Radiance → M4 → Mango Drive. Слухай 30 хвилин без перерви. Не роби нічого. Просто слухай. Де ти знаходишся? У якому просторі? Як змінюється твій внутрішній стан? Це і є форма даб-техно — не музика, а архітектура простору.",
         focus: "Імерсивне прослуховування"
       }
-    ],
+      ]
+    },
 
     commonMistakes: [
       "Зловживання ревербом — простір стає «каламутним», а не глибоким. Контролюй decay та high-cut на reverb.",
@@ -2435,7 +2460,10 @@ const formArchetypes = [
     // ------------------------------------------------------------
     // Ключові техніки з DAW-перекладами (5 технік)
     // ------------------------------------------------------------
-    coreTechniques: [
+    productionTradition: {
+      philosophy: "Апліфтінг-транс — це інженерія ейфорії. Сформований у Нідерландах і Німеччині наприкінці 1990-х (Tiësto, Armin van Buuren, Ferry Corsten, ATB), він підпорядкував усе одній меті — емоційному підйому. Філософія: форма існує, щоб керувати почуттями слухача. Довгий брейкдаун скидає напругу, білд накопичує очікування через нашарування, а дроп вивільняє його разом із мелодійним хуком у мажорі. Кожен елемент — райзер, snare roll, supersaw, sidechain-пульсація — служить драматургії build–drop. Це не музика для аналізу, а музика для переживання: момент, коли руки злітають угору на головному дропі, і є справжньою формою.",
+
+      coreTechniques: [
       {
         name: "Нашарування Supersaw (Supersaw Layering)",
         description: "Базовий звук апліфтінг-трансу — supersaw, створений синтезатором Roland JP-8000. Кілька шарів supersaw з різною детюном (розстроєм) створюють потужний, «жирний» тембр. Важливість: акорди supersaw є емоційним центром дропу.",
@@ -2534,7 +2562,8 @@ const formArchetypes = [
         instruction: "Створи мікс з трьох треків: Children → For an Angel → Adagio. Слухай 20 хвилин. Записуй свій емоційний стан кожні 2 хвилини. Де ти відчуваєш підйом? Де спад? Як форма трансу керує твоєю емоцією? Чи відчуваєш ти маніпуляцію — і чи це погано?",
         focus: "Імерсивне прослуховування"
       }
-    ],
+      ]
+    },
 
     commonMistakes: [
       "Занадто короткий білд — ейфорія не встигає накопичитися. Мінімум 32 такти.",
@@ -2553,9 +2582,30 @@ const formArchetypes = [
       "Формула breakdown → build-up → drop як стандартна драматургічна одиниця",
       "Барабани: 4/4 кік, перкусія з snare rolls на білді",
       "Темп 134-140 BPM — швидший за хаус, що додає енергійність"
-    ]
-  },
-  {
+          ],
+
+          compositionDecisions: {
+            formBearer: "Мелодійний хук (supersaw акорди або синтезаторна тема) та енергетична дуга build–drop. Не ритм, не тембр — мелодійна тема, яка повертається в кожному дропі, є носієм форми.",
+            development: "Довгі білди (32–64 такти) з нашаруванням: райзер, snare roll, звуження фільтру, розширення стерео. Розвиток — це накопичення очікування, а не зміна матеріалу.",
+            contrast: "Дроп (вивільнення) VS брейкдаун (скидання). Контраст максимальний — від повної щільності до мінімальної (тільки пад або мелодія). Ключова зміна на фінальному дропі підсилює контраст.",
+            styleBreakers: [
+              "Занадто короткий білд — ейфорія не накопичується; мінімум 32 такти на білд",
+              "Дроп без мелодійного повернення — дроп має повертати тему, яку слухач вже знає",
+              "Відсутність ключової зміни — останній дроп має бути сильнішим за перший",
+              "Брейкдаун без простору — скидання має бути радикальним, щоб дроп відчувався свіжим"
+            ]
+          },
+
+          designConstraints: {
+            bpm: "134–140",
+            sectionDuration: "32–64 такти для білду; 16–32 такти для дропу та брейкдауну",
+            contrastLevel: "Високий (60–80%) — максимальний контраст між білдом і дропом",
+            density: "Висока (6–10 елементів одночасно на дропі); низька (2–4) на брейкдауні",
+            harmonicComplexity: "Середня (4–8 акордів, мажорна тональність, можлива ключова зміна)",
+            energyDynamics: "Драматична: плато → довге наростання → пік (дроп) → спад (брейкдаун) → повтор"
+          }
+        },
+        {
     id: "psytrance",
     name: "Психоделічний Транс",
     bpm: "140–150",
@@ -2889,7 +2939,10 @@ const formArchetypes = [
       }
     ],
 
-    coreTechniques: [
+    productionTradition: {
+      philosophy: "Глибокий дабстеп виріс із південного Лондона середини 2000-х (DMZ, Tempa, Mala, Loefah, Skream) на фундаменті ямайської саундсистемної культури. Філософія: вага важливіша за гучність. Суббас, який відчувається тілом, простір, який можна почути, і тиша, яка має сенс. Half-time ритм (140 BPM, що звучить як 70) дає простір диханню — між ударами кіка й снайпа лишається порожнеча, у якій живе реверб. Це медитація на басі: замість того щоб атакувати слухача енергією, deep dubstep занурює його в глибину. Кульмінація — не вибух, а повернення суббасу після паузи.",
+
+      coreTechniques: [
       {
         name: "Суббас як мелодія",
         description: "Суббас у deep dubstep виконує не тільки ритмічну, але й мелодичну функцію. Чистий синусоїдальний тон (суб) рухається по висоті, створюючи басову лінію, яка є головною темою треку.",
@@ -2950,7 +3003,8 @@ const formArchetypes = [
       "5️⃣ «Anti-War Dub» (Digital Mystikz, 2005) — Послухай як даб-ефекти (реверб, дилей) стають частиною аранжування. Як ехо «живе» після того, як звук закінчився? Чи можна почути звук, який існує тільки в ревербі?",
       "6️⃣ «Night Dub» (Pinch, 2006) — Зверни увагу на переходи між секціями. Як Pinch сигналізує про зміну? Через фільтрацію? Тишу? Новий елемент? Як довго триває кожна секція?",
       "7️⃣ Підсумок — Повернися до «Archangel». Чи чуєш тепер структуру інакше? Спробуй намалювати форму треку: лінія часу з позначками подій (вхід біту, зміна басу, пауза, повернення). Який профіль має deep dubstep порівняно з club-arc?"
-    ],
+      ]
+    },
 
     commonMistakes: [
       "Забувати про простір: deep dubstep «дихає» паузами, а не заповнює їх. Новачки часто намагаються заповнити кожну чверть звуком.",
@@ -2968,9 +3022,30 @@ const formArchetypes = [
       "Дабові ефекти (long reverb, ping-pong delay, spring reverb) як структурні елементи, а не прикраси.",
       "Атмосферні семпли (дощ, радіо, вініл, голоси) як текстура глибини.",
       "Просторове мікшування: суб-бас по центру, реверб і дилей у стерео-полях, перкусія з мінімальною стерео-шириною."
-    ],
+          ],
 
-    glossary: [
+          compositionDecisions: {
+            formBearer: "Суббас (30–80 Гц) та простір між ударами. Не мелодія, не ритм як такий — басова лінія, яка «співає» на суб-частотах, і тиша між ударами є носіями форми.",
+            development: "Повільна мутація басової лінії (LFO модуляція, зміна висоти) та еволюція простору (збільшення/зменшення реверберації). Розвиток — це зміна «ваги» звуку, а не додавання матеріалу.",
+            contrast: "Зміна щільності текстури: від 2–3 елементів до повної тиші (тільки реверб/дилей). Контраст — це не поява нового, а зникнення майже всього. Повернення басу після паузи — головна подія.",
+            styleBreakers: [
+              "Дроп у стилі brostep — deep dubstep не має вибухових дропів; кульмінація — глибина, не гучність",
+              "Заповнення кожної паузи — простір є інструментом; слухач має чути тишу",
+              "Мелодійний хук у мід-регістрі — бас і текстура замінюють мелодію",
+              "Швидкі зміни — глибокі зміни кожні 16–32 такти; форма дихає повільно"
+            ]
+          },
+
+          designConstraints: {
+            bpm: "138–142 (half-time відчуття 69–71 BPM)",
+            sectionDuration: "16–32 такти (30–60 с); паузи 4–8 тактів",
+            contrastLevel: "Низький–Середній (20–40%). Контраст — через простір і зникнення, не через появу",
+            density: "Низька (2–4 елементи одночасно; часто тільки суб + один перкусійний елемент)",
+            harmonicComplexity: "Мінімальна (1–3 ноти, без акордів; басова лінія як мелодія)",
+            energyDynamics: "Рівна, гіпнотична — енергія не піднімається і не падає; вона розширюється всередину, у глибину простору"
+          },
+
+          glossary: [
       { term: "Half-time", definition: "Ритмічна структура, де кік і снайп розташовані на вдвічі меншій кількості бітів, ніж очікується при цьому темпі. 140 BPM звучить як 70 BPM." },
       { term: "Суббас (Sub-bass)", definition: "Чистий синусоїдальний звук у діапазоні 30–80 Гц, який відчувається тілом, а не вухом. Головний елемент deep dubstep." },
       { term: "Даб (Dub)", definition: "Ямайська техніка обробки звуку — реверб, дилей, ехо, фільтрація. Ключовий вплив на deep dubstep." },
@@ -3331,7 +3406,10 @@ const formArchetypes = [
       }
     ],
 
-    coreTechniques: [
+    productionTradition: {
+      philosophy: "Нейрофанк — це звуковий дизайн, що став композицією. Він виріс із техстепу наприкінці 1990-х (Ed Rush & Optical, Bad Company), а в 2000-х досяг технічної вершини завдяки Noisia, Phace і Black Sun Empire. Філософія: бас не повторюється — він мутує. Reese-бас, оброблений multiband-технікою, LFO-модуляцією й дисторшном, стає головним носієм форми: кожна секція — нова басова текстура, інженерно сконструйована з нуля. Темна sci-fi естетика, double-time барабани зі складними синкопами й агресивний sidechain створюють відчуття точної, футуристичної машини. Це найтехнічніший різновид драм-енд-басу, де форма тримається на постійній трансформації тембру, а не на повторенні.",
+
+      coreTechniques: [
       {
         name: "Reese-бас: конструкція",
         description: "Класичний Reese-бас: два (або більше) осцилятори з пилкоподібною хвилею, злегка детюновані (5–15 центів), пропущені через low-pass фільтр. Це створює «товстий», хвилюючий звук за рахунок фазової інтерференції між двома майже ідентичними хвилями.",
@@ -3392,7 +3470,8 @@ const formArchetypes = [
       "5️⃣ «Chain Smoker» (Phace, 2010) — Зверни увагу на multiband бас. Чи чуєш, що суб-частота стабільна, а мід-частоти рухаються? Це — multiband обробка. Як змінюється тембр басу від дропу до дропу?",
       "6️⃣ «Laser» (Black Sun Empire, 2004) — Послухай звуковий дизайн. Sci-fi звуки, ефекти, glitch. Як кожен новий звук створює подію? Чи можна уявити цей трек як звукову доріжку до фільму?",
       "7️⃣ Підсумок — Повернися до «Stigma». Чи чуєш тепер три шари: sub (стабільний), Reese (середній, мутує), гармоніки (верх, distortion)? Спробуй намалювати структуру треку: лінія часу з позначками: інтро → білд → дроп (бас відкривається) → брейкдаун → другий дроп. Як довго триває кожна секція?"
-    ],
+      ]
+    },
 
     commonMistakes: [
       "Надмірно складний Reese-бас без структурного контексту — звуковий дизайн має служити формі, а не існувати окремо.",
@@ -3411,9 +3490,30 @@ const formArchetypes = [
       "Кінематографічна, sci-fi атмосфера та індустріальне звучання.",
       "Щільний, агресивний мікс із максимальною гучністю (multiband компресія + лімітер).",
       "Лінійна форма: новий басовий тембр у кожній секції замість повторення змін."
-    ],
+          ],
 
-    glossary: [
+          compositionDecisions: {
+            formBearer: "Reese-бас, що мутує через LFO та multiband обробку. Не мелодія, не гармонія — багатошаровий бас, який постійно змінює тембр, є носієм форми. Кожна секція = нова басова текстура.",
+            development: "Мутація басового тембру (детюнінг, distortion, фільтрація, LFO modulation) та double-time барабанна нарізка. Розвиток — це звуковий дизайн у реальному часі: бас не повторюється, а трансформується.",
+            contrast: "Зміна басової текстури (відкриття/закриття фільтру, додавання/зняття distortion) та скидання до мінімальної щільності (брейкдаун). Контраст — це нова «версія» басу, а не новий матеріал.",
+            styleBreakers: [
+              "Статичний бас — нейрофанк вимагає постійної мутації тембру; той самий бас протягом треку — вбиває форму",
+              "Мелодійний хук замість басової текстури — акцент на тембрі, а не на мелодії",
+              "М'який sidechain — без агресивної компресії (ratio 6:1–10:1) немає pump-ефекту",
+              "Слабкий звуковий дизайн — кожен басовий тембр має бути результат інженерії, а не пресету"
+            ]
+          },
+
+          designConstraints: {
+            bpm: "172–180",
+            sectionDuration: "8–16 тактів (10–30 с); секції коротші через високий темп",
+            contrastLevel: "Високий (60–80%) — нова басова текстура в кожній секції",
+            density: "Висока (6–10 елементів одночасно); щільний, агресивний мікс",
+            harmonicComplexity: "Низька (1–3 ноти; акцент на тембрі, не на гармонії)",
+            energyDynamics: "Імпульсивна, лінійна — енергія наростає через ускладнення басової текстури, без спадів до кінця"
+          },
+
+          glossary: [
       { term: "Reese-бас", definition: "Бас, створений двома (або більше) детюнованими осциляторами. Фазова інтерференція між ними створює пульсацію. Названий на честь треку Reese — «Just Want Another Chance»." },
       { term: "Neuro-бас", definition: "Еволюція Reese — бас із багатосмуговою обробкою. Суб стабільний, середні частоти мутуть через LFO, високі оброблені distortion. Ключовий елемент нейрофанку." },
       { term: "Sidechain компресія", definition: "Техніка, коли один звук (зазвичай кік) контролює компресію іншого (зазвичай басу). Бас «зникає» при ударі кіка, створюючи pump-ефект." },
@@ -5365,6 +5465,8 @@ const state = {
   showFamilies: false,
     showProductionTradition: false,
     showDawTranslation: false,
+    activeDaw: "ableton",           // "ableton" | "flStudio" | "logic"
+    famOpen: {},                    // per-family toggles, keyed by `${section}_${famId}`
         showCompositionDecisions: false,
         showDesignConstraints: false,
         selectedSection: 0
@@ -5566,6 +5668,16 @@ function toggle(stateKey) {
 
 function toggleLang() {
   state.lang = state.lang === "uk" ? "en" : "uk";
+  render();
+}
+
+function setDaw(daw) {
+  state.activeDaw = daw;
+  render();
+}
+
+function toggleFam(key) {
+  state.famOpen[key] = !state.famOpen[key];
   render();
 }
 
@@ -6053,11 +6165,11 @@ function renderFormDetail() {
 
               ${fam.productionTradition ? `
               <div class="family-prod-trad">
-                <div class="prod-trad-header" onclick="event.stopPropagation(); toggle('showProductionTradition')" style="cursor:pointer">
+                <div class="prod-trad-header" onclick="event.stopPropagation(); toggleFam('pt_${fam.id}')" style="cursor:pointer">
                   <strong>🔧 ${t('productionTraditionLabel') || 'Традиція продакшну'}</strong>
-                  <span>${state.showProductionTradition ? '▲' : '▼'}</span>
+                  <span>${state.famOpen['pt_' + fam.id] ? '▲' : '▼'}</span>
                 </div>
-                ${state.showProductionTradition ? `
+                ${state.famOpen['pt_' + fam.id] ? `
                   <div class="prod-trad-body">
                     <p class="prod-philosophy"><em>Філософія:</em> ${fam.productionTradition.philosophy}</p>
                     ${fam.productionTradition.coreTechniques ? fam.productionTradition.coreTechniques.map(tech => `
@@ -6069,11 +6181,11 @@ function renderFormDetail() {
                         ${tech.dawTranslation ? `
                           <div class="tech-daw">
                             <div class="daw-tabs">
-                              ${tech.dawTranslation.ableton ? `<button class="daw-tab" onclick="toggle('showDawTranslation')">Ableton</button>` : ''}
-                              ${tech.dawTranslation.flStudio ? `<button class="daw-tab">FL Studio</button>` : ''}
-                              ${tech.dawTranslation.logic ? `<button class="daw-tab">Logic Pro</button>` : ''}
+                              ${tech.dawTranslation.ableton ? `<button class="daw-tab${state.activeDaw === 'ableton' ? ' active' : ''}" onclick="event.stopPropagation(); setDaw('ableton')">Ableton</button>` : ''}
+                              ${tech.dawTranslation.flStudio ? `<button class="daw-tab${state.activeDaw === 'flStudio' ? ' active' : ''}" onclick="event.stopPropagation(); setDaw('flStudio')">FL Studio</button>` : ''}
+                              ${tech.dawTranslation.logic ? `<button class="daw-tab${state.activeDaw === 'logic' ? ' active' : ''}" onclick="event.stopPropagation(); setDaw('logic')">Logic Pro</button>` : ''}
                             </div>
-                            ${state.showDawTranslation && tech.dawTranslation.ableton ? `<pre class="daw-code">${tech.dawTranslation.ableton}</pre>` : ''}
+                            <pre class="daw-code">${tech.dawTranslation[state.activeDaw] || tech.dawTranslation.ableton || tech.dawTranslation.flStudio || tech.dawTranslation.logic}</pre>
                           </div>
                         ` : ''}
                       </div>
@@ -6082,7 +6194,7 @@ function renderFormDetail() {
                       <div class="listening-path">
                         <strong>Listening Pathway</strong>
                         <ol>${fam.productionTradition.listeningPathway.map(lp => `
-                          <li><strong>${lp.track}</strong> — ${lp.insight}</li>
+                          <li>${typeof lp === 'string' ? lp : ('<strong>' + (lp.track || lp.title) + '</strong> — ' + (lp.insight || lp.instruction))}</li>
                         `).join('')}</ol>
                       </div>
                     ` : ''}
@@ -6092,11 +6204,11 @@ function renderFormDetail() {
 
                             ${fam.compositionDecisions ? `
                             <div class="family-decisions">
-                              <div class="decisions-header" onclick="event.stopPropagation(); toggle('showCompositionDecisions')" style="cursor:pointer">
+                              <div class="decisions-header" onclick="event.stopPropagation(); toggleFam('cd_${fam.id}')" style="cursor:pointer">
                                 <strong>🎯 ${t('compositionDecisionsLabel')}</strong>
-                                <span>${state.showCompositionDecisions ? '▲' : '▼'}</span>
+                                <span>${state.famOpen['cd_' + fam.id] ? '▲' : '▼'}</span>
                               </div>
-                              ${state.showCompositionDecisions ? `
+                              ${state.famOpen['cd_' + fam.id] ? `
                                 <div class="decisions-body">
                                   <div class="decision-item"><strong>${t('formBearerLabel')}:</strong><p>${fam.compositionDecisions.formBearer}</p></div>
                                   <div class="decision-item"><strong>${t('developmentLabel')}:</strong><p>${fam.compositionDecisions.development}</p></div>
@@ -6110,11 +6222,11 @@ function renderFormDetail() {
 
                             ${fam.designConstraints ? `
                             <div class="family-constraints">
-                              <div class="constraints-header" onclick="event.stopPropagation(); toggle('showDesignConstraints')" style="cursor:pointer">
+                              <div class="constraints-header" onclick="event.stopPropagation(); toggleFam('dc_${fam.id}')" style="cursor:pointer">
                                 <strong>📐 ${t('designConstraintsLabel')}</strong>
-                                <span>${state.showDesignConstraints ? '▲' : '▼'}</span>
+                                <span>${state.famOpen['dc_' + fam.id] ? '▲' : '▼'}</span>
                               </div>
-                              ${state.showDesignConstraints ? `
+                              ${state.famOpen['dc_' + fam.id] ? `
                                 <div class="constraints-body">
                                   <div class="constraint-row"><span class="constraint-key">BPM</span><span class="constraint-val">${fam.designConstraints.bpm}</span></div>
                                   <div class="constraint-row"><span class="constraint-key">${t('sectionDurationLabel') || 'Тривалість секцій'}</span><span class="constraint-val">${fam.designConstraints.sectionDuration}</span></div>
@@ -6241,6 +6353,7 @@ function selectForm(id) {
   state.showFamilies = false;
   state.showProductionTradition = false;
   state.showDawTranslation = false;
+  state.famOpen = {};
   render();
 }
 

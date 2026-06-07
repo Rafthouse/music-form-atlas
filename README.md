@@ -1,91 +1,91 @@
 # Music Form Atlas
 
-**Version:** v1.1-beta  
-**Status:** Architecture frozen — Curriculum in development  
-**Pedagogical validation:** 20 tracks across 8 genres (90%+ coverage for architectural forms)
+**Version:** v2.0a
+**Status:** Architecture frozen — active content expansion (deep-deploy families)
+**Live:** https://rafthouse.github.io/music-form-atlas/
 
 ---
 
 ## What is this?
 
-Music Form Atlas — not a musicology classification, not a philosophical ontology.
+Music Form Atlas is not a musicology classification, not a philosophical ontology, and not a
+template library.
 
-A **decision tool** for composers.
+It is a **tool for compositional decision-making** — a system that helps a composer make
+conscious, informed choices about musical form.
 
-Every concept in Atlas answers one question: *"What do I do next?"*
+Every concept in Atlas answers one question: *"I have a loop. What do I do next?"*
 
----
+The primary audience is **composers, producers, and teachers** (students benefit when guided by
+a teacher). All content is in Ukrainian; English is currently UI labels only.
 
-## Atlas Core (v1.1)
-
-The minimum set of knowledge that makes a composer stronger:
-
-| Concept | Function |
-|---|---|
-| **Segmentation** | Where does one idea end and another begin? |
-| **Repetition** | When to return to material that already sounded? |
-| **Contrast** | When is material changed enough for the listener to feel it? |
-| **Directionality** | Where am I in the form, and what does that mean for the next step? |
-
-These four concepts are sufficient for a beginner to build a clear, direction-driven, and engaging form.
+> Full context lives in `ARCHITECTS_BRIEF_FOR_CLAUDE.md` (the most complete handover document)
+> and `CONTEXT_TRANSFER_TO_CLAUDE.md`.
 
 ---
 
-## Atlas Extended
+## The Two Root Problems (frozen)
 
-Additional tools for meso- and micro-level work:
+Every form decision traces to one of two fundamental problems:
 
-Transition, Form Archetypes, Tension, Release, Climax, Variation, Density Control
+1. **Balance of Predictability and Novelty** → Repetition, Variation, Contrast
+2. **Organization of Musical Time** → Segmentation, Directionality, Transition
 
----
-
-## ⚠️ Architecture Notice
-
-This repository contains **two layers**:
-
-1. **Pedagogical architecture** (documented in `ARCHITECTURE.md`, `ATLAS_CORE.md`) — describes Atlas Core v1.1: Segmentation, Repetition, Contrast, Directionality as the minimum set of concepts for teaching form.
-
-2. **Interactive prototype** (`index.html` + `app.js`) — implements the **previous** form-archetype model (Club arc, Verse-chorus, Rondo, Process-based minimal). The prototype has not yet been refactored to Core-concept-first browsing. This is planned for v1.2.
-
-The documentation is architecturally authoritative. The UI is transitional.
+From these derive the four **Core Concepts**: Segmentation, Repetition, Contrast, Directionality.
 
 ---
 
-## Interactive Atlas (this repo)
+## Ontology
 
-A static HTML/JS prototype that visualizes form archetypes through an interactive timeline.
+```
+Two Root Problems
+  └── Core Concepts (4)
+        └── Form Archetypes (10) — compositional strategies
+              └── Implementation Families — genre-specific instances
+                    └── Canonical Works + Production Tradition + DAW Translation
+                          └── Composition Decisions + Design Constraints
+```
 
-Built for teachers and students to explore form architecture by ear.
+Everything above *Implementation Families* is frozen. Everything below is where expansion happens.
+
+---
+
+## Form Archetypes (10)
+
+Verse-Chorus · Club Arc · Rondo · 12-Bar Blues · Process-Based Minimal · Theme & Variations ·
+Through-Composed · Head-Solo-Head · Sonata-Allegro · Drone.
+
+Each archetype carries ~12 content depth layers (section knowledge, failure analysis, variants,
+canonical tracks with structural analysis, self-diagnosis, genre transfer, DAW exercise,
+listening exercise, comparisons, glossary, teacher notes, deviations).
+
+**23 implementation families total.** Club Arc is the flagship: 13 families, 6 of them
+deep-deployed (Chicago House, Detroit Techno, Dub Techno, Uplifting Trance, Deep Dubstep,
+Neurofunk) with full production tradition, DAW translation (Ableton / FL Studio / Logic Pro),
+composition decisions, and design constraints.
+
+---
+
+## Two Applications
+
+| App | URL | Purpose |
+|---|---|---|
+| **Core Atlas** | `/` | Concept-first learning — archetypes, families, decision framework |
+| **Classic Atlas** | `/classic/` | Form library — 33+ forms with energy curves and tension layers |
+
+They are independent (each has its own `index.html`, `app.js`, `styles.css`). No build step, no
+framework, no backend — plain static HTML/JS.
 
 ### Run
 
-Open `index.html` in a browser.
-
-### Features
-
-- Form library with club/electronic, pop/song, classical, and contemporary examples
-- Horizontal timeline with clickable sections
-- Section explanations in simple/professional teacher modes
-- Filters by genre, form, tempo, and difficulty
-- Compare mode for nearby forms
+Open `index.html` in a browser (or serve the folder with any static server).
 
 ---
 
-## Validation
+## Deployment
 
-Atlas Core v1.1 was validated against 20 tracks across 8 genres:
-
-- Pop (3/3 fully covered)
-- Rock (3/3 — 2 fully, 1 mostly)
-- Hip-Hop (3/3 fully covered)
-- Techno (1/3 fully, 2 process-based — outside scope)
-- Ambient (0/3 — generative/drone forms outside scope)
-- Classical (2/2 fully covered)
-- Jazz (2/2 mostly covered)
-- Film Music (1/1 fully covered)
-
-**Critical blind spots: 0**  
-Process-based forms (minimal techno, generative ambient, drone) operate in a different compositional paradigm — they belong to an advanced layer, not the Core.
+GitHub Pages from `main` branch root. Auto-deploy on push (`.github/workflows/pages.yml`).
+No build step. This simplicity is a feature.
 
 ---
 
