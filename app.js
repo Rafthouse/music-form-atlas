@@ -6467,36 +6467,41 @@ function renderStubDetail() {
 
   let body;
   if (C) {
+    const block = (title, inner) => inner ? `<div class="form-block"><h3 class="form-h">${title}</h3>${inner}</div>` : '';
+    // 1. Identity
+    const identity = C.what ? `<p class="form-lead">${C.what}</p>` : '';
+    // 2. Core decision
+    const decision = C.dec ? block(en ? 'Core compositional decision' : 'Ключове композиційне рішення', `<p class="form-p form-decision">${C.dec}</p>`) : '';
+    // 3. Structural diagram
     const seq = C.seq || [];
-    const diagram = seq.length
-      ? seq.map(s => `<span class="seq-block">${s}</span>`).join('<span class="seq-arrow">→</span>')
-      : '—';
-    const works = (C.works || []).map(w => `<li>${w}</li>`).join('');
-    const related = (C.rel || []).map(rid => {
+    const diagram = seq.length ? block(en ? 'Structure' : 'Структура',
+      `<div class="seq-diagram">${seq.map(s => `<span class="seq-block">${s}</span>`).join('<span class="seq-arrow">→</span>')}</div>`) : '';
+    // 4. Section logic
+    const sections = (C.sections && C.sections.length) ? block(en ? 'Section logic' : 'Логіка секцій',
+      `<div class="sec-logic">${C.sections.map(s => `<div class="sec-row"><span class="sec-name">${s.n}</span><span class="sec-purpose">${s.p}</span></div>`).join('')}</div>`) : '';
+    // 5. Recognition guide
+    const recognize = (C.recognize && C.recognize.length) ? block(en ? 'Recognition guide' : 'Як упізнати',
+      `<ul class="recog-list">${C.recognize.map(r => `<li>${r}</li>`).join('')}</ul>`) : '';
+    // 6. History
+    const history = C.his ? block(en ? 'Historical context' : 'Історичний контекст', `<p class="form-p">${C.his}</p>`) : '';
+    // 7. Canonical works (string or {w, why})
+    const worksHtml = (C.works || []).map(w => typeof w === 'string'
+      ? `<li>${w}</li>`
+      : `<li><strong>${w.w}</strong>${w.why ? ` — <span class="work-why">${w.why}</span>` : ''}</li>`).join('');
+    const works = worksHtml ? block(en ? 'Canonical works' : 'Канонічні твори', `<ul class="works-list">${worksHtml}</ul>`) : '';
+    // 8. Neighbor forms
+    const relHtml = (C.rel || []).map(rid => {
       const rf = findTerrForm(rid);
       return rf ? `<span class="rel-chip" data-open="${rid}">${rf.fm.name}</span>` : '';
     }).join('');
-    body = `
-      <div class="form-block">
-        <h3 class="form-h">${en ? 'Structure' : 'Структура'}</h3>
-        <div class="seq-diagram">${diagram}</div>
-      </div>
-      <div class="form-block">
-        <h3 class="form-h">${en ? 'Core compositional decision' : 'Ключове композиційне рішення'}</h3>
-        <p class="form-p">${C.dec || ''}</p>
-      </div>
-      <div class="form-block">
-        <h3 class="form-h">${en ? 'Historical context' : 'Історичний контекст'}</h3>
-        <p class="form-p">${C.his || ''}</p>
-      </div>
-      <div class="form-block">
-        <h3 class="form-h">${en ? 'Canonical works' : 'Канонічні твори'}</h3>
-        <ul class="works-list">${works || '<li>—</li>'}</ul>
-      </div>
-      ${related ? `<div class="form-block">
-        <h3 class="form-h">${en ? 'Related forms' : 'Пов’язані форми'}</h3>
-        <div class="rel-chips">${related}</div>
-      </div>` : ''}`;
+    const related = relHtml ? block(en ? 'Neighbor forms' : 'Сусідні форми', `<div class="rel-chips">${relHtml}</div>`) : '';
+    // 9. Concept mapping
+    const CM = { seg: ['Segmentation', 'Сегментація', '#5bbcff'], rep: ['Repetition', 'Повторення', '#f6c85f'], con: ['Contrast', 'Контраст', '#ed6a73'], dir: ['Directionality', 'Напрямок', '#b78cff'] };
+    const cmRows = C.concepts ? Object.keys(CM).filter(k => C.concepts[k]).map(k =>
+      `<div class="cmap-row"><span class="cmap-dot" style="background:${CM[k][2]}"></span><span class="cmap-name" style="color:${CM[k][2]}">${en ? CM[k][0] : CM[k][1]}</span><span class="cmap-note">${C.concepts[k]}</span></div>`).join('') : '';
+    const concepts = cmRows ? block(en ? 'Concept mapping' : 'Зв’язок із концептами', `<div class="concept-map">${cmRows}</div>`) : '';
+
+    body = identity + decision + diagram + sections + recognize + history + works + related + concepts;
   } else {
     body = `<div class="stub-card">
       <p class="stub-badge">${t('stubLabel')}</p>

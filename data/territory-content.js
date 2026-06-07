@@ -8,14 +8,63 @@
 window.TERRITORY_CONTENT = {
 
   /* ===== additions ===== */
-  "bar-fugue": { seq:["Exposition (subject + answers)","Episode","Middle entries","Stretto","Final"], dec:"Generate an entire piece from one subject imitated through every voice.", his:"The summit of Baroque counterpoint; Bach's «Well-Tempered Clavier» is the canon.", works:["Bach «The Art of Fugue»","Bach «Well-Tempered Clavier» (48)","Bach «Toccata and Fugue in D minor» BWV 565"], rel:["bar-canon","ren-ricercar","bar-invention"] },
+  "bar-fugue": {
+    what:"A fugue is a contrapuntal form in which one theme (the subject) is imitated in turn by every voice, then developed continuously through entries and connecting episodes.",
+    dec:"How can one short idea generate an entire piece purely through imitation?",
+    seq:["Exposition","Episode","Middle entries","Episode","Stretto","Final cadence"],
+    sections:[
+      {n:"Subject",p:"States the primary identity in the first voice."},
+      {n:"Answer",p:"Restates the subject in another voice, transposed (usually to the dominant)."},
+      {n:"Countersubject",p:"Recurring counterpoint that accompanies later subject entries."},
+      {n:"Episode",p:"Modulating passage between entries, spun from fragments of the subject."},
+      {n:"Stretto",p:"Overlapping subject entries that compress the theme toward the climax."} ],
+    recognize:[
+      "The same theme re-enters voice by voice, staggered in time.",
+      "Independent, equal melodic lines — not melody plus accompaniment.",
+      "Episodes (subject absent) alternate with entries (subject present).",
+      "Often a climactic stretto where entries overlap.",
+      "Ends with a firm cadence in the home key." ],
+    his:"The fugue crystallised in the Baroque (17th–early 18th c.) from the Renaissance imitative motet and the ricercar. It answered a need for extended, rigorous instrumental argument; J.S. Bach (d.1750) brought it to its summit and it remained the benchmark of compositional craft long afterward.",
+    works:[
+      {w:"J.S. Bach — The Well-Tempered Clavier (1722, 1742)",why:"48 preludes and fugues in every key; the central reference work for the form."},
+      {w:"J.S. Bach — The Art of Fugue (c.1740s)",why:"An encyclopaedic exploration of one subject through every fugal device."},
+      {w:"J.S. Bach — Toccata and Fugue in D minor, BWV 565",why:"The most famous organ fugue, paired with a free toccata."},
+      {w:"Beethoven — Grosse Fuge, Op.133 (1825)",why:"The fugue pushed into Romantic harmonic extremes."},
+      {w:"Shostakovich — 24 Preludes and Fugues, Op.87 (1951)",why:"A 20th-century homage to Bach's cycle."} ],
+    rel:["bar-canon","ren-ricercar","bar-invention","ren-motet"],
+    concepts:{ rep:"Maximal — the subject recurs constantly across all voices.", con:"Episodes contrast with entries; voices contrast in register and direction.", dir:"The tonal plan and the stretto drive toward the final cadence.", seg:"Entries vs episodes segment an otherwise continuous flow." }
+  },
   "bar-cantatamov": { seq:["Ritornello","Vocal section","Ritornello"], dec:"Shape one self-contained movement (chorus, aria or recit) of a larger cantata.", his:"The building blocks of the Lutheran church cantata.", works:["Bach «Wachet auf» (opening chorus)","Bach cantata arias","Bach «Herz und Mund» movements"], rel:["sac-cantata","bar-ritornelloaria"] },
   "bar-passionchorale": { seq:["Chorale phrase","Fermata cadence","(repeat)"], dec:"Punctuate a Passion with congregational chorales for collective reflection.", his:"Bach interleaves chorales with narrative in his Passions.", works:["Bach «O Haupt voll Blut und Wunden» (St Matthew)","Bach «St John Passion» chorales","«Herzliebster Jesu»"], rel:["sac-chorale","bar-choraleprelude"] },
   "mod-klangfarben": { seq:["Melody split across timbres","Tone-colour succession"], dec:"Distribute a line across instruments so timbre itself becomes melodic (Klangfarbenmelodie).", his:"Schoenberg's concept; Webern's pointillism realised it.", works:["Schoenberg «Farben» (Op.16 No.3)","Webern Op.10 pieces","Webern orchestration of Bach's Ricercar"], rel:["mod-soundmass","mod-spectral"] },
   "op-verismo": { seq:["Continuous dramatic scene","Climactic aria"], dec:"Set raw, realistic emotion in continuous verismo drama.", his:"Late-19th-c. Italian verismo (Mascagni, Leoncavallo, Puccini).", works:["Leoncavallo «Vesti la giubba» (Pagliacci)","Mascagni «Cavalleria rusticana»","Puccini «Tosca»"], rel:["op-scena","op-leitmotif"] },
 
   /* ===== MEDIEVAL ===== */
-  "med-gregorian": { seq:["Incipit","Recitation (tenor)","Mediant","Termination"], dec:"Project sacred text with one unaccompanied line — melody serves the words, not the reverse.", his:"Codified across the Frankish church (8th–9th c.), later mythologised as the work of Pope Gregory I.", works:["Graduale «Viderunt omnes»","Antiphon «Salve Regina»","Hymn «Veni Creator Spiritus»"], rel:["med-organum-par","med-sequence","sac-gregorian"] },
+  "med-gregorian": {
+    what:"Gregorian chant is the monophonic, unaccompanied sacred song of the Roman Catholic liturgy, setting Latin text in free rhythm and the church modes.",
+    dec:"How can a single melodic line create direction and meaning without harmony or a regular beat?",
+    seq:["Intonation","Recitation (tenor)","Mediant cadence","Recitation","Termination"],
+    sections:[
+      {n:"Intonation",p:"Rising opening figure that establishes the mode."},
+      {n:"Tenor (reciting tone)",p:"Repeated pitch on which most of the text is chanted."},
+      {n:"Mediant",p:"Mid-verse cadential inflection that articulates the text."},
+      {n:"Termination",p:"Closing formula that settles back on the modal final."} ],
+    recognize:[
+      "One unaccompanied melodic line — no harmony.",
+      "Free, speech-derived rhythm with no steady beat.",
+      "Latin liturgical text.",
+      "Melody centred on a reciting tone with formulaic cadences.",
+      "Modal (not major/minor) colour." ],
+    his:"Consolidated across the Frankish Empire in the 8th–9th centuries by blending Roman and Gallican chant, and later attributed to Pope Gregory I (d.604). It gave Western Christendom a unified, memorable musical liturgy and became the foundation from which staff notation and polyphony grew.",
+    works:[
+      {w:"Graduale «Viderunt omnes»",why:"A melismatic Christmas gradual later set in polyphony by Léonin and Pérotin."},
+      {w:"Antiphon «Salve Regina»",why:"One of the most widely sung Marian chants."},
+      {w:"Hymn «Veni Creator Spiritus»",why:"A strophic hymn central to the liturgy and much later quoted."},
+      {w:"Sequence «Dies irae»",why:"A chant melody quoted by composers for centuries as a symbol of death."},
+      {w:"Hymn «Ut queant laxis»",why:"Its line-openings gave the solfège note-names (ut–re–mi…)."} ],
+    rel:["med-organum-par","med-sequence","sac-byzantine","folk-dronetune"],
+    concepts:{ seg:"Phrases segment the text into breath-units marked by cadences.", rep:"The reciting tone repeats one pitch; cadential formulas recur.", con:"Deliberately low — uniform, restrained colour.", dir:"Melodic contour and cadence formulas, not harmony, supply direction." }
+  },
   "med-ambrosian": { seq:["Intonation","Melisma","Cadence"], dec:"Keep a regional rite's melodic identity distinct from Roman chant.", his:"Milanese rite linked to St Ambrose (4th c.), surviving independently to today.", works:["«Aeterne rerum conditor»","Ambrosian «Gloria»","«Hymnum dicat»"], rel:["med-gregorian","med-byzantine"] },
   "med-byzantine": { seq:["Ison (drone)","Melodic line","Cadence"], dec:"Build melody over a sustained vocal drone (ison) instead of harmony.", his:"Eastern Orthodox chant tradition, systematised in the Byzantine Empire from the 6th c.", works:["«Agni Parthene»","Cherubic Hymn","«Ti Ypermacho»"], rel:["med-gregorian","folk-pibroch"] },
   "med-sequence": { seq:["Versicle A","Versicle A′","… paired verses","Final"], dec:"Set a long text in paired verses, each pair sharing a melody.", his:"Flourished 9th–16th c.; most were banned at the Council of Trent (1545–63).", works:["«Dies irae»","«Victimae paschali laudes»","«Stabat Mater»"], rel:["med-trope","med-gregorian"] },
@@ -30,7 +79,27 @@ window.TERRITORY_CONTENT = {
   "med-notredame": { seq:["Tenor","Duplum","(Triplum/Quadruplum)"], dec:"Build measured polyphony over a chant tenor using rhythmic modes.", his:"Léonin & Pérotin at Notre-Dame de Paris (c.1160–1230); first rhythmic notation.", works:["Pérotin «Sederunt principes»","Léonin Magnus liber","Pérotin «Alleluia Nativitas»"], rel:["med-organum-mel","med-clausula"] },
   "med-hocket": { seq:["Voice A note","(rest)","Voice B note"], dec:"Split one melody between voices so each sounds only when the other rests.", his:"13th–14th c. technique prized for its stuttering energy; echoed later in Africa and electronica.", works:["Machaut «Hoquetus David»","Montpellier Codex hockets","Ars Subtilior examples"], rel:["med-arsnova","el-footwork"] },
   "med-rondeau": { seq:["A","B","a","A","a","b","A","B"], dec:"Fix a refrain that returns by a strict pattern around verse material.", his:"A formes fixes of the 13th–15th c. (Machaut, Du Fay); direct ancestor of the rondo principle.", works:["Machaut «Doulz viaire gracieus»","Du Fay «Adieu m'amour»","Adam de la Halle rondeaux"], rel:["med-virelai","cla-rondo","med-ballade"] },
-  "med-virelai": { seq:["Refrain","Verse","Verse","Refrain"], dec:"Open and close each stanza with a refrain that frames new verse material.", his:"Formes fixes (14th c.); Machaut left dozens, several monophonic.", works:["Machaut «Douce dame jolie»","Machaut «Comment qu'a moy»","Cantigas de Santa Maria (virelai-type)"], rel:["med-rondeau","med-ballade","med-cantiga"] },
+  "med-virelai": {
+    what:"The virelai is one of the three medieval French formes fixes — a song whose refrain frames each stanza, reusing just two strains of music (refrain and verse).",
+    dec:"How can a returning refrain bind several stanzas into one shapely whole?",
+    seq:["Refrain (A)","Verse (b)","Verse (b)","Verse → refrain music (a)","Refrain (A)"],
+    sections:[
+      {n:"Refrain (A)",p:"Opens and closes each cycle, giving the recurring frame."},
+      {n:"Verses (bb)",p:"Two short verses sung to new music."},
+      {n:"Return (a)",p:"Verse section that brings back the refrain's music before the refrain itself."} ],
+    recognize:[
+      "A refrain returns between verses.",
+      "Only two musical strains are reused (refrain music and verse music).",
+      "Sung 14th-century French courtly verse.",
+      "Often monophonic, sometimes in two or three parts." ],
+    his:"A formes fixes codified in 14th-century France; Guillaume de Machaut left the most famous examples. The formes fixes (virelai, ballade, rondeau) solved how to wed fixed poetic schemes to repeatable musical structures, dominating secular song until the 15th century.",
+    works:[
+      {w:"Machaut — «Douce dame jolie» (14th c.)",why:"The best-known monophonic virelai and a model of the form."},
+      {w:"Machaut — «Comment qu'a moy» (14th c.)",why:"Shows the virelai's refrain logic in Machaut's hands."},
+      {w:"Cantigas de Santa Maria (13th c.)",why:"Iberian songs in virelai-type refrain structure — a close cousin."} ],
+    rel:["med-rondeau","med-ballade","cla-rondo","med-cantiga"],
+    concepts:{ rep:"The refrain's return is the core repetition device.", seg:"Refrain versus verse clearly segments the song.", dir:"Departure-and-return gives a small directional arc.", con:"Verse music contrasts mildly with the refrain." }
+  },
   "med-ballade": { seq:["a","a","b","C (refrain)"], dec:"Build a high-style stanza (aab) capped by a recurring refrain line.", his:"The most prestigious formes fixes; Machaut's chosen vehicle for courtly love.", works:["Machaut «De toutes flours»","Du Fay «Se la face ay pale»","Ars Subtilior ballades"], rel:["med-rondeau","med-virelai"] },
   "med-lai": { seq:["Stanza 1","Stanza 2 (new music)","…each unique"], dec:"Through-compose a long narrative poem, each stanza its own music.", his:"Long lyrical-narrative form of the 13th–14th c.; Machaut wrote monumental examples.", works:["Machaut «Le lai de la fonteinne»","Lais of Marie de France (texts)","Machaut «Lai de confort»"], rel:["med-canso","ren-madrigal-it"] },
   "med-estampie": { seq:["Punctum (open)","Punctum (closed)","new punctum…"], dec:"Drive a dance from paired phrases with open (ouvert) and closed (clos) endings.", his:"One of the earliest notated instrumental forms (13th–14th c.).", works:["«Kalenda maya»","Royal estampies (Manuscrit du Roi)","Istanpitta «Ghaetta»"], rel:["med-ductia","folk-reel"] },
@@ -42,14 +111,53 @@ window.TERRITORY_CONTENT = {
   "ren-cyclicmass": { seq:["Kyrie","Gloria","Credo","Sanctus","Agnus Dei"], dec:"Unify five movements by sharing one musical idea across them.", his:"15th c. (Du Fay, Ockeghem) — first large multi-movement unity in Western music.", works:["Du Fay «Missa Se la face ay pale»","Ockeghem «Missa prolationum»","Josquin «Missa Pange lingua»"], rel:["ren-cfmass","ren-parodymass","sac-mass"] },
   "ren-cfmass": { seq:["Tenor cantus firmus","Surrounding voices","(per movement)"], dec:"Anchor every movement to one borrowed melody held in long notes.", his:"Dominant Mass technique c.1450–1500.", works:["Du Fay «Missa L'homme armé»","Josquin «Missa L'homme armé»","Ockeghem «Missa Caput»"], rel:["ren-cyclicmass","med-isorhythm"] },
   "ren-parodymass": { seq:["Borrowed polyphonic model","Reworked across Mass"], dec:"Build a Mass from an existing polyphonic piece, not just one tune.", his:"The mature 16th-c. method (Palestrina, Lassus).", works:["Palestrina «Missa Papae Marcelli»","Lassus «Missa Bell'Amfitrit'altera»","Victoria «Missa O magnum mysterium»"], rel:["ren-cfmass","ren-motet"] },
-  "ren-motet": { seq:["Point of imitation 1","Point 2","…","Final cadence"], dec:"Set sacred text through successive imitative entries on each phrase.", his:"Core sacred genre of the Renaissance; the seedbed of fugue.", works:["Josquin «Ave Maria … virgo serena»","Palestrina «Sicut cervus»","Tallis «Spem in alium»"], rel:["ren-ricercar","bar-fugue","ren-parodymass"] },
+  "ren-motet": {
+    what:"In the Renaissance, a motet is a sacred polyphonic vocal work setting a Latin text, built from successive 'points of imitation' — one for each phrase of text.",
+    dec:"How can independent voices set a sacred text so that words and counterpoint reinforce one another?",
+    seq:["Point of imitation 1 (phrase 1)","Point of imitation 2 (phrase 2)","… one per phrase","Final cadence"],
+    sections:[
+      {n:"Point of imitation",p:"A phrase of text given its own motif, entered in turn by each voice."},
+      {n:"Cadence",p:"Voices converge to close a section before the next point begins."} ],
+    recognize:[
+      "Each new line of text receives a new imitative theme.",
+      "Overlapping entries so cadences are 'hidden' until a section ends.",
+      "Latin sacred text, ideally a cappella.",
+      "Smooth, balanced four-to-six-voice texture." ],
+    his:"The Renaissance motet matured c.1450–1600, from Josquin to Palestrina and Lassus. It solved how to project a sacred text clearly within rich polyphony; it was the prestige genre of the age and the seedbed of the ricercar and fugue. Palestrina's style became the textbook model of counterpoint.",
+    works:[
+      {w:"Josquin des Prez — «Ave Maria … virgo serena» (c.1485)",why:"A paradigm of clear, successive points of imitation."},
+      {w:"Palestrina — «Sicut cervus» (16th c.)",why:"The model of serene, balanced Renaissance polyphony."},
+      {w:"Thomas Tallis — «Spem in alium» (c.1570)",why:"A famous 40-voice motet showing the texture's grandest extreme."} ],
+    rel:["ren-ricercar","bar-fugue","ren-parodymass","sac-motet"],
+    concepts:{ seg:"Each point of imitation segments the text musically.", rep:"Imitation repeats each phrase's motif across the voices.", con:"Successive points contrast in motif and mood.", dir:"Overlapping cadences keep momentum toward the close." }
+  },
   "ren-lauda": { seq:["Refrain","Verse","Refrain"], dec:"Carry vernacular devotion in a simple, singable refrain form.", his:"Italian non-liturgical sacred song (13th–16th c.).", works:["«Laudario di Cortona»","«Gloria in cielo»","Petrucci lauda prints"], rel:["sac-spiritual","med-cantiga"] },
   "ren-madrigal-it": { seq:["Through-composed phrases","Word-painting per image"], dec:"Match every shift of the poem with new music — text drives form.", his:"16th-c. Italy (Arcadelt → Marenzio → Monteverdi); pinnacle of word-painting.", works:["Monteverdi «Cruda Amarilli»","Gesualdo «Moro, lasso»","Marenzio «Solo e pensoso»"], rel:["ren-madrigal-en","op-leitmotif","mod-freeatonal"] },
   "ren-madrigal-en": { seq:["Through-composed","Fa-la refrains"], dec:"Adapt Italian word-painting to English with lighter, dance-like refrains.", his:"English madrigal school c.1588–1620 (Morley, Weelkes, Wilbye).", works:["Weelkes «As Vesta Was»","Morley «Now Is the Month of Maying»","Wilbye «Draw On, Sweet Night»"], rel:["ren-madrigal-it","ren-chanson"] },
   "ren-chanson": { seq:["Strophe","Refrain (often)"], dec:"Set French verse in lively, often homophonic and onomatopoeic textures.", his:"Parisian chanson (Janequin, Sermisy), 16th c.", works:["Janequin «Le chant des oiseaux»","Sermisy «Tant que vivray»","Janequin «La guerre»"], rel:["ren-madrigal-en","ren-frottola"] },
   "ren-frottola": { seq:["Strophe","Refrain"], dec:"Set light Italian verse in simple chordal, tuneful style.", his:"Northern-Italian court song c.1470–1530; precursor to the madrigal.", works:["Tromboncino frottole","Cara frottole","Petrucci frottola books"], rel:["ren-madrigal-it","ren-villancico"] },
   "ren-villancico": { seq:["Estribillo (refrain)","Copla (verse)","Estribillo"], dec:"Frame vernacular Spanish verse with a returning refrain.", his:"Iberian refrain song, 15th–17th c., sacred and secular.", works:["Encina villancicos","Cancionero de Palacio","Guerrero villancicos"], rel:["med-cantiga","ren-lauda"] },
-  "ren-ricercar": { seq:["Subject entry","Imitative development","Cadence"], dec:"Explore a subject through learned imitation — instrumental counterpoint study.", his:"16th c.; direct ancestor of the fugue.", works:["A. Gabrieli ricercars","Frescobaldi ricercars","Willaert ricercars"], rel:["bar-fugue","ren-canzona","ren-motet"] },
+  "ren-ricercar": {
+    what:"The ricercar is a Renaissance/early-Baroque instrumental piece in imitative counterpoint that explores one or more subjects in a learned style — the direct ancestor of the fugue.",
+    dec:"How can instrumental music develop a subject through imitation alone, with no text to follow?",
+    seq:["Subject entry","Imitative entries (other voices)","Episode","Further entries","Cadence"],
+    sections:[
+      {n:"Subject",p:"The theme treated imitatively."},
+      {n:"Imitative entries",p:"Successive voices take up the subject."},
+      {n:"Episode",p:"Connecting passage between groups of entries."} ],
+    recognize:[
+      "Imitative entries of a subject, like a fugue but often more sectional and archaic.",
+      "Instrumental (keyboard or ensemble), with no text.",
+      "Serious, 'learned' character.",
+      "May treat several subjects in succession." ],
+    his:"The ricercar arose in the 16th century, modelled on the imitative vocal motet, as instruments sought their own serious repertoire. It directly seeded the fugue; by Bach's time 'ricercar' meant an especially strict, archaic fugue (the Musical Offering's 'Ricercar a 6').",
+    works:[
+      {w:"Andrea Gabrieli — Ricercari (16th c.)",why:"Model Venetian imitative ricercars for keyboard and ensemble."},
+      {w:"Girolamo Frescobaldi — Ricercari (Fiori musicali, 1635)",why:"Influential keyboard ricercars studied by later composers, Bach included."},
+      {w:"J.S. Bach — «Ricercar a 6» (A Musical Offering, 1747)",why:"A six-voice ricercar showing the form's endpoint as a strict fugue."} ],
+    rel:["bar-fugue","ren-canzona","ren-motet","bar-canon"],
+    concepts:{ rep:"The subject recurs through imitative entries.", con:"Episodes and additional subjects supply variety.", dir:"Less goal-driven than the mature fugue — more exploratory.", seg:"Entry-groups and episodes segment the piece." }
+  },
   "ren-canzona": { seq:["Section A (imitative)","Contrasting section","Return"], dec:"String contrasting imitative sections into a lively instrumental piece.", his:"Adapted from the French chanson; led toward the sonata and fugue.", works:["G. Gabrieli «Canzon septimi toni»","Frescobaldi canzonas","Merulo canzonas"], rel:["ren-ricercar","bar-soloconcerto"] },
   "ren-fantasia": { seq:["Free imitative entries","Episodes"], dec:"Compose freely in imitative style without a fixed scheme.", his:"16th–17th c. instrumental genre prizing contrapuntal invention.", works:["Byrd fantasias","Gibbons fantasias","Sweelinck fantasias"], rel:["ren-ricercar","bar-fantasia"] },
   "ren-tiento": { seq:["Subject","Imitative working","Toccata-like flourish"], dec:"Develop a subject idiomatically on organ/vihuela (Iberian ricercar).", his:"Spanish/Portuguese keyboard genre, 16th–17th c. (Cabezón).", works:["Cabezón tientos","Correa de Arauxo tientos","Coelho tentos"], rel:["ren-ricercar","bar-toccata"] },
@@ -64,13 +172,74 @@ window.TERRITORY_CONTENT = {
   "ren-varsuite": { seq:["Theme dance","Same theme, new dance-type"], dec:"Vary one tune across successive dance movements.", his:"Early-Baroque German «variation suite» (Peuerl, Schein).", works:["Schein «Banchetto musicale»","Peuerl suites","Praetorius variation sets"], rel:["bar-suite","cla-themevar"] },
 
   /* ===== BAROQUE ===== */
-  "bar-canon": { seq:["Leader","Follower (imitation)","…"], dec:"Generate the whole texture from one line imitated at a fixed delay/interval.", his:"Perfected in the Baroque; Bach's canons are the apex of the device.", works:["Pachelbel «Canon in D»","Bach «Goldberg» canons","Bach «Musical Offering» canons"], rel:["bar-fugue","folk-round","bar-invention"] },
+  "bar-canon": {
+    what:"A canon is strict imitation in which one voice exactly copies another at a fixed time-delay (and interval), generating the whole texture from a single line.",
+    dec:"Can one melody accompany itself if it is started again at a delay?",
+    seq:["Leader (dux) begins","Follower (comes) enters","Continuous imitation","Coda / resolution"],
+    sections:[
+      {n:"Dux (leader)",p:"The original line that sets out the melody."},
+      {n:"Comes (follower)",p:"The imitating voice, entering after a fixed delay."},
+      {n:"Coda",p:"Optional free ending that lets the voices reach a clean cadence."} ],
+    recognize:[
+      "One voice copies another exactly, after a short delay.",
+      "The melody works as its own counterpoint.",
+      "Voices may enter at the same pitch or a fixed interval apart.",
+      "The strictest of imitative textures (a fugue is freer)." ],
+    his:"Canon is among the oldest contrapuntal devices, documented from the 13th century ('Sumer is icumen in') and perfected in the Renaissance and Baroque. It solved the puzzle of writing self-consistent counterpoint from one line; the folk 'round' is its everyday descendant.",
+    works:[
+      {w:"Johann Pachelbel — Canon in D (c.1680)",why:"A three-voice canon over a ground bass; the most famous canon of all."},
+      {w:"J.S. Bach — Goldberg Variations, canons (1741)",why:"Every third variation is a canon at a successively larger interval."},
+      {w:"«Sumer is icumen in» (c.1250)",why:"A medieval six-voice rota — the earliest known canon in English."},
+      {w:"J.S. Bach — A Musical Offering, canons (1747)",why:"Puzzle canons that explore the device to its limits."} ],
+    rel:["bar-fugue","bar-invention","folk-round","ren-ricercar"],
+    concepts:{ rep:"The follower is literal repetition, displaced in time.", dir:"Staggered entries drive forward to the resolution.", con:"Low at the line level; the interest is purely contrapuntal.", seg:"Voice entries mark the structural points." }
+  },
   "bar-invention": { seq:["Subject (two voices)","Episodes","Return"], dec:"Develop one short idea in two-voice imitative counterpoint.", his:"Bach's teaching pieces (1723) for keyboard players.", works:["Bach Two-Part Inventions","Bach Three-Part Sinfonias","Bach Invention No.1 in C"], rel:["bar-fugue","bar-sinfonia","ren-ricercar"] },
   "bar-ricercar": { seq:["Subject","Strict imitation","Stretto"], dec:"Treat one subject in the strictest, most learned counterpoint.", his:"By the late Baroque a deliberately archaic, serious fugue.", works:["Bach «Ricercar a 6» (Musical Offering)","Frescobaldi ricercars","Froberger ricercars"], rel:["bar-fugue","ren-ricercar"] },
   "bar-choraleprelude": { seq:["Chorale tune (cantus firmus)","Contrapuntal setting"], dec:"Embed a known hymn in counterpoint to introduce/meditate on it.", his:"Lutheran organ genre perfected by Buxtehude and Bach.", works:["Bach «Wachet auf» BWV 645","Bach Orgelbüchlein","Buxtehude chorale preludes"], rel:["sac-chorale","bar-fugue"] },
   "bar-sinfonia": { seq:["Subject (3 voices)","Episodes","Return"], dec:"Extend invention writing to three independent imitative voices.", his:"Bach's three-part Sinfonias (1723), companions to the Inventions.", works:["Bach Sinfonia No.9 in F minor","Bach Three-Part Sinfonias","Bach Sinfonia in E-flat"], rel:["bar-invention","bar-fugue"] },
-  "bar-passacaglia": { seq:["Ground bass theme","Continuous variations","Climax"], dec:"Vary upper voices over an unbroken repeating bass — change the surface, never the foundation.", his:"Baroque variation form; the strongest bridge from classical to the electronic loop.", works:["Bach «Passacaglia in C minor» BWV 582","Buxtehude Passacaglia","Biber Passacaglia"], rel:["bar-chaconne","bar-groundbass","ren-divisions"] },
-  "bar-chaconne": { seq:["Harmonic/bass cycle","Variation","Variation","…"], dec:"Vary continuously over a repeating harmonic cycle in triple time.", his:"Sister of the passacaglia; Bach's violin Chaconne is the monument.", works:["Bach «Chaconne» (Partita No.2 BWV 1004)","Purcell «Chacony in G minor»","Vitali Chaconne"], rel:["bar-passacaglia","bar-groundbass","ren-romanesca"] },
+  "bar-passacaglia": {
+    what:"A passacaglia is a set of continuous variations over a short, constantly repeating bass line, usually slow and in triple time.",
+    dec:"How much can the upper voices change while the bass stays completely fixed?",
+    seq:["Bass theme (statement)","Variation 1","Variation 2","… continuous variations","Climactic variations","Final"],
+    sections:[
+      {n:"Ground bass",p:"The repeating bass line that anchors the entire piece."},
+      {n:"Variation",p:"Each repetition re-clothes the upper voices over the unchanged bass."},
+      {n:"Climax",p:"Late variations thicken texture and rhythm toward the peak."} ],
+    recognize:[
+      "A short bass pattern repeats unchanged throughout.",
+      "Continuous variation above it — no sectional returns.",
+      "Usually slow, often triple metre, often in a minor key.",
+      "Gradual textural and rhythmic intensification." ],
+    his:"The passacaglia emerged in early-17th-century Spain and Italy (from the guitar 'passacalle' ritornello) and matured in the German Baroque. It solved how to sustain a long instrumental piece from minimal material — Bach's Passacaglia in C minor is its monument — and is the clearest historical bridge to the modern repeating loop.",
+    works:[
+      {w:"J.S. Bach — Passacaglia and Fugue in C minor, BWV 582",why:"The supreme example: twenty variations over an eight-bar ground."},
+      {w:"Dieterich Buxtehude — Passacaglia in D minor, BuxWV 161",why:"An organ model that Bach knew and built upon."},
+      {w:"Heinrich Biber — Passacaglia in G minor (1676)",why:"An early solo-violin passacaglia over a descending tetrachord."},
+      {w:"Shostakovich — Symphony No.8, 4th movement (1943)",why:"Shows the passacaglia's power for 20th-century tragic weight."} ],
+    rel:["bar-chaconne","bar-groundbass","ren-divisions","jaz-rhythmchanges"],
+    concepts:{ rep:"Maximal — the bass repeats unbroken from start to finish.", con:"Variation supplies surface contrast over the fixed foundation.", dir:"Cumulative intensification gives strong directionality.", seg:"Each bass cycle is a clear structural unit." }
+  },
+  "bar-chaconne": {
+    what:"A chaconne is a continuous-variation form built over a repeating harmonic progression (often with a recurring bass), traditionally in triple time.",
+    dec:"How can a fixed harmonic cycle support endless melodic reinvention?",
+    seq:["Harmonic cycle (statement)","Variation 1","Variation 2","… continuous variations","Final cadence"],
+    sections:[
+      {n:"Harmonic ground",p:"The repeating chord cycle that frames every variation."},
+      {n:"Variation",p:"Each cycle is re-decorated melodically and texturally."} ],
+    recognize:[
+      "A repeating chord progression underlies everything.",
+      "Continuous variations with no literal section returns.",
+      "Triple metre at a stately tempo.",
+      "Very close to the passacaglia — the two terms overlap historically." ],
+    his:"Like the passacaglia, the chaconne reached Europe in the early 17th century from a lively Latin-American/Spanish dance (the 'chacona'). Baroque composers turned it into a serious variation form, with Bach's solo-violin Chaconne its peak. The passacaglia/chaconne distinction was never strict and varies by composer.",
+    works:[
+      {w:"J.S. Bach — Chaconne, Partita No.2 in D minor, BWV 1004",why:"A fifteen-minute summit of solo-violin writing over a repeating progression."},
+      {w:"Henry Purcell — «Dido's Lament» (Dido and Aeneas, 1689)",why:"A descending ground-bass chaconne of extraordinary pathos."},
+      {w:"Claudio Monteverdi — «Zefiro torna» (1632)",why:"An exuberant early vocal chaconne over a repeated bass."} ],
+    rel:["bar-passacaglia","bar-groundbass","ren-romanesca","ren-divisions"],
+    concepts:{ rep:"The harmonic cycle repeats throughout.", con:"Melodic variation contrasts over fixed harmony.", dir:"Variations build cumulatively to the close.", seg:"Each harmonic cycle is one segment." }
+  },
   "bar-groundbass": { seq:["Bass ostinato","Upper-voice variation"], dec:"Repeat a short bass and build everything above it — the ostinato as form.", his:"Ubiquitous in 17th-c. song and instrumental music.", works:["Purcell «Dido's Lament»","Pachelbel «Canon in D»","Monteverdi «Lamento della ninfa»"], rel:["bar-passacaglia","bar-chaconne","jaz-rhythmchanges"] },
   "bar-soloconcerto": { seq:["Ritornello","Solo episode","Ritornello","Solo","Ritornello"], dec:"Alternate a returning tutti theme with contrasting solo episodes.", his:"Vivaldi standardised the three-movement ritornello concerto c.1710.", works:["Vivaldi «The Four Seasons»","Bach Violin Concerto in E","Vivaldi Op.3 «L'estro armonico»"], rel:["bar-concertogrosso","bar-ritornelloaria","cla-concerto"] },
   "bar-concertogrosso": { seq:["Tutti (ripieno)","Concertino group","Tutti"], dec:"Oppose a small solo group against the full ensemble.", his:"Corelli, Handel, Bach; the great Baroque ensemble form.", works:["Handel Op.6 Concerti Grossi","Bach «Brandenburg» Concertos","Corelli Op.6"], rel:["bar-soloconcerto","cla-concerto"] },
@@ -203,9 +372,51 @@ window.TERRITORY_CONTENT = {
   "folk-pibroch": { seq:["Ùrlar (ground)","Variations of increasing complexity"], dec:"Theme-and-variation on the Highland pipes over a constant drone.", his:"Pìobaireachd — the classical music of the Great Highland bagpipe.", works:["«Lament for the Children»","«The Lament for Patrick Òg»","«MacCrimmon's Sweetheart»"], rel:["folk-dronetune","cla-themevar","el-droneambient"] },
   "folk-hurdygurdy": { seq:["Drone","Melody + rhythmic buzz","Repeat"], dec:"Play melody over a continuous mechanical drone and rhythmic 'dog'.", his:"European folk instrument tradition (France, Hungary).", works:["French bourrées (vielle à roue)","Hungarian tekerő tunes","Blowzabella repertoire"], rel:["folk-pibroch","folk-dronetune"] },
   "folk-dronetune": { seq:["Sustained drone","Melodic line above"], dec:"Set melody against a fixed drone instead of changing harmony.", his:"A near-universal pre-harmonic principle (tanpura, bagpipe, etc.).", works:["Indian raga (with tanpura)","bagpipe tunes","Appalachian dulcimer drone tunes"], rel:["folk-hindustani","sac-byzantine","el-droneambient"] },
-  "folk-hindustani": { seq:["Alap","Jor","Jhala","Gat / Bandish"], dec:"Unfold a raga from free exploration to pulsed, accelerating improvisation over a tala cycle.", his:"North-Indian classical tradition; a designed architecture for improvisation.", works:["Ravi Shankar «Raga Jog»","Nikhil Banerjee recordings","Ali Akbar Khan «Raga Chandranandan»"], rel:["folk-carnatic","folk-maqam","jaz-modal"] },
+  "folk-hindustani": {
+    what:"A Hindustani raga performance is a large improvised form that unfolds a melodic mode (raga) from free exploration to a fast, pulsed climax, over a rhythmic cycle (tala) and a constant drone.",
+    dec:"How can a single mode generate a long, satisfying journey through controlled improvisation?",
+    seq:["Alap (free, unmetred)","Jor (steady pulse emerges)","Jhala (fast climax)","Gat / Bandish (composed theme + tala)","Improvisation","Climax"],
+    sections:[
+      {n:"Alap",p:"Slow, free exploration of the raga's notes and character, without beat."},
+      {n:"Jor",p:"A steady pulse appears and the line gains momentum."},
+      {n:"Jhala",p:"Fast rhythmic climax of the unmetred section."},
+      {n:"Gat / Bandish",p:"A fixed composition enters with the drum (tabla) and tala cycle, framing further improvisation."} ],
+    recognize:[
+      "A constant drone (tanpura) underlies everything.",
+      "Begins slow and free, then gradually accelerates.",
+      "Melody stays within one raga's notes and characteristic phrases.",
+      "The drum (tabla) enters only for the metred section, on a tala cycle." ],
+    his:"Hindustani classical music is the North-Indian tradition (distinct from South-Indian Carnatic), shaped over centuries with Persian influence under Mughal patronage. The raga system organises mood and melody for improvisation, and the alap–jor–jhala–gat sequence is a designed architecture for spontaneous music-making.",
+    works:[
+      {w:"Ravi Shankar — «Raga Jog» (sitar, 20th c.)",why:"A widely heard example of the full alap-to-gat unfolding."},
+      {w:"Ali Akbar Khan — «Raga Chandranandan» (sarod, 1965)",why:"A celebrated modern raga performance on sarod."},
+      {w:"Nikhil Banerjee — raga recordings (sitar)",why:"Admired for clear, architecturally balanced unfolding."} ],
+    rel:["folk-carnatic","folk-maqam","folk-dronetune","jaz-modal"],
+    concepts:{ dir:"Strong — the whole form is a slow-to-fast directional ascent.", rep:"The raga's phrases and the tala cycle recur throughout.", seg:"Alap, jor, jhala and gat are clearly demarcated stages.", con:"Tempo and density rise steadily, but the mode never changes." }
+  },
   "folk-carnatic": { seq:["Alapana","Kriti","Niraval","Swaram"], dec:"Frame a composed kriti with raga exploration and rhythmic improvisation.", his:"South-Indian classical tradition (Tyagaraja and the trinity).", works:["Tyagaraja «Endaro Mahanubhavulu»","M.S. Subbulakshmi recordings","Dikshitar kritis"], rel:["folk-hindustani","folk-maqam"] },
-  "folk-maqam": { seq:["Taqsim (free)","Modal development","Cadence"], dec:"Improvise melodically within a maqam's modal/microtonal rules.", his:"Arabic, Turkish and Persian art-music tradition.", works:["Munir Bashir oud taqsim","Turkish maqam improvisations","Egyptian wasla"], rel:["folk-hindustani","jaz-modal"] },
+  "folk-maqam": {
+    what:"A maqam is a melodic mode of Arabic, Turkish and Persian art music; the taqsim is its principal improvised form, exploring the maqam's notes and modulations in free rhythm.",
+    dec:"How can a performer reveal a mode's character and emotional path through free melodic improvisation?",
+    seq:["Opening (establish the maqam)","Development within the maqam","Modulation to related maqam(s)","Return","Qafla (cadential close)"],
+    sections:[
+      {n:"Establishment",p:"Opening phrases that fix the maqam's tonic and characteristic intervals."},
+      {n:"Development",p:"Exploration of the maqam's notes, often ascending through its registers."},
+      {n:"Modulation",p:"Temporary moves to related maqamat, then a return."},
+      {n:"Qafla",p:"A cadential formula closing a phrase or the whole taqsim."} ],
+    recognize:[
+      "Solo, free-rhythm melodic improvisation (the taqsim has no fixed beat).",
+      "Microtonal intervals (e.g. quarter-tones) outside Western tuning.",
+      "Stepwise exploration of one mode, with modulations and returns.",
+      "Played on oud, qanun, ney or violin." ],
+    his:"The maqam system is the modal foundation of art music across the Arab world, Turkey and Iran, theorised for over a millennium. It organises melody and emotional ethos for both composition and improvisation; the taqsim is its central improvisatory expression, often opening or linking pieces in a suite (waslah/fasıl).",
+    works:[
+      {w:"Munir Bashir — oud taqsim recordings (20th c.)",why:"Iraqi master whose solo taqasim are reference performances."},
+      {w:"Tanburi Cemil Bey — taksim recordings (early 20th c.)",why:"Foundational Turkish instrumental improvisations."},
+      {w:"Umm Kulthum — extended vocal improvisations",why:"Show maqam practice and modulation in Arabic vocal music."} ],
+    rel:["folk-hindustani","jaz-modal","folk-dronetune","sac-qawwali"],
+    concepts:{ dir:"An exploratory rise through registers gives the taqsim its shape.", con:"Modulations to other maqamat provide contrast.", rep:"Characteristic phrases and cadential formulas recur.", seg:"Phrases bounded by qafla cadences segment the flow." }
+  },
   "folk-gamelan": { seq:["Gong cycle (gongan)","Colotomic punctuation","Layered elaboration"], dec:"Organise time by a cyclic gong structure, each instrument at its own density.", his:"Javanese and Balinese gamelan.", works:["Javanese «Ladrang» pieces","Balinese «Kebyar»","gamelan gong kebyar repertoire"], rel:["folk-mbira","el-minimal","mod-phase"] },
   "folk-son": { seq:["Canto (song)","Montuno (call-response vamp)"], dec:"Move from composed song to an open clave-driven call-response groove.", his:"Son cubano — the root of salsa.", works:["Trío Matamoros «Son de la loma»","Buena Vista Social Club «Chan Chan»","Arsenio Rodríguez sones"], rel:["folk-rumba","jaz-latin","sac-shout"] },
   "folk-rumba": { seq:["Diana","Canto","Montuno + quinto solo"], dec:"Layer voices and drums over clave with an improvising lead drum.", his:"Afro-Cuban rumba (guaguancó, yambú, columbia).", works:["Los Muñequitos de Matanzas","«Guaguancó» recordings","Cuban rumba columbia"], rel:["folk-son","jaz-latin","sac-shout"] },
