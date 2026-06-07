@@ -7,6 +7,7 @@ const coreConcepts = [
   {
     id: "segmentation",
     title: "Segmentation",
+    titleUk: "Сегментація",
     tagline: "Де закінчується одна ідея і починається інша?",
     rootProblem: "Організація музичного часу",
     problem: "Матеріал без меж не сприймається як форма. Segmentation перетворює потік на архітектуру.",
@@ -38,6 +39,7 @@ const coreConcepts = [
   {
     id: "repetition",
     title: "Repetition",
+    titleUk: "Повторення",
     tagline: "Коли повернутися до матеріалу, який вже звучав?",
     rootProblem: "Баланс передбачуваності та новизни",
     problem: "Без повторення матеріал не засвоюється. Слухач не має точки опори — форма не «сідає».",
@@ -69,6 +71,7 @@ const coreConcepts = [
   {
     id: "contrast",
     title: "Contrast",
+    titleUk: "Контраст",
     tagline: "Коли матеріал потрібно змінити достатньо, щоб слухач це відчув?",
     rootProblem: "Баланс передбачуваності та новизни",
     problem: "Без контрасту форма монотонна. Увага слухача падає. Передбачуваність без новизни — нудьга.",
@@ -99,6 +102,7 @@ const coreConcepts = [
   {
     id: "directionality",
     title: "Directionality",
+    titleUk: "Напрямок",
     tagline: "Де я зараз у формі — і що це означає для наступного кроку?",
     rootProblem: "Організація музичного часу",
     problem: "Без arc форма не починається і не закінчується — вона просто зупиняється. Directionality дає студенту карту форми в часі.",
@@ -5487,13 +5491,13 @@ function cacheEls() {
 const i18n = {
   uk: {
     appSubtitle: "Навчання форми через композиційні рішення",
-    coreConcepts: "Core Concepts",
-    formArchetypes: "Form Archetypes",
+    coreConcepts: "Базові концепти",
+    formArchetypes: "Архетипи форми",
     formHint: "— як концепти поєднуються",
     visited: "✓",
     unvisited: "○",
-    breadcrumbConcepts: "Core Concepts",
-    breadcrumbArchetypes: "Form Archetypes",
+    breadcrumbConcepts: "Базові концепти",
+    breadcrumbArchetypes: "Архетипи форми",
     problemHeading: "Проблема, яку це вирішує",
     showDecision: "▼ Показати рішення",
     hideDecision: "▲ Згорнути",
@@ -5506,7 +5510,7 @@ const i18n = {
     dawPromptLabel: "▶ Спробуй зараз у своїй DAW:",
     canonicalTrackHeading: "🎵 Канонічний трек",
     buildsFormsHeading: "Як це будує форми",
-    timelineHeading: "Timeline",
+    timelineHeading: "Хронологія",
     difficultyLabel: "Складність:",
     sectionKnowledgeHeading: "📖 Знати цю секцію",
     purposeLabel: "Навіщо:",
@@ -5709,7 +5713,7 @@ function renderLeftPanel() {
       <span class="concept-check">${checkMark}</span>
       <span class="concept-color" style="background:${c.color}"></span>
       <div class="concept-text">
-        <strong>${c.title}</strong>
+        <strong>${ctitle(c)}</strong>
         <small>${c.tagline}</small>
       </div>
     </button>`;
@@ -5746,6 +5750,16 @@ const MACRO_NAMES = {
   VII: "Process / Gradual", VIII: "Stasis / Drone", IX: "Through-Composed / Narrative",
   XII: "Moment / Mosaic / Collage"
 };
+const MACRO_NAMES_UK = {
+  I: "Строфічна / секційна пісня", II: "Повернення рефрену", III: "Варіація",
+  IV: "Розробкова / соната", V: "Імітаційна / фуга", VI: "Циклічна / грув / остинато",
+  VII: "Процес / поступовість", VIII: "Статика / дрон", IX: "Наскрізна / наративна",
+  XII: "Момент / мозаїка / колаж"
+};
+// Phase 1 frame localization: resolve names/titles by active language.
+function macroName(id) { return ((state.lang === 'uk' ? MACRO_NAMES_UK[id] : MACRO_NAMES[id]) || id); }
+function nmL(o) { return (o && state.lang === 'uk' && o.nameUk) ? o.nameUk : (o ? o.name : ''); }
+function ctitle(c) { return (c && state.lang === 'uk' && c.titleUk) ? c.titleUk : (c ? c.title : ''); }
 
 function renderTerritoryTree() {
   const T = (typeof window !== "undefined" && window.TERRITORY) || [];
@@ -5761,7 +5775,7 @@ function renderTerritoryTree() {
     const open = !!state.expandCiv[civ.id];
     h += `<div class="terr-civ ${open ? 'open' : ''}" data-civ="${civ.id}">
       <span class="terr-caret">${open ? '▾' : '▸'}</span>
-      <span class="terr-civ-name">${civ.name}</span>
+      <span class="terr-civ-name">${nmL(civ)}</span>
       <span class="terr-count">${civ.families.length}·${civForms}</span>
     </div>`;
     if (!open) return;
@@ -5769,7 +5783,7 @@ function renderTerritoryTree() {
       const fopen = !!state.expandFam[fam.id];
       h += `<div class="terr-fam ${fopen ? 'open' : ''}" data-fam="${fam.id}">
         <span class="terr-caret">${fopen ? '▾' : '▸'}</span>
-        <span class="terr-fam-name">${fam.name}</span>
+        <span class="terr-fam-name">${nmL(fam)}</span>
         <span class="terr-count">${fam.forms.length}</span>
       </div>`;
       if (!fopen) return;
@@ -5778,13 +5792,13 @@ function renderTerritoryTree() {
           || (fm.arch && state.mode === "form" && state.selectedForm === fm.arch);
         const attr = fm.arch ? `data-form="${fm.arch}"` : `data-stub="${fm.id}"`;
         const macroTxt = fm.macro + (fm.macro2 ? '·' + fm.macro2 : '');
-        let badges = `<span class="terr-macro" title="${MACRO_NAMES[fm.macro] || ''}">${macroTxt}</span>`;
+        let badges = `<span class="terr-macro" title="${macroName(fm.macro)}">${macroTxt}</span>`;
         if (fm.arch) badges += `<span class="terr-flag" title="In Atlas">◆</span>`;
         if (fm.deep) badges += `<span class="terr-flag terr-deep" title="Deep content">✦</span>`;
         if (fm.star) badges += `<span class="terr-flag terr-star" title="Flagship">★</span>`;
         if (fm.improv) badges += `<span class="terr-flag" title="Improvised">⟳</span>`;
         h += `<div class="terr-form ${sel ? 'selected' : ''}" ${attr}>
-          <span class="terr-form-name">${fm.name}</span>
+          <span class="terr-form-name">${nmL(fm)}</span>
           <span class="terr-badges">${badges}</span>
         </div>`;
       });
@@ -5865,12 +5879,12 @@ function renderConceptDetail() {
       : "";
 
     const html = `
-      <div class="breadcrumb">${t('breadcrumbConcepts')} <span class="sep">›</span> <span style="color:${c.color}">${c.title}</span></div>
+      <div class="breadcrumb">${t('breadcrumbConcepts')} <span class="sep">›</span> <span style="color:${c.color}">${ctitle(c)}</span></div>
 
       <div class="concept-header">
         <span class="concept-icon" style="background:${c.color}">★</span>
         <div>
-          <h2>${c.title}</h2>
+          <h2>${ctitle(c)}</h2>
           <p class="tagline">${c.tagline}</p>
           <span class="root-badge">${c.rootProblem}</span>
         </div>
@@ -5950,7 +5964,7 @@ function renderFormDetail() {
 
   // Generated by tags
   const tagHtml = tags.map(t =>
-    `<button class="concept-tag" data-concept="${t.id}" style="border-color:${t.color};color:${t.color}">${t.title}</button>`
+    `<button class="concept-tag" data-concept="${t.id}" style="border-color:${t.color};color:${t.color}">${ctitle(t)}</button>`
   ).join("");
 
   // ---- NEW CONTENT SECTIONS ----
@@ -6459,7 +6473,7 @@ function renderStubDetail() {
   if (!found) { els.mainArea.innerHTML = `<div class="empty-state">—</div>`; return; }
   const { fm, fam, civ } = found;
   const en = state.lang === 'en';
-  const macroFull = (MACRO_NAMES[fm.macro] || fm.macro) + (fm.macro2 ? ` + ${MACRO_NAMES[fm.macro2] || fm.macro2}` : '');
+  const macroFull = macroName(fm.macro) + (fm.macro2 ? ' + ' + macroName(fm.macro2) : '');
   const C = (typeof window !== "undefined" && window.TERRITORY_CONTENT && window.TERRITORY_CONTENT[fm.id]) || null;
 
   let flags = '';
@@ -6519,13 +6533,13 @@ function renderStubDetail() {
     if (C.neighbors && C.neighbors.length) {
       neighborInner = `<div class="nbr-list">${C.neighbors.map(n => {
         const rf = findTerrForm(n.id);
-        const nm = rf ? rf.fm.name : n.id;
+        const nm = rf ? nmL(rf.fm) : n.id;
         return `<div class="nbr-row"><span class="rel-chip" data-open="${n.id}">${nm}</span><p class="nbr-note">${loc(n.note)}</p></div>`;
       }).join('')}</div>`;
     } else {
       const relHtml = (C.rel || []).map(rid => {
         const rf = findTerrForm(rid);
-        return rf ? `<span class="rel-chip" data-open="${rid}">${rf.fm.name}</span>` : '';
+        return rf ? `<span class="rel-chip" data-open="${rid}">${nmL(rf.fm)}</span>` : '';
       }).join('');
       neighborInner = relHtml ? `<div class="rel-chips">${relHtml}</div>` : '';
     }
@@ -6546,11 +6560,11 @@ function renderStubDetail() {
   }
 
   els.mainArea.innerHTML = `
-    <div class="breadcrumb">${civ.name} <span class="sep">›</span> ${fam.name}</div>
+    <div class="breadcrumb">${nmL(civ)} <span class="sep">›</span> ${nmL(fam)}</div>
     <div class="concept-header">
       <span class="concept-icon" style="background:#b78cff">◆</span>
       <div>
-        <h2>${fm.name}</h2>
+        <h2>${nmL(fm)}</h2>
         <p class="concept-tagline">${macroFull} · ${civ.era || ''}</p>
       </div>
     </div>
