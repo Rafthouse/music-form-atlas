@@ -6445,15 +6445,65 @@ function selectStub(id) {
   render();
 }
 
+function openForm(id) {
+  const f = findTerrForm(id);
+  if (!f) return;
+  if (f.fm.arch) selectForm(f.fm.arch);
+  else selectStub(id);
+}
+
 function renderStubDetail() {
   const found = findTerrForm(state.selectedStub);
   if (!found) { els.mainArea.innerHTML = `<div class="empty-state">—</div>`; return; }
   const { fm, fam, civ } = found;
+  const en = state.lang === 'en';
   const macroFull = (MACRO_NAMES[fm.macro] || fm.macro) + (fm.macro2 ? ` + ${MACRO_NAMES[fm.macro2] || fm.macro2}` : '');
+  const C = (typeof window !== "undefined" && window.TERRITORY_CONTENT && window.TERRITORY_CONTENT[fm.id]) || null;
+
   let flags = '';
-  if (fm.deep) flags += `<span class="stub-chip">✦ ${state.lang === 'en' ? 'deep content available' : 'є глибокий контент'}</span>`;
+  if (fm.deep) flags += `<span class="stub-chip">✦ ${en ? 'deep content' : 'глибокий контент'}</span>`;
   if (fm.star) flags += `<span class="stub-chip">★ flagship</span>`;
   if (fm.improv) flags += `<span class="stub-chip">⟳ improvised</span>`;
+
+  let body;
+  if (C) {
+    const seq = C.seq || [];
+    const diagram = seq.length
+      ? seq.map(s => `<span class="seq-block">${s}</span>`).join('<span class="seq-arrow">→</span>')
+      : '—';
+    const works = (C.works || []).map(w => `<li>${w}</li>`).join('');
+    const related = (C.rel || []).map(rid => {
+      const rf = findTerrForm(rid);
+      return rf ? `<span class="rel-chip" data-open="${rid}">${rf.fm.name}</span>` : '';
+    }).join('');
+    body = `
+      <div class="form-block">
+        <h3 class="form-h">${en ? 'Structure' : 'Структура'}</h3>
+        <div class="seq-diagram">${diagram}</div>
+      </div>
+      <div class="form-block">
+        <h3 class="form-h">${en ? 'Core compositional decision' : 'Ключове композиційне рішення'}</h3>
+        <p class="form-p">${C.dec || ''}</p>
+      </div>
+      <div class="form-block">
+        <h3 class="form-h">${en ? 'Historical context' : 'Історичний контекст'}</h3>
+        <p class="form-p">${C.his || ''}</p>
+      </div>
+      <div class="form-block">
+        <h3 class="form-h">${en ? 'Canonical works' : 'Канонічні твори'}</h3>
+        <ul class="works-list">${works || '<li>—</li>'}</ul>
+      </div>
+      ${related ? `<div class="form-block">
+        <h3 class="form-h">${en ? 'Related forms' : 'Пов’язані форми'}</h3>
+        <div class="rel-chips">${related}</div>
+      </div>` : ''}`;
+  } else {
+    body = `<div class="stub-card">
+      <p class="stub-badge">${t('stubLabel')}</p>
+      <p class="stub-body">${t('stubBody')}</p>
+    </div>`;
+  }
+
   els.mainArea.innerHTML = `
     <div class="breadcrumb">${civ.name} <span class="sep">›</span> ${fam.name}</div>
     <div class="concept-header">
@@ -6463,16 +6513,12 @@ function renderStubDetail() {
         <p class="concept-tagline">${macroFull} · ${civ.era || ''}</p>
       </div>
     </div>
-    <div class="stub-card">
-      <p class="stub-badge">${t('stubLabel')}</p>
-      <p class="stub-body">${t('stubBody')}</p>
-      <div class="stub-facets">
-        <div><span class="stub-key">${state.lang === 'en' ? 'Macro-Archetype' : 'Макро-архетип'}</span><span class="stub-val">${fm.macro}${fm.macro2 ? '·' + fm.macro2 : ''} — ${macroFull}</span></div>
-        <div><span class="stub-key">Family</span><span class="stub-val">${fam.name}</span></div>
-        <div><span class="stub-key">${state.lang === 'en' ? 'Civilization' : 'Цивілізація'}</span><span class="stub-val">${civ.name} (${civ.era || ''})</span></div>
-      </div>
-      ${flags ? `<div class="stub-chips">${flags}</div>` : ''}
-    </div>`;
+    ${flags ? `<div class="stub-chips">${flags}</div>` : ''}
+    ${body}`;
+
+  els.mainArea.querySelectorAll('[data-open]').forEach(el2 => {
+    el2.addEventListener('click', () => openForm(el2.dataset.open));
+  });
 }
 
 // ===== INIT =====

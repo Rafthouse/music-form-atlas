@@ -1072,3 +1072,31 @@ li { margin-bottom: 6px; line-height: 1.5; }
   border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px;
 }
 
+/* ===== Form educational page (territory stub payload) ===== */
+.form-block { margin-top: 18px; }
+.form-h {
+  font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--muted); margin: 0 0 8px;
+}
+.form-p { font-size: 0.92rem; line-height: 1.55; color: var(--text); margin: 0; }
+.seq-diagram {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+  background: var(--panel-2); border: 1px solid var(--line);
+  border-radius: 10px; padding: 14px 16px;
+}
+.seq-block {
+  font-size: 0.8rem; font-weight: 600; color: var(--text);
+  background: var(--panel-3); border: 1px solid var(--line);
+  border-radius: 6px; padding: 6px 12px; white-space: nowrap;
+}
+.seq-arrow { color: var(--form); font-weight: 700; }
+.works-list { margin: 0; padding-left: 18px; }
+.works-list li { font-size: 0.88rem; line-height: 1.6; color: var(--text); }
+.rel-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.rel-chip {
+  font-size: 0.8rem; color: var(--form); cursor: pointer;
+  background: rgba(183,140,255,0.1); border: 1px solid rgba(183,140,255,0.3);
+  border-radius: 999px; padding: 4px 12px; transition: all 0.15s;
+}
+.rel-chip:hover { background: rgba(183,140,255,0.2); color: var(--text); }
+
