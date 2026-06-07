@@ -443,7 +443,10 @@ const formArchetypes = [
     ],
     comparisons: [
       { with: "Club Arc", difference: "Verse-Chorus базується на ПОВЕРНЕННІ хука; Club Arc — на ЕНЕРГЕТИЧНІЙ дузі. В VC головне — щоб слухач запам'ятав мелодію; в Club Arc — щоб відчув вивільнення." },
-      { with: "Rondo", difference: "Обидва мають повторювану тему. В VC хук може змінювати текст і енергію; в Rondo рефрен повертається майже ідентичним." }
+      { with: "Rondo", difference: "Обидва мають повторювану тему. В VC хук може змінювати текст і енергію; в Rondo рефрен повертається майже ідентичним." },
+      { with: "Through-Composed", difference: "VC повертається до приспіву — TC не повторює нічого. VC дає слухачеві опору; TC веде вперед без якоря." },
+      { with: "Head-Solo-Head", difference: "Обидва мають тему, яка повертається. В VC тема (chorus) фіксована; в HSH тема служить гармонічною рамкою для імпровізації." },
+      { with: "12-Bar Blues", difference: "12-Bar — гармонічний цикл (форма = акорди). VC — тематичний цикл (форма = мелодія і приспів). Обидва повторюються, але різними засобами." }
     ],
     glossary: [
       { term: "Hook", definition: "Короткий мелодийний фрагмент, який запам'ятовується. Центр уваги в приспіві." },
@@ -848,7 +851,9 @@ const formArchetypes = [
     ],
     comparisons: [
       { with: "Verse-Chorus", difference: "Club Arc керується ЕНЕРГІЄЮ, не хуком. Дроп — це вивільнення напруги, а не мелодійний хук." },
-      { with: "Process-Based Minimal", difference: "Club Arc має чіткі секції. Process-Based — безшовну трансформацію. Club Arc = архітектура секцій; Process-Based = архітектура зміни." }
+      { with: "Process-Based Minimal", difference: "Club Arc має чіткі секції. Process-Based — безшовну трансформацію. Club Arc = архітектура секцій; Process-Based = архітектура зміни." },
+      { with: "Drone", difference: "Club Arc будує і вивільняє напругу. Drone утримує стан. CA — подорож з кульмінацією; Drone — занурення без вибуху." },
+      { with: "Sonata-Allegro", difference: "Обидва мають build → climax → resolution. В Club Arc це build→drop→breakdown. В Sonata це Exposition→Development→Recapitulation. Одна й та сама арка — різні контексти." }
     ],
     glossary: [
       { term: "Drop", definition: "Момент вивільнення накопиченої напруги. Зазвичай повернення повного ритму після білду. Головна подія в клубному треку." },
@@ -1131,7 +1136,10 @@ const formArchetypes = [
     ],
     comparisons: [
       { with: "Verse-Chorus", difference: "Rondo повертає тему ІДЕНТИЧНОЮ — чисте повторення. VC може змінювати хук. Rondo навчає: тема як якір." },
-      { with: "Club Arc", difference: "Club Arc лінійний (енергія наростає і спадає). Rondo циклічний (тема повертається). Club Arc — подорож; Rondo — повернення додому." }
+      { with: "Club Arc", difference: "Club Arc лінійний (енергія наростає і спадає). Rondo циклічний (тема повертається). Club Arc — подорож; Rondo — повернення додому." },
+      { with: "Theme & Variations", difference: "T&V змінює тему з кожним поверненням. Rondo повертає рефрен незмінним. Rondo — впізнаваність через сталість; T&V — через трансформацію." },
+      { with: "Head-Solo-Head", difference: "HSH — це джазове рондо: тема → соло → тема. Але в Rondo епізоди — нові теми; в HSH соло — імпровізація на ту ж гармонію." },
+      { with: "Sonata-Allegro", difference: "Sonata-Rondo (ABACABA) — на межі обох форм. Чиста Sonata трансформує теми в Розробці; Rondo повертає рефрен без трансформації." }
     ],
     glossary: [
       { term: "Refrain", definition: "Головна тема, яка повертається між епізодами. В рондо — завжди в тоніці (головній тональності)." },
@@ -1199,16 +1207,99 @@ const formArchetypes = [
     ],
 
     canonicalTracks: [
-      track("Sweet Home Chicago", "Robert Johnson", 1936, "Класичний 12-bar blues.", "blues", [{name:"Chorus 1",time:"0:09-0:20"},{name:"Chorus 2",time:"0:21-0:32"},{name:"Chorus 3",time:"0:33-0:44"}], {segmentation:70,repetition:90,contrast:50,directionality:60}),
-      track("Hoochie Coochie Man", "Muddy Waters", 1954, "12 тактів × 5 повторів.", "blues", [{name:"Verse 1",time:"0:11-0:28"},{name:"Harmonica solo",time:"1:05-1:22"}], {segmentation:75,repetition:90,contrast:40,directionality:55}),
-      track("Johnny B. Goode", "Chuck Berry", 1958, "Quick change. IV на 2-му такті.", "rock", [{name:"Verse 1",time:"0:06-0:18"},{name:"Guitar solo",time:"0:32-0:44"}], {segmentation:80,repetition:85,contrast:60,directionality:70}),
-      track("The Thrill Is Gone", "B.B. King", 1969, "Мінорний 12-bar blues.", "blues", [{name:"Verse 1",time:"0:16-0:42"},{name:"Guitar solo",time:"1:10-1:36"}], {segmentation:75,repetition:80,contrast:70,directionality:65}),
-      track("Pride and Joy", "Stevie Ray Vaughan", 1983, "Техаський блюз.", "blues rock", [{name:"Verse 1",time:"0:06-0:20"},{name:"Guitar solo",time:"0:51-1:05"}], {segmentation:80,repetition:80,contrast:65,directionality:70}),
-      track("Red House", "Jimi Hendrix", 1966, "Повільний 12-bar blues.", "blues rock", [{name:"Verse 1",time:"0:16-0:45"},{name:"Guitar solo",time:"1:16-2:15"}], {segmentation:70,repetition:80,contrast:65,directionality:65}),
-      track("Blues for Alice", "Charlie Parker", 1951, "Jazz blues. II-V замість I-IV-V.", "jazz", [{name:"Head",time:"0:00-0:20"},{name:"Parker solo",time:"0:21-1:00"}], {segmentation:80,repetition:75,contrast:70,directionality:75}),
-      track("Cross Road Blues", "Robert Johnson", 1936, "Дельта-блюз.", "blues", [{name:"Verse 1",time:"0:00-0:20"},{name:"Slide solo",time:"1:01-1:20"}], {segmentation:70,repetition:90,contrast:50,directionality:60}),
-      track("Every Day I Have the Blues", "B.B. King", 1955, "Стандартний 12-bar blues.", "blues", [{name:"Verse 1",time:"0:09-0:25"},{name:"Guitar solo",time:"0:43-0:59"}], {segmentation:75,repetition:90,contrast:50,directionality:60}),
-      track("Before You Accuse Me", "Eric Clapton", 1998, "Сучасний 12-bar blues.", "blues rock", [{name:"Verse 1",time:"0:11-0:30"},{name:"Guitar solo",time:"1:11-1:40"}], {segmentation:75,repetition:80,contrast:65,directionality:65})
+      track("Sweet Home Chicago", "Robert Johnson", 1936,
+        "Класичний дельта-блюз. Кожні 12 тактів — один повний цикл I–IV–V. Акустична гітара і слайд.",
+        [
+          { name: "Intro (slide)", time: "0:00–0:08" },
+          { name: "Chorus 1 (verse)", time: "0:09–0:20" },
+          { name: "Chorus 2 (verse)", time: "0:21–0:32" },
+          { name: "Chorus 3 (vocal peak)", time: "0:33–0:44" },
+          { name: "Chorus 4 (guitar fill)", time: "0:45–0:56" }
+        ], "blues", { segmentation: 70, repetition: 90, contrast: 50, directionality: 60 }),
+      track("Hoochie Coochie Man", "Muddy Waters", 1954,
+        "Електричний чиказький блюз. Stop-time intro — пауза підкреслює I. 12 тактів × 5 повторів.",
+        [
+          { name: "Stop-time intro", time: "0:00–0:10" },
+          { name: "Verse 1 (12-bar)", time: "0:11–0:28" },
+          { name: "Verse 2", time: "0:29–0:46" },
+          { name: "Harmonica solo (12-bar)", time: "1:05–1:22" },
+          { name: "Final verse", time: "1:40–1:57" }
+        ], "blues", { segmentation: 75, repetition: 90, contrast: 40, directionality: 55 }),
+      track("Johnny B. Goode", "Chuck Berry", 1958,
+        "Quick change: IV з'являється вже на другому такті. Гітарний риф = тема. Еталон рок-н-ролу.",
+        [
+          { name: "Guitar intro (riff)", time: "0:00–0:05" },
+          { name: "Verse 1 (quick change)", time: "0:06–0:18" },
+          { name: "Chorus", time: "0:19–0:31" },
+          { name: "Verse 2", time: "0:32–0:44" },
+          { name: "Guitar solo (12-bar)", time: "0:45–1:08" },
+          { name: "Final chorus", time: "1:44–1:58" }
+        ], "rock", { segmentation: 80, repetition: 85, contrast: 60, directionality: 70 }),
+      track("The Thrill Is Gone", "B.B. King", 1969,
+        "Мінорний 12-bar blues. Bm7–Em7–F#7 замість мажорних акордів. Оркестровий акомпанемент.",
+        [
+          { name: "Intro (guitar statement)", time: "0:00–0:15" },
+          { name: "Verse 1 (12-bar minor)", time: "0:16–0:42" },
+          { name: "Verse 2", time: "0:43–1:09" },
+          { name: "Guitar solo", time: "1:10–1:36" },
+          { name: "Verse 3 (outro)", time: "1:37–2:03" }
+        ], "blues", { segmentation: 75, repetition: 80, contrast: 70, directionality: 65 }),
+      track("Pride and Joy", "Stevie Ray Vaughan", 1983,
+        "Техаський блюз. Щільний ритм, подвійні стопи. Стандартна 12-bar форма з pentatonic solo.",
+        [
+          { name: "Intro (shuffle riff)", time: "0:00–0:05" },
+          { name: "Verse 1 (12-bar)", time: "0:06–0:20" },
+          { name: "Verse 2", time: "0:21–0:35" },
+          { name: "Chorus", time: "0:36–0:50" },
+          { name: "Guitar solo", time: "0:51–1:05" },
+          { name: "Verse 3 + outro", time: "1:06–2:50" }
+        ], "blues rock", { segmentation: 80, repetition: 80, contrast: 65, directionality: 70 }),
+      track("Red House", "Jimi Hendrix", 1966,
+        "Повільний 12-bar blues (shuffle feel). Розгорнуті соло між вокальними фразами.",
+        [
+          { name: "Intro (slow blues)", time: "0:00–0:15" },
+          { name: "Verse 1", time: "0:16–0:45" },
+          { name: "Verse 2", time: "0:46–1:15" },
+          { name: "Guitar solo 1", time: "1:16–2:15" },
+          { name: "Verse 3", time: "2:16–2:45" },
+          { name: "Guitar solo 2 (extended)", time: "2:46–3:45" }
+        ], "blues rock", { segmentation: 70, repetition: 80, contrast: 65, directionality: 65 }),
+      track("Blues for Alice", "Charlie Parker", 1951,
+        "Jazz blues з ускладненою гармонією. Замість C7–F7–G7 — II–V каданси. Bird changes.",
+        [
+          { name: "Head (melody)", time: "0:00–0:20" },
+          { name: "Parker solo (chorus 1)", time: "0:21–0:41" },
+          { name: "Parker solo (chorus 2)", time: "0:42–1:01" },
+          { name: "Piano solo", time: "1:02–1:21" },
+          { name: "Head out", time: "1:22–1:40" }
+        ], "jazz", { segmentation: 80, repetition: 75, contrast: 70, directionality: 75 }),
+      track("Cross Road Blues", "Robert Johnson", 1936,
+        "Дельта-блюз. Відкрита G-настройка, слайд-гітара. Вокальна мелодія у call-and-response.",
+        [
+          { name: "Intro (slide phrase)", time: "0:00–0:08" },
+          { name: "Verse 1 (call)", time: "0:09–0:20" },
+          { name: "Verse 1 (response, guitar)", time: "0:21–0:32" },
+          { name: "Verse 2", time: "0:33–0:55" },
+          { name: "Verse 3 (peak)", time: "0:56–1:18" }
+        ], "blues", { segmentation: 70, repetition: 90, contrast: 50, directionality: 60 }),
+      track("Every Day I Have the Blues", "B.B. King", 1955,
+        "Класичний 12-bar blues у підвищеному темпі. Фраза + гітарна відповідь = call-and-response.",
+        [
+          { name: "Intro (horn riff)", time: "0:00–0:08" },
+          { name: "Verse 1 (vocal + guitar fill)", time: "0:09–0:25" },
+          { name: "Verse 2", time: "0:26–0:42" },
+          { name: "Guitar solo", time: "0:43–0:59" },
+          { name: "Verse 3 (outro)", time: "1:00–1:16" }
+        ], "blues", { segmentation: 75, repetition: 90, contrast: 50, directionality: 60 }),
+      track("Before You Accuse Me", "Eric Clapton", 1998,
+        "Сучасний 12-bar blues. Clapton + Robert Cray. Переклад Bo Diddley's оригіналу. Нескладна форма, акцент на groove.",
+        [
+          { name: "Intro (guitar)", time: "0:00–0:10" },
+          { name: "Verse 1 (12-bar)", time: "0:11–0:30" },
+          { name: "Verse 2", time: "0:31–0:50" },
+          { name: "Guitar solo", time: "1:11–1:40" },
+          { name: "Verse 3 + fade", time: "1:41–2:30" }
+        ], "blues rock", { segmentation: 75, repetition: 80, contrast: 65, directionality: 65 })
     ],
 
     diagnosis: ["Чи впізнає слухач 12-тактовий цикл?", "Чи відчувається IV як зміна?", "Чи достатньо V створює напругу?", "Чи працює форма без тексту?"],
@@ -1228,7 +1319,9 @@ const formArchetypes = [
     comparisons: [
       { with: "Verse-Chorus", difference: "12-Bar Blues — гармонійна форма. VC — тематична." },
       { with: "Rondo", difference: "Rondo повертає ТЕМУ. Blues повертає ГАРМОНІЮ." },
-      { with: "Process-Based", difference: "Process: правило ЗМІНИ. Blues: правило ПОВТОРЕННЯ." }
+      { with: "Process-Based", difference: "Process: правило ЗМІНИ. Blues: правило ПОВТОРЕННЯ." },
+      { with: "Head-Solo-Head", difference: "12-Bar Blues — гармонічна схема для соло. HSH використовує будь-яку схему, але Blues-form — один з найпоширеніших форматів для HSH." },
+      { with: "Through-Composed", difference: "12-Bar повторює цикл нескінченно. TC рухається вперед без повторень. Протилежні підходи до часу в музиці." }
     ],
     glossary: [
       { term: "Tonic (I)", definition: "Головний акорд тональності. В блюзі — домінантсептакорд (C7). Дім, куди повертається гармонія." },
@@ -1503,7 +1596,9 @@ const formArchetypes = [
     ],
     comparisons: [
       { with: "Club Arc", difference: "Club Arc використовує секції (білд, дроп). Process-Based — ПРАВИЛО: форма з процесу, не з розташування секцій." },
-      { with: "Verse-Chorus", difference: "VC потребує контрасту між секціями. Process-Based працює БЕЗ контрасту — зміна поступова, без стрибків." }
+      { with: "Verse-Chorus", difference: "VC потребує контрасту між секціями. Process-Based працює БЕЗ контрасту — зміна поступова, без стрибків." },
+      { with: "Drone", difference: "Drone статичний — тон не змінюється. Process-Based динамічний — матеріал трансформується за правилом. Обидва уникають традиційних секцій." },
+      { with: "Through-Composed", difference: "TC кожного разу дає новий матеріал. Process-Based трансформує той самий матеріал. TC = різноманітність; Process = трансформація." }
     ],
     glossary: [
       { term: "Cell", definition: "Найкоротший музичний фрагмент (2-4 ноти або такти). Будівельний блок процесуальної форми. Повторюється з поступовими змінами." },
@@ -1674,7 +1769,9 @@ const formArchetypes = [
           ],
           comparisons: [
             { with: "Rondo", difference: "Rondo повертає тему ІДЕНТИЧНОЮ (A-B-A-C-A). Theme & Variations ЗМІНЮЄ тему. Rondo = A-A-A. T&V = A-A'-A''-A'''." },
-            { with: "Sonata-Allegro", difference: "Sonata — драматична (конфлікт двох тем). T&V — медитативна (одна тема в різних проявах). Sonata — подорож; T&V — розглядання." }
+            { with: "Sonata-Allegro", difference: "Sonata — драматична (конфлікт двох тем). T&V — медитативна (одна тема в різних проявах). Sonata — подорож; T&V — розглядання." },
+            { with: "Head-Solo-Head", difference: "В HSH тема — незмінна рамка для соло. В T&V тема сама є матеріалом варіацій. HSH — виконавський процес; T&V — композиційний." },
+            { with: "12-Bar Blues", difference: "12-Bar Blues — незмінний гармонічний цикл, де варіює лише зміст (мелодія, текст). T&V змінює саму тему структурно." }
           ],
           glossary: [
             { term: "Theme", definition: "Основна музична ідея, яка буде видозмінюватися у варіаціях. Має бути простою і впізнаваною." },
@@ -1858,7 +1955,10 @@ const formArchetypes = [
           ],
           comparisons: [
             { with: "Verse-Chorus", difference: "VC базується на ПОВЕРНЕННІ (приспів). TC — на ВІДСУТНОСТІ повторення. VC = A-B-A-B. TC = A-B-C-D-E. VC дає слухачеві опору; TC веде в невідоме." },
-            { with: "Rondo", difference: "Rondo = A-B-A-C-A (рефрен повертається). TC = A-B-C-D-E (жодного повернення). Rondo — це прогулянка додому; TC — подорож без повернення." }
+            { with: "Rondo", difference: "Rondo = A-B-A-C-A (рефрен повертається). TC = A-B-C-D-E (жодного повернення). Rondo — це прогулянка додому; TC — подорож без повернення." },
+            { with: "Sonata-Allegro", difference: "Sonata повертає теми в Репризі. TC не повертає нічого. Sonata — драма з розв'язкою; TC — наратив без репризи." },
+            { with: "Head-Solo-Head", difference: "HSH завжди повертається до теми. TC ніколи не повертається. HSH = рамка + вміст; TC = чистий рух уперед." },
+            { with: "12-Bar Blues", difference: "12-Bar циклічний (та ж схема знову і знову). TC лінійний. Полюси: повне повторення vs повна відсутність повторення." }
           ],
           glossary: [
             { term: "Through-Composed", definition: "Форма, де кожна секція містить НОВИЙ матеріал. Жодна секція не повторюється. Музика постійно рухається вперед." },
@@ -2031,7 +2131,10 @@ const formArchetypes = [
           ],
           comparisons: [
             { with: "Rondo", difference: "Rondo повертає тему ідентично (A-B-A-C-A). HSH повертає тему після імпровізаційних соло. Rondo — архітектура; HSH — соціальна взаємодія." },
-            { with: "Theme & Variations", difference: "T&V — одна тема, багато варіацій (змін теми). HSH — тема + соло (нові ідеї) + тема. T&V — композиторська; HSH — виконавська." }
+            { with: "Theme & Variations", difference: "T&V — одна тема, багато варіацій (змін теми). HSH — тема + соло (нові ідеї) + тема. T&V — композиторська; HSH — виконавська." },
+            { with: "12-Bar Blues", difference: "12-Bar — найпоширеніша гармонічна основа для HSH. Але HSH — це архітектурна форма (тема-соло-тема), а 12-Bar — гармонічний цикл. Одне може бути вмістом іншого." },
+            { with: "Sonata-Allegro", difference: "Обидва: представлення теми → розвиток → повернення. В Sonata розвиток = трансформація; в HSH розвиток = імпровізація. Класична і джазова версії тієї самої ідеї." },
+            { with: "Through-Composed", difference: "TC не повертається ніколи. HSH завжди повертається до теми. HSH = циклічна рамка; TC = лінійний рух." }
           ],
           glossary: [
             { term: "Head", definition: "Головна тема джазового стандарту. Представляється на початку і повертається в кінці форми. Зазвичай 32 такти (AABA)." },
@@ -2227,7 +2330,10 @@ const formArchetypes = [
           ],
           comparisons: [
             { with: "Verse-Chorus", difference: "VC = A-B-A-B (циклічна). Sonata = Expo-Dev-Recap (лінійна подорож). VC повертає хук; Sonata повертає тему зміненою досвідом розробки." },
-            { with: "Rondo", difference: "Rondo = A-B-A-C-A (рефрен повертається ідентичним). Sonata = A-B-Dev-A'-B' (теми змінюються). Rondo — цикл; Sonata — драма." }
+            { with: "Rondo", difference: "Rondo = A-B-A-C-A (рефрен повертається ідентичним). Sonata = A-B-Dev-A'-B' (теми змінюються). Rondo — цикл; Sonata — драма." },
+            { with: "Theme & Variations", difference: "T&V — одна тема трансформується. Sonata — дві теми в конфлікті. T&V: тема через різні маски; Sonata: теми як два персонажі." },
+            { with: "Through-Composed", difference: "Sonata повертає теми в Репризі. TC не повертає нічого. Однак Розробка за логікою схожа на TC — новий матеріал з фрагментів." },
+            { with: "Club Arc", difference: "Обидва: intro → build → climax → resolution. Club Arc = build→drop→breakdown. Sonata = Expo→Dev→Recap. Різні культурні контексти — та сама драматургічна логіка." }
           ],
           glossary: [
             { term: "Exposition", definition: "Перша частина сонати. Представляє дві теми: Т1 (тоніка) і Т2 (домінанта). Завершується клозінгом." },
@@ -2397,7 +2503,10 @@ const formArchetypes = [
           ],
           comparisons: [
             { with: "Process-Based Minimal", difference: "PB керується ПРАВИЛОМ трансформації. Drone — СТАТИКОЮ. PB — подорож з напрямком; Drone — перебування в точці. PB: зміни помітні. Drone: зміни на межі відчуття." },
-            { with: "Club Arc", difference: "CA — енергетична дуга (intro → build → drop). Drone — відсутність дуги. CA — рух і вивільнення; Drone — стан. CA для тіла; Drone для свідомості." }
+            { with: "Club Arc", difference: "CA — енергетична дуга (intro → build → drop). Drone — відсутність дуги. CA — рух і вивільнення; Drone — стан. CA для тіла; Drone для свідомості." },
+            { with: "Through-Composed", difference: "TC рухається вперед — нова секція за новою. Drone стоїть на місці — той самий тон. TC = подорож; Drone = медитація." },
+            { with: "Verse-Chorus", difference: "VC має чіткі секції, теми, хук. Drone не має жодної з цих речей. VC = архітектура змісту; Drone = архітектура відсутності змісту." },
+            { with: "12-Bar Blues", difference: "12-Bar циклічно рухається через гармонії. Drone утримує один тон. Blues = час як пульс; Drone = час як простір." }
           ],
           glossary: [
             { term: "Drone", definition: "Сталий тон, що триває протягом усієї форми або її частини. Основа гіпнотичної музики." },
