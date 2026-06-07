@@ -715,6 +715,101 @@ const formArchetypes = [
           { name: "Dissolution", time: "6:01–7:30" },
           { name: "Outro", time: "7:31–8:05" }
         ], "trance", { segmentation: 80, repetition: 55, contrast: 85, directionality: 90 }
+      ),
+
+      // ===== Techno Family =====
+      track("The Bells", "Jeff Mills", 1992,
+        "Детройт-техно. 4-хвилинна гіпнотична форма. Жодної мелодії — форма тримається на ритмі, перкусії та текстурі.",
+        [
+          { name: "Kick intro", time: "0:00–0:30" },
+          { name: "Hi-hat enters", time: "0:31–0:45" },
+          { name: "Percussion layer", time: "0:46–1:15" },
+          { name: "Build (noise)", time: "1:16–2:00" },
+          { name: "Peak", time: "2:01–2:30" },
+          { name: "Filter retreat", time: "2:31–3:15" },
+          { name: "Outro (kick only)", time: "3:16–4:00" }
+        ], "techno", { segmentation: 70, repetition: 80, contrast: 55, directionality: 85 }
+      ),
+      track("The Pace", "Robert Hood", 1994,
+        "Мінімал-техно. 6-хвилинна форма з майже непомітними змінами. Мікрозміни створюють форму: кожен новий перкусійний елемент = секція.",
+        [
+          { name: "Kick only", time: "0:00–1:00" },
+          { name: "Closed hat", time: "1:01–2:00" },
+          { name: "Snare enters", time: "2:01–3:00" },
+          { name: "Full rhythm", time: "3:01–4:00" },
+          { name: "Filter sweep", time: "4:01–4:30" },
+          { name: "Unravel", time: "4:31–5:30" },
+          { name: "Kick fades", time: "5:31–6:00" }
+        ], "minimal techno", { segmentation: 65, repetition: 90, contrast: 40, directionality: 75 }
+      ),
+
+      // ===== Dub Techno (bridge to Drone) =====
+      track("Radiance", "Basic Channel", 1994,
+        "Dub-техно. Немає дропу, немає білду. Форма = delay trails + reverb washes. Події — це відлуння, не нові елементи.",
+        [
+          { name: "Sub-bass pulse", time: "0:00–0:30" },
+          { name: "Kick enters", time: "0:31–1:00" },
+          { name: "Delay wash", time: "1:01–2:00" },
+          { name: "Chord fragment", time: "2:01–3:00" },
+          { name: "Dub delay decay", time: "3:01–4:30" },
+          { name: "Ghost pulse", time: "4:31–5:30" },
+          { name: "Dissolve", time: "5:31–6:45" }
+        ], "dub techno", { segmentation: 35, repetition: 85, contrast: 25, directionality: 45 }
+      ),
+
+      // ===== Bass Music Family =====
+      track("Scary Monsters and Nice Sprites", "Skrillex", 2010,
+        "Бростеп. Максимальний контраст: тихий breakdown → масивний half-time drop. Snare roll = build, wobble bass = drop.",
+        [
+          { name: "Intro (synth)", time: "0:00–0:30" },
+          { name: "Beat + vocal", time: "0:31–1:00" },
+          { name: "Build (snare roll)", time: "1:01–1:15" },
+          { name: "Drop (half-time)", time: "1:16–1:45" },
+          { name: "Breakdown", time: "1:46–2:15" },
+          { name: "Build 2", time: "2:16–2:30" },
+          { name: "Drop 2", time: "2:31–3:00" },
+          { name: "Outro", time: "3:01–3:30" }
+        ], "dubstep", { segmentation: 85, repetition: 60, contrast: 95, directionality: 80 }
+      ),
+      track("Changes", "Mala", 2006,
+        "Діп-дабстеп. Форма через простір і бас. Sub-bass визначає секції: вхід → глибина → повернення.",
+        [
+          { name: "Sub-bass intro", time: "0:00–0:30" },
+          { name: "Beat + sub", time: "0:31–1:30" },
+          { name: "Drop (weight)", time: "1:31–2:00" },
+          { name: "Space (break)", time: "2:01–2:30" },
+          { name: "Sub returns", time: "2:31–3:00" },
+          { name: "Dissolve", time: "3:01–3:30" }
+        ], "deep dubstep", { segmentation: 60, repetition: 75, contrast: 55, directionality: 65 }
+      ),
+
+      // ===== D&B Family =====
+      track("Stigma", "Noisia", 2008,
+        "Ньюрофанк. Double-time drums + complex Reese bass. Форма через звуковий дизайн — кожна секція має нову bass texture.",
+        [
+          { name: "Atmosphere", time: "0:00–0:30" },
+          { name: "Drums enter (D&B)", time: "0:31–1:00" },
+          { name: "Build (Reese filter)", time: "1:01–1:15" },
+          { name: "Drop (neuro bass)", time: "1:16–2:00" },
+          { name: "Breakdown", time: "2:01–2:30" },
+          { name: "Drop 2 (variation)", time: "2:31–3:15" },
+          { name: "Outro", time: "3:16–3:45" }
+        ], "neurofunk", { segmentation: 85, repetition: 60, contrast: 85, directionality: 80 }
+      ),
+
+      // ===== House Family =====
+      track("Baby Wants to Ride", "Frankie Knuckles", 1987,
+        "Класичний чиказький хаус. Форма через фільтрацію: kick → bass → clap → filter sweep = секції. Groove стає щільнішим, дропу немає.",
+        [
+          { name: "Kick only", time: "0:00–0:30" },
+          { name: "Bassline enters", time: "0:31–1:00" },
+          { name: "Clap + hi-hat", time: "1:01–1:30" },
+          { name: "Vocal sample", time: "1:31–2:00" },
+          { name: "Filter sweep", time: "2:01–2:30" },
+          { name: "Full groove", time: "2:31–3:30" },
+          { name: "Filter out", time: "3:31–4:00" },
+          { name: "Kick fade", time: "4:01–4:30" }
+        ], "house", { segmentation: 70, repetition: 85, contrast: 50, directionality: 65 }
       )
     ],
 
@@ -728,11 +823,15 @@ const formArchetypes = [
     ],
 
     genreTransfer: [
-      genreTransfer("Pop", "Дроп як приспів — вокальний хук, посилений електронною інструментуванням.", "Енергетичний арк поп-EDM: куплет + білд + дроп (спів)."),
-      genreTransfer("Techno", "Мінімальніший arc — менше контрасту, більше текстури.", "Дроп менш драматичний; важливіше ритмічний зсув, ніж мелодійне вивільнення."),
+      genreTransfer("Techno (Detroit / Minimal)", "Мінімальний arc — менше контрасту, більше текстури. Форма через ритм, не через мелодію.", "Дроп ледь помітний — зміна відбувається через додавання/видалення перкусії, не через гучність."),
+      genreTransfer("Dub Techno", "Arc без дропу — форма через delay + reverb. Події = відлуння, не нові елементи.", "Kick є, але вивільнення відбувається в просторі, не в енергії. Патерн: pulse → delay → dissolve."),
+      genreTransfer("Dubstep (Brostep)", "Half-time drop після double-time build. Максимальний контраст: тиша vs вибух.", "Snare roll = build. Wobble bass = drop. Breakdown обов'язковий для контрасту другого дропу."),
+      genreTransfer("Deep Dubstep", "Мінімальний arc. Sub-bass несе форму. Менше контрасту, більше простору.", "Drop — це не вибух, а вага. Форма: sub → beat → weight → space → sub."),
+      genreTransfer("Drum & Bass", "Double-time drums. Build коротший (8 bars), drop = rolling bass.", "Енергія від ритму, не від гучності. Drop = breaks + bass together."),
+      genreTransfer("House (Classic)", "Filter-based arc. Жодного дропу — groove стає щільнішим.", "Секції = додавання елементів (kick → bass → clap). Форма через фільтр."),
+      genreTransfer("Trance (Uplifting)", "Мелодійний arc — білд через гармонію, дроп через емоцію.", "Білд = orchestral swells + white noise. Дроп = euphoric melody. Контраст: piano breakdown → full drop."),
       genreTransfer("Film", "Мікшування як аналог клубного arc: тихіше → наростання → кульмінація.", "Білди і дропи в екшн-сценах працюють за тою ж логікою очікування."),
-      genreTransfer("Classical", "Розробка як білд, реприза як дроп.", "Сонатна форма має той самий arc: експозиція (інтро) → розробка (білд) → реприза (дроп)."),
-      genreTransfer("Ambient", "Лінійний arc без дропів — повільніше наростання.", "Амбієнтний arc використовує ті самі принципи, але в повільнішому часі.")
+      genreTransfer("Classical", "Розробка як білд, реприза як дроп.", "Сонатна форма має той самий arc: експозиція (інтро) → розробка (білд) → реприза (дроп).")
     ],
     dawExercise: [
       "Створи 32 такти: 8 інтро → 8 грув → 4 білд → 8 дроп → 4 аутро.",
