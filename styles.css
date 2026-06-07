@@ -1017,3 +1017,58 @@ li { margin-bottom: 6px; line-height: 1.5; }
 .constraint-key { font-size: 0.77rem; color: var(--muted, #888); font-weight: 600; }
 .constraint-val { font-size: 0.82rem; color: var(--text, #ccc); text-align: right; }
 
+/* ===== Territory tree (Atlas V3 left nav) ===== */
+.terr-section { margin-top: 6px; }
+.terr-tree { display: flex; flex-direction: column; }
+.terr-civ, .terr-fam, .terr-form {
+  display: flex; align-items: center; gap: 6px;
+  cursor: pointer; user-select: none; border-radius: 5px;
+  padding: 4px 6px; line-height: 1.25;
+}
+.terr-civ:hover, .terr-fam:hover, .terr-form:hover { background: var(--panel-2); }
+.terr-caret { width: 12px; flex: none; color: var(--muted); font-size: 0.7rem; }
+.terr-count {
+  margin-left: auto; flex: none; font-size: 0.66rem; color: var(--muted);
+  background: var(--panel-3); border-radius: 10px; padding: 1px 7px; font-variant-numeric: tabular-nums;
+}
+.terr-civ {
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em;
+  font-size: 0.78rem; color: var(--text); margin-top: 2px;
+}
+.terr-civ.open { color: var(--form); }
+.terr-fam { padding-left: 18px; font-size: 0.8rem; color: var(--text); }
+.terr-fam-name { opacity: 0.92; }
+.terr-form { padding-left: 34px; font-size: 0.79rem; color: var(--muted); }
+.terr-form:hover { color: var(--text); }
+.terr-form.selected { background: var(--panel-3); color: var(--text); box-shadow: inset 2px 0 0 var(--form); }
+.terr-form-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.terr-badges { margin-left: auto; flex: none; display: flex; align-items: center; gap: 4px; }
+.terr-macro {
+  font-size: 0.6rem; font-weight: 700; color: var(--seg);
+  border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; letter-spacing: 0.02em;
+}
+.terr-flag { font-size: 0.66rem; }
+.terr-deep { color: var(--rep); }
+.terr-star { color: var(--focus); }
+
+/* ===== Stub detail (territory placeholder) ===== */
+.stub-card {
+  margin-top: 14px; padding: 16px 18px;
+  background: var(--panel-2); border: 1px solid var(--line); border-radius: 10px;
+}
+.stub-badge {
+  display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em;
+  color: var(--form); background: rgba(183,140,255,0.12);
+  border: 1px solid rgba(183,140,255,0.3); border-radius: 999px; padding: 3px 10px; margin: 0 0 10px;
+}
+.stub-body { color: var(--muted); font-size: 0.9rem; margin: 0 0 14px; }
+.stub-facets { display: flex; flex-direction: column; gap: 8px; }
+.stub-facets > div { display: flex; gap: 10px; align-items: baseline; }
+.stub-key { flex: none; width: 130px; font-size: 0.76rem; font-weight: 600; color: var(--muted); }
+.stub-val { font-size: 0.85rem; color: var(--text); }
+.stub-chips { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+.stub-chip {
+  font-size: 0.72rem; color: var(--text); background: var(--panel-3);
+  border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px;
+}
+
