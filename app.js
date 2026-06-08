@@ -6487,15 +6487,23 @@ function renderStubDetail() {
   if (fm.star) flags += `<span class="stub-chip">★ flagship</span>`;
   if (fm.improv) flags += `<span class="stub-chip">⟳ improvised</span>`;
 
-  // Strict bilingual resolver — NO cross-language fallback.
-  // Legacy plain strings are English-canonical; a missing target language shows a
-  // visible marker, never the other language → mixed-language is structurally impossible.
-  const todo = () => `<span class="i18n-todo">${en ? '⟨EN pending⟩' : '⟨переклад очікується⟩'}</span>`;
+  // Graceful bilingual fallback — content must NEVER be hidden by missing translation.
+  // Legacy plain strings are English-canonical; UK mode falls back to English with a small badge.
+  const enBadge = '<span class="i18n-en-only">[EN]</span> ';
   const loc = (v) => {
     if (v == null || v === '') return '';
-    if (typeof v === 'string') return en ? v : todo();   // legacy string = English canonical
-    const val = v[state.lang];
-    return val ? val : todo();
+    if (typeof v === 'string') {
+      // legacy string = English canonical content
+      return en ? v : enBadge + v;
+    }
+    // bilingual object { en, uk }
+    if (en) {
+      return v.en || (v.uk ? enBadge + v.uk : '');
+    }
+    // UK mode: prefer Ukrainian, fallback to English with badge
+    if (v.uk) return v.uk;
+    if (v.en) return enBadge + v.en;
+    return '';
   };
   let body;
   if (C) {

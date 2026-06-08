@@ -1072,6 +1072,21 @@ li { margin-bottom: 6px; line-height: 1.5; }
   border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px;
 }
 
+/* Graceful i18n fallback badge — shown when UK translation is unavailable */
+.i18n-en-only {
+  font-size: 0.65rem;
+  color: var(--muted);
+  background: var(--panel-3);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 1px 5px;
+  margin-right: 4px;
+  vertical-align: baseline;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0.75;
+}
+
 /* ===== Form educational page (territory stub payload) ===== */
 .form-block { margin-top: 18px; }
 .form-h {
@@ -1139,6 +1154,5 @@ li { margin-bottom: 6px; line-height: 1.5; }
 .workflow-list { margin: 0; padding-left: 22px; }
 .workflow-list li { font-size: 0.9rem; line-height: 1.6; color: var(--text); margin-bottom: 8px; }
 .workflow-list { counter-reset: none; }
-.i18n-todo { color: var(--muted); font-style: italic; opacity: 0.65; font-size: 0.85em; }
 .form-block:last-child .workflow-list { background: rgba(183,140,255,0.06); border: 1px solid rgba(183,140,255,0.2); border-radius: 10px; padding: 12px 14px 12px 34px; }
 
